@@ -1,0 +1,480 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using DataAccessLayer;
+using HumanResource;
+public partial class ledgerreport : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    int mid = 0;
+    bool viewall; string menuname; string menuid;
+    decimal TotalCr; decimal TotalDr;
+    int OrderId = 0;
+
+    Paging_Objects PG = new Paging_Objects();
+    
+    protected override void OnInit(EventArgs e)
+    {
+        pgLedgerReport.FirstClick += new Paging.PageFirst(EmpListPaging_FirstClick);
+        pgLedgerReport.PreviousClick += new Paging.PagePrevious(EmpListPaging_FirstClick);
+        pgLedgerReport.NextClick += new Paging.PageNext(EmpListPaging_FirstClick);
+        pgLedgerReport.LastClick += new Paging.PageLast(EmpListPaging_FirstClick);
+        pgLedgerReport.ChangeClick += new Paging.PageChange(EmpListPaging_FirstClick);
+        pgLedgerReport.ShowRowsClick += new Paging.ShowRowsChange(EmpListPaging_ShowRowsClick);
+        pgLedgerReport.CurrentPage = 1;
+    }
+
+    void EmpListPaging_ShowRowsClick(object sender, EventArgs e)
+    {
+        pgLedgerReport.CurrentPage = 1;
+        BindPager();
+    }
+
+    void EmpListPaging_FirstClick(object sender, EventArgs e)
+    {
+        BindPager();
+    }
+
+    void BindPager()
+    {
+        PG.PageSize = pgLedgerReport.CurrentPage;
+        PG.CurrentPage = pgLedgerReport.ShowRows;
+        BindBalanceLedgerDetails();
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        pgLedgerReport.Visible = false;
+        try
+        {
+            string id =  Convert.ToInt32(Session["UserId"]).ToString();
+        }
+        catch
+        {
+            Response.Redirect("Home.aspx");
+        }
+
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        Session["mid"] = mid;
+        Session["CompanyID"] = 10;
+        Session["DP"] = ReturnValues.Company_decimalpoints(Convert.ToInt32(Session["CompanyID"]));
+        if (!IsPostBack)
+        {
+
+
+            BtnGet.Attributes.Add("OnClick", "javascript:return validateget();");
+            hdnCompanyID.Value = Session["CompanyID"].ToString();
+            SqlParameter[] Parms = new SqlParameter[1];
+            Parms[0] = new SqlParameter("@Empid",  Convert.ToInt32(Session["UserId"]));
+            DataSet ds = new DataSet();
+            ds = FIllObject.FillDropDown2(ref ds, ref ddlCostCenter, "ACC_GetCostCenters", Parms);
+           
+
+            FIllObject.FillDropDown_AssetType(ref ddlAssetType, "ACC_AssetGroup");
+            ddlAssetType.SelectedValue= "733";
+            ddlAssetType.Enabled = false;
+
+            SqlParameter[] p = new SqlParameter[2];
+            p[0] = new SqlParameter("@companyid", Session["CompanyID"]);
+            p[1] = new SqlParameter("@GroupID", SqlDbType.Int);
+            if (ddlAssetType.SelectedIndex > 0)
+            {
+                p[1] = new SqlParameter("@GroupID", ddlAssetType.SelectedValue);
+            }
+            DataSet DsLedgers = new DataSet();
+            DsLedgers = FIllObject.FillDropDown(ref DsLedgers, ref Ddlledgers, "ACC_GetAssetTypes", p);
+
+
+            
+
+            DataSet ds1 = new DataSet();
+
+
+            int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+            int EmpID = Convert.ToInt32( Convert.ToInt32(Session["UserId"]).ToString());
+            int MenuID = Convert.ToInt32(Session["mid"].ToString());
+
+
+            ds1 = AttendanceDAC.GetPerferences(EmpID, ModuleId, MenuID);
+            if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+                rbTransPeriod.SelectedValue = ds1.Tables[0].Rows[0]["PrevStatus"].ToString();
+            double DateVal = Convert.ToDouble(rbTransPeriod.SelectedValue);
+            txtFrom.Text = DateTime.Today.AddDays(-DateVal).ToString("dd/MM/yyyy");
+            txtTo.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            //if (!(bool)ViewState["ViewAll"])
+            //{
+            //    ddlCostCenter.SelectedValue = Session["CostCenterID"].ToString();
+            //    ddlCostCenter.Enabled = false;
+            //}
+
+            SetUpDates();
+           
+        }
+
+    }
+   
+    public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        DataSet ds = new DataSet();
+        
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+            GV.Columns[6].Visible = Convert.ToBoolean(ds.Tables[0].Rows[0]["Editable"].ToString());
+            //viewall = (bool)ViewState["ViewAll"];
+        }
+        return MenuId;
+    }
+
+    protected string GetAmt(decimal Price)
+    {
+        string amt = string.Empty;
+        Price = Convert.ToDecimal(Price.ToString("N2"));// Convert.ToDecimal(Price.ToString(Session["DP"].ToString()));
+
+        if (Price != 0)
+        {
+            amt = Price.ToString("N2");//Price.ToString(Session["DP"].ToString());
+        }
+        return amt;
+    }
+
+    public object SetUpDates()
+    {
+        string[] strdates = new string[2];
+        switch (rbTransPeriod.SelectedValue)
+        {
+            case "1"://TOday
+                txtFrom.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "7"://TOday
+                txtFrom.Text = DateTime.Now.AddDays(-7).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "15"://TOday
+                txtFrom.Text = DateTime.Now.AddDays(-15).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "30"://TOday
+                txtFrom.Text = DateTime.Now.AddMonths(-1).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "90"://TOday
+                txtFrom.Text = DateTime.Now.AddMonths(-3).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "180"://TOday
+                txtFrom.Text = DateTime.Now.AddMonths(-6).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            case "365"://TOday
+                txtFrom.Text = DateTime.Now.AddYears(-1).ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtTo.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+                txtFrom.Enabled = false;
+                txtTo.Enabled = false;
+                break;
+            default:
+                txtFrom.Enabled = true;
+                txtTo.Enabled = true;
+                break;
+        }
+        return strdates;
+    }
+
+    protected void BtnGet_Click(object sender, EventArgs e)
+    {
+        BindBalanceLedgerDetails();
+    }
+
+    public void BindBalanceLedgerDetails()
+    {
+        try
+        {
+            SetUpDates();
+            lblClosingBalance.Text = "0";
+            lblOpeningBalance.Text = "0";
+            System.Data.SqlTypes.SqlDateTime getDate;
+            getDate = System.Data.SqlTypes.SqlDateTime.Null;
+
+            trOpeningBalance.Visible = false;
+            SqlParameter[] Parms = new SqlParameter[7];
+            Parms[0] = new SqlParameter("@Companyid", Session["CompanyID"]);
+            Parms[1] = new SqlParameter("@LedgerId", Ddlledgers.SelectedValue);
+            Parms[2] = new SqlParameter("@VoucherID", SqlDbType.Int);
+            Parms[2] = new SqlParameter("@VoucherID", null);
+            Parms[3] = new SqlParameter();
+            Parms[3].ParameterName = "@startdate";
+            if (txtFrom.Text.Trim() == "")
+            { Parms[3].Value = getDate; }
+            else { Parms[3].Value =CODEUtility.ConvertToDate(txtFrom.Text, DateFormat.DayMonthYear); }
+            Parms[3].SqlDbType = SqlDbType.DateTime;
+
+            Parms[4] = new SqlParameter();
+            Parms[4].ParameterName = "@Endate";
+            if (txtTo.Text.Trim() == "")
+            { Parms[4].Value = getDate; }
+            else { Parms[4].Value = CODEUtility.ConvertToDate(txtTo.Text, DateFormat.DayMonthYear); }
+            Parms[4].SqlDbType = SqlDbType.DateTime;
+
+            Parms[5] = new SqlParameter("@CostCenterid", SqlDbType.Int);
+            if (ddlCostCenter.SelectedValue != "0")
+                Parms[5].Value = ddlCostCenter.SelectedValue;
+
+            Parms[6] = new SqlParameter("@Empid", SqlDbType.Int);
+            Parms[6].Value = null;//  Convert.ToInt32(Session["UserId"]);
+            //if (!(bool)ViewState["ViewAll"])
+            //    Parms[6].Value =  Convert.ToInt32(Session["UserId"]);
+
+
+            DataSet Ds = new DataSet();
+            Ds = SQLDBUtil.ExecuteDataset("ACC_GETOPENINGBALANCES1", Parms);
+
+            
+
+            lblLedgerName.Text = Ddlledgers.SelectedItem.Text;
+            trOpeningBalance.Visible = true;
+            lblOpeningBalance.Text = Ds.Tables[0].Rows[0][0].ToString();
+            lblClosingBalance.Text = Ds.Tables[0].Rows[0][1].ToString();
+
+            BindLedgerDetails();
+
+
+
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+    }
+
+    public void BindLedgerDetails()
+    {
+        System.Data.SqlTypes.SqlDateTime getDate;
+        getDate = System.Data.SqlTypes.SqlDateTime.Null;
+
+        SqlParameter[] Parms = new SqlParameter[11];
+
+        Parms[0] = new SqlParameter("@CompanyID", Session["CompanyID"]);
+        Parms[1] = new SqlParameter("@LedgerId", Ddlledgers.SelectedValue);
+        Parms[6] = new SqlParameter("@VoucherID", SqlDbType.Int);
+        Parms[6] = new SqlParameter("@VoucherID", null);
+        Parms[2] = new SqlParameter();
+        Parms[2].ParameterName = "@FromDate";
+        if (txtFrom.Text.Trim() == "")
+        { Parms[2].Value = getDate; }
+        else { Parms[2].Value =CODEUtility.ConvertToDate(txtFrom.Text, DateFormat.DayMonthYear); }
+        Parms[2].SqlDbType = SqlDbType.DateTime;
+
+        Parms[3] = new SqlParameter();
+        Parms[3].ParameterName = "@ToDate";
+        if (txtTo.Text.Trim() == "")
+        { Parms[3].Value = getDate; }
+        else { Parms[3].Value = CODEUtility.ConvertToDate(txtTo.Text, DateFormat.DayMonthYear); }
+        Parms[3].SqlDbType = SqlDbType.DateTime;
+
+        Parms[4] = new SqlParameter("@Empid", SqlDbType.Int);
+        Parms[4].Value = null;//  Convert.ToInt32(Session["UserId"]);
+
+        //if (!(bool)ViewState["ViewAll"])
+        //    Parms[4].Value =  Convert.ToInt32(Session["UserId"]);
+        Parms[5] = new SqlParameter("@CostCenterid", SqlDbType.Int);
+        //if (!(bool)ViewState["ViewAll"])
+        if (ddlCostCenter.SelectedValue != "0")
+            Parms[5].Value = ddlCostCenter.SelectedValue;
+        Parms[7] = new SqlParameter("@CurrentPage", pgLedgerReport.CurrentPage);
+        Parms[8] = new SqlParameter("@PageSize", pgLedgerReport.ShowRows);
+        Parms[9] = new SqlParameter("@NoofRecords", 3);
+        Parms[9].Direction = ParameterDirection.Output;
+        Parms[10] = new SqlParameter();
+        Parms[10].Direction = ParameterDirection.ReturnValue;
+
+        FIllObject.FillGridview(ref GV, "ACC__LEDGERSUMMARYByPaging", Parms);
+        pgLedgerReport.Visible = true;
+        BindDetails();
+        int totpage = Convert.ToInt32(Parms[10].Value);
+        int noofrec = Convert.ToInt32(Parms[9].Value);
+        PG.TotalPages = totpage;
+        PG.NoofRecords = noofrec;
+        pgLedgerReport.Bind(pgLedgerReport.CurrentPage, PG.TotalPages, PG.NoofRecords);
+    }
+
+    protected string GetTotalCr()
+    {
+        //return TotalCr.ToString(Session["DP"].ToString());
+        return TotalCr.ToString("N2");
+    }
+
+    protected string GetTotalDr()
+    {
+        //return TotalDr.ToString(Session["DP"].ToString());
+        return TotalDr.ToString("N2");
+    }
+
+    protected string GetAmtCr(decimal Price)
+    {
+        string amt = string.Empty;
+        Price = Convert.ToDecimal(Price.ToString("N2")); // Convert.ToDecimal(Price.ToString(Session["DP"].ToString()));
+        TotalCr += Price;
+        if (Price != 0)
+        {
+            amt = Price.ToString("N2");// Price.ToString(Session["DP"].ToString());
+        }
+
+        return amt;
+    }
+
+    protected string GetAmtDr(decimal Price)
+    {
+        string amt = string.Empty;
+        Price = Convert.ToDecimal(Price.ToString("N2"));//Convert.ToDecimal(Price.ToString(Session["DP"].ToString()));
+        TotalDr += Price;
+        if (Price != 0)
+        {
+            amt = Price.ToString("N2"); //Price.ToString(Session["DP"].ToString());
+        }
+        return amt;
+    }
+
+    protected void GV_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "View")
+        {
+            LinkButton lnk = new LinkButton();
+            lnk = (LinkButton)e.CommandSource;
+            GridViewRow selectedRow = (GridViewRow)lnk.Parent.Parent;
+
+            string strScript = "<script> ";
+            strScript += "var newWindow = window.showModalDialog('display.aspx?id=" + e.CommandArgument + "&voucherno=" + selectedRow.Cells[3].Text + "&voucherdate=" + selectedRow.Cells[0].Text + "&vouchertype=" + selectedRow.Cells[2].Text + "', '','dialogHeight: 400px; dialogWidth: 800px; edge: Raised; center: Yes; resizable: Yes; status: No;location:0;');";
+            strScript += "</script>";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "PopupCP", strScript, false);
+        }
+    }
+
+    void BindDetails()
+    {
+        foreach (GridViewRow Row in GV.Rows)
+        {
+            string St = string.Empty;
+            double Cr = 0;
+            double Dr = 0;
+            LinkButton lnk = new LinkButton();
+            lnk = (LinkButton)Row.FindControl("lnkView");
+            SqlParameter[] P = new SqlParameter[2];
+            P[0] = new SqlParameter("@ledgerid", Ddlledgers.SelectedValue);
+            P[1] = new SqlParameter("@transid", lnk.CommandArgument);
+            DataSet ds = new DataSet();
+            ds = SQLDBUtil.ExecuteDataset("ACC_Get_TranscationDetails", P);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow Drow in ds.Tables[0].Rows)
+                {
+                    Cr = 0; Dr = 0;
+                    St = St + "<span class='Ledgers'>" + Drow[0].ToString() + "</span>";
+                    Cr = Cr + Convert.ToDouble(Drow[2].ToString());
+                    Dr = Dr + Convert.ToDouble(Drow[1].ToString());
+                    if (Dr > 0)
+                    {
+                        St = St + "  " + "<b>Cr</b>" + " " + Dr.ToString();
+                    }
+                    else if (Cr > 0)
+                    {
+                        St = St + "  " + "<b>Dr</b>" + " " + Cr.ToString();
+                    }
+                    St = St + "</br>";
+                }
+            }
+            Row.Cells[1].Text = St + Row.Cells[1].Text;
+        }
+    }
+
+
+    
+
+    
+
+    //protected void ddlAssetType_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    SqlParameter[] p = new SqlParameter[2];
+    //    p[0] = new SqlParameter("@companyid", Session["CompanyID"]);
+    //    p[1] = new SqlParameter("@GroupID", SqlDbType.Int);
+    //    if (ddlAssetType.SelectedIndex > 0)
+    //    {
+    //        p[1] = new SqlParameter("@GroupID", ddlAssetType.SelectedValue);
+    //    }
+    //    DataSet DsLedgers = new DataSet();
+    //    DsLedgers = FIllObject.FillDropDown(ref DsLedgers, ref Ddlledgers, "ACC_GetAssetTypes", p);
+
+    //}
+
+
+
+    protected void btnFilter_Click(object sender, EventArgs e)
+    {
+        string txt = txtCreditFilter.Text;
+        SqlParameter[] parms = new SqlParameter[3];
+        parms[0] = new SqlParameter("@companyid", Session["CompanyID"]);
+        parms[1] = new SqlParameter("@GroupID", SqlDbType.Int);
+        parms[2] = new SqlParameter("@Filter", txt);
+
+        if (ddlAssetType.SelectedIndex > 0)
+        {
+            parms[1] = new SqlParameter("@GroupID", ddlAssetType.SelectedValue);
+        }
+        DataSet DsLedgers = new DataSet();
+        DsLedgers = FIllObject.FillDropDown(ref DsLedgers, ref Ddlledgers, "ACC_GetAssetTypes", parms);
+        FilterClear();
+        
+    }
+
+    void FilterClear()
+    {
+        txtCreditFilter.Text = "";
+
+    }
+    protected void rbTransPeriod_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        SetUpDates();
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        int EmpID = Convert.ToInt32( Convert.ToInt32(Session["UserId"]).ToString());
+        int MenuID = Convert.ToInt32(Session["mid"].ToString());
+        int status = Convert.ToInt32(rbTransPeriod.SelectedValue);
+        AttendanceDAC.InsUpdPerferences(EmpID, ModuleId, MenuID, status);
+    }
+
+}

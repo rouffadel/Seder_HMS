@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="OMS_GetTasksByPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OMS_GetTasksByPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OMS_GetTasksByPIDResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="OMS_GetTasksByPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:OMS_GetTasksByPID" />
+  </wsdl:message>
+  <wsdl:message name="OMS_GetTasksByPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:OMS_GetTasksByPIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OMSServiceSoap">
+    <wsdl:operation name="OMS_GetTasksByPID">
+      <wsdl:input message="tns:OMS_GetTasksByPIDSoapIn" />
+      <wsdl:output message="tns:OMS_GetTasksByPIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OMSServiceSoap" type="tns:OMSServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OMS_GetTasksByPID">
+      <soap:operation soapAction="http://tempuri.org/OMS_GetTasksByPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OMSServiceSoap12" type="tns:OMSServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OMS_GetTasksByPID">
+      <soap12:operation soapAction="http://tempuri.org/OMS_GetTasksByPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OMSService">
+    <wsdl:port name="OMSServiceSoap" binding="tns:OMSServiceSoap">
+      <soap:address location="http://cloud.aeclogic.com/OMS/OMSService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OMSServiceSoap12" binding="tns:OMSServiceSoap12">
+      <soap12:address location="http://cloud.aeclogic.com/OMS/OMSService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

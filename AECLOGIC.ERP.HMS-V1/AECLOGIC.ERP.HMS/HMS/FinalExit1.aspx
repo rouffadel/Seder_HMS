@@ -1,0 +1,237 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FinalExit1.aspx.cs" Inherits="AECLOGIC.ERP.HMS.FinalExit1" MasterPageFile="~/Templates/CommonMaster.master"%>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="~/Templates/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+<%@ Register Src="~/Templates/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
+      <script language="javascript" type="text/javascript">
+
+          function GetID(source, eventArgs) {
+              var HdnKey = eventArgs.get_value();
+              document.getElementById('<%=empid_hd.ClientID %>').value = HdnKey;
+          }
+          </script>
+
+
+    
+
+    <table id="tblNew" runat="server" width="40%">
+        <tr>
+            <td>
+                <asp:Label ID="lbl1" runat="server" Text="FinalExit with Effect From"></asp:Label>
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;
+
+                <asp:TextBox ID="txtfrom" runat="server"></asp:TextBox>
+                  <cc1:CalendarExtender ID="CalendarExtender1" runat="server" PopupButtonID="txtDatePlaceIssue"
+                    TargetControlID="txtfrom" Format="dd MMM yyyy">
+                </cc1:CalendarExtender>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="lblreason" runat="server" Text="Reason"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtreason" runat="server" TextMode="MultiLine" Width="200px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-success" OnClick="btnSave_Click" />
+                <asp:Button ID="btnclear" runat="server" Text="Clear" CssClass="btn btn-danger" OnClick="btnclear_Click" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table id="tblview" runat="server">
+        <tr>
+            <td>
+                 <asp:GridView ID="gvVeiw" runat="server" AutoGenerateColumns="false"  EmptyDataText="No Records Found"
+                     CssClass="gridview" Width="100%" OnRowCommand="gvVeiw_RowCommand">
+                    <Columns>
+                        <asp:TemplateField HeaderText="EmpName">
+                            <ItemTemplate>
+                                <asp:Label ID="lblID" Text='<%#Eval("EmpName")%>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField HeaderText="Exit From">
+                            <ItemTemplate>
+                                <asp:Label ID="lblExitFrom" Text='<%#Eval("FEFrom")%>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Reason">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" Text='<%#Eval("Reason")%>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                 <asp:LinkButton ID="lnkedt" CommandName="Edt" CssClass="anchor__grd edit_grd" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">Edit</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                              <asp:LinkButton ID="lnlDelete" CommandName="Del" CssClass="anchor__grd dlt" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">Delete</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
+                     </asp:GridView>
+            </td>
+        </tr>
+    </table>
+
+    <table id="tblProcess" runat="server" width="100%" visible="false">
+        <tr>
+            <td>
+                <cc1:Accordion ID="gvViewAccordion" runat="server" HeaderCssClass="accordionHeader"
+                    HeaderSelectedCssClass="accordionHeaderSelected" ContentCssClass="accordionContent"
+                    AutoSize="None" FadeTransitions="false" TransitionDuration="50" FramesPerSecond="40"
+                    RequireOpenedPane="false" SuppressHeaderPostbacks="true" Height="106px" Width="70%">
+                    <Panes>
+                        <cc1:AccordionPane ID="gvViewAccordionPane" runat="server" HeaderCssClass="accordionHeader"
+                            ContentCssClass="accordionContent">
+                            <Header>
+                                Search Criteria</Header>
+                            <Content>
+                                <table cellpadding="0" cellspacing="0" style="width: 100%">
+                                    <tr>
+                                        <td >
+                                           <b>
+                                            Employee Name:</b> 
+                                            <asp:HiddenField ID="empid_hd" runat="server" />
+                                            <asp:TextBox ID="txtempid" Width="150" runat="server"></asp:TextBox>
+                                            
+                                    <cc1:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" DelimiterCharacters="" Enabled="true"
+                                            MinimumPrefixLength="1" ServiceMethod="GetEmpidList" ServicePath="" TargetControlID="txtEmpid" UseContextKey="true" OnClientItemSelected="GetID"
+                                            CompletionInterval="10" CompletionListCssClass="autocomplete_completionListElement" CompletionListItemCssClass="autocomplete_listItem" 
+                                                CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" ShowOnlyCurrentWordInCompletionListItem="true" 
+                                            FirstRowSelected="True"></cc1:AutoCompleteExtender>
+                                             <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" TargetControlID="txtempid"
+                                                WatermarkCssClass="watermark" WatermarkText="[Enter Employee Name]">
+                                           </cc1:TextBoxWatermarkExtender>
+                                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                            </Content>
+                        </cc1:AccordionPane>
+                    </Panes>
+                </cc1:Accordion>
+                </td>
+            </tr>
+        <tr>
+            <td>
+                <asp:GridView ID="gvViewApproved" runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass="tableHead"
+                    EmptyDataText="No Records Found" Width="70%" OnRowCommand="gvViewApproved_RowCommand" CssClass="gridview"
+                    OnRowDataBound="gvViewApproved_RowDataBound">
+                    <Columns>
+                        <asp:TemplateField HeaderText="EmpName">
+                            <ItemTemplate>
+                                <asp:Label ID="lblEmpName" Text='<%#Eval("EmpName") %>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Exit From">
+                            <ItemTemplate>
+                                <asp:Label ID="lblEmpID" Text='<%#Eval("FEFrom") %>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+
+                         <asp:TemplateField HeaderText="Remarks">
+                            <ItemTemplate>
+                                <asp:TextBox ID="txtremarks" runat="server" TextMode="MultiLine" Width="100%" Height="40px" ></asp:TextBox>
+                            </ItemTemplate>
+                             <HeaderStyle Width="120px" />
+                        </asp:TemplateField>
+
+                
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                 <asp:LinkButton ID="lnkRecommend" CommandName="Rec" CssClass="btn btn-primary" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">Recommend</asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                             <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                 <asp:LinkButton ID="lnkApprove" CommandName="App" CssClass="btn btn-success" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">Approve</asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                             <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                              <asp:LinkButton ID="lnkReject" CommandName="Rej" CssClass="anchor__grd dlt" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">Reject</asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                             <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+
+                          <asp:TemplateField HeaderText="Status">
+                            <ItemTemplate>
+                                <asp:Label ID="lblstatus" runat="server"></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+
+                         <asp:TemplateField HeaderText="Remarks">
+                            <ItemTemplate>
+                              <asp:LinkButton ID="lnkView" CommandName="view" CssClass="btn btn-primary" CommandArgument='<%#Eval("FEID")%>'
+                                    runat="server">View</asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                             <HeaderStyle Width="50px" />
+                             <ItemStyle Width="50px" />
+                        </asp:TemplateField>
+
+                       
+
+                        </Columns>
+                    </asp:GridView>
+            </td>
+        </tr>
+          <tr>
+            <td style="height: 17px">
+                <uc1:Paging ID="EmpReimbursementAprovedPaging" runat="server" />
+            </td>
+        </tr>
+        </table>
+    <table id ="tblremarks" runat="server" visible="false">
+        <tr>
+            <td>
+                 <asp:GridView ID="gvRemarks" runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass="tableHead"
+                    EmptyDataText="No Records Found" Width="100%"  CssClass="gridview">
+                    <Columns>
+                         <asp:BoundField DataField="status" HeaderText="Level" />
+                         
+                         <asp:BoundField DataField="Name" HeaderText="Remarked By" />
+                        <asp:BoundField DataField="remarks" HeaderText="Remarks" ItemStyle-Width="500px"/>
+                    </Columns>
+                     </asp:GridView>
+            </td>
+        </tr>
+    </table>
+    </asp:Content>

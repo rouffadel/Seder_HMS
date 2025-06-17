@@ -1,0 +1,1722 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ERP" Class="MMSIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=bssprojects.com;Initial Catalog=ERP;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ERPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AU" Member="AUs">
+    <Type Name="AU">
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Au_Name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="AU_T_MMS_SSNItem" Member="T_MMS_SSNItems" ThisKey="Au_ID" OtherKey="AuId" Type="T_MMS_SSNItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkSite" Member="WorkSites">
+    <Type Name="WorkSite">
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address" Type="System.String" DbType="VarChar(800)" CanBeNull="true" />
+      <Column Name="WSStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PreOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="WorkSite_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="Site_ID" OtherKey="WorkSite" Type="T_MMS_GDN" />
+      <Association Name="WorkSite_T_MMS_Space" Member="T_MMS_Spaces" ThisKey="Site_ID" OtherKey="WorkSite" Type="T_MMS_Space" />
+      <Association Name="WorkSite_T_MMS_SO_Monitor" Member="T_MMS_SO_Monitors" ThisKey="Site_ID" OtherKey="Worksite" Type="T_MMS_SO_Monitor" />
+      <Association Name="WorkSite_T_MMS_SSN" Member="T_MMS_SSNs" ThisKey="Site_ID" OtherKey="WorkSite" Type="T_MMS_SSN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_G_DepartmentMaster" Member="T_G_DepartmentMasters">
+    <Type Name="T_G_DepartmentMaster">
+      <Column Name="DepartmentUId" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentHOD" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="BitsStatus" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PreOrder" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="T_G_DepartmentMaster_T_MMS_SO_Monitor" Member="T_MMS_SO_Monitors" ThisKey="DepartmentUId" OtherKey="MntrDept" Type="T_MMS_SO_Monitor" />
+      <Association Name="T_G_DepartmentMaster_T_MMS_SO_Monitor1" Member="T_MMS_SO_Monitors1" ThisKey="DepartmentUId" OtherKey="RcvrDept" Type="T_MMS_SO_Monitor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_G_EmployeeMaster" Member="T_G_EmployeeMasters">
+    <Type Name="T_G_EmployeeMaster">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DeptNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="MName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="LName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Mobile1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Mailid" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AltMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="skypeid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Categary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mgnr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DesigID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AppID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mole1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mole2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PreOrder" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="UpdatedBY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedON" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_ChkAcmPart" Member="T_MMS_ChkAcmParts" ThisKey="EmpId" OtherKey="ChkdBy" Type="T_MMS_ChkAcmPart" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Compliance" Member="T_MMS_Compliances" ThisKey="EmpId" OtherKey="SubmittedBy" Type="T_MMS_Compliance" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="EmpId" OtherKey="OriginRepr" Type="T_MMS_GDN" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_GDN1" Member="T_MMS_GDNs1" ThisKey="EmpId" OtherKey="DestRepr" Type="T_MMS_GDN" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Lending" Member="T_MMS_Lendings" ThisKey="EmpId" OtherKey="AuthPer" Type="T_MMS_Lending" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_QA" Member="T_MMS_QAs" ThisKey="EmpId" OtherKey="ChkdBy" Type="T_MMS_QA" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Space" Member="T_MMS_Spaces" ThisKey="EmpId" OtherKey="Executive" Type="T_MMS_Space" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Space1" Member="T_MMS_Spaces1" ThisKey="EmpId" OtherKey="Security" Type="T_MMS_Space" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_TransitGuidline" Member="T_MMS_TransitGuidlines" ThisKey="EmpId" OtherKey="CareTaker" Type="T_MMS_TransitGuidline" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor" Member="T_MMS_SO_Monitors" ThisKey="EmpId" OtherKey="AltMntr" Type="T_MMS_SO_Monitor" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor1" Member="T_MMS_SO_Monitors1" ThisKey="EmpId" OtherKey="AltRcvr" Type="T_MMS_SO_Monitor" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor2" Member="T_MMS_SO_Monitors2" ThisKey="EmpId" OtherKey="Monitor" Type="T_MMS_SO_Monitor" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor3" Member="T_MMS_SO_Monitors3" ThisKey="EmpId" OtherKey="Receiver" Type="T_MMS_SO_Monitor" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SSN" Member="T_MMS_SSNs" ThisKey="EmpId" OtherKey="OriginRepr" Type="T_MMS_SSN" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SSN1" Member="T_MMS_SSNs1" ThisKey="EmpId" OtherKey="DestRepr" Type="T_MMS_SSN" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Tooling" Member="T_MMS_Toolings" ThisKey="EmpId" OtherKey="AuthPer" Type="T_MMS_Tooling" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_AcmParts" Member="T_MMS_AcmParts">
+    <Type Name="T_MMS_AcmPart">
+      <Column Name="AcId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_AcmPart_T_MMS_ChkAcmPart" Member="T_MMS_ChkAcmParts" ThisKey="AcId" OtherKey="AcId" Type="T_MMS_ChkAcmPart" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Blocks" Member="T_MMS_Blocks">
+    <Type Name="T_MMS_Block">
+      <Column Name="BlcokId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BlckCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BlockImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="IsLeaf" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="T_MMS_Space_T_MMS_Block" Member="T_MMS_Space" ThisKey="SpId" OtherKey="SpId" Type="T_MMS_Space" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Catelogue" Member="T_MMS_Catelogues">
+    <Type Name="T_MMS_Catelogue">
+      <Column Name="CatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LotNr" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BatchNr" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="MCId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MRId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Labelling" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Costs" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShelfLife" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_MaterialConfig_T_MMS_Catelogue" Member="T_MMS_MaterialConfig" ThisKey="MCId" OtherKey="MCId" Type="T_MMS_MaterialConfig" IsForeignKey="true" />
+      <Association Name="T_MMS_RankMaster_T_MMS_Catelogue" Member="T_MMS_RankMaster" ThisKey="MRId" OtherKey="MRId" Type="T_MMS_RankMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ChkAcmParts" Member="T_MMS_ChkAcmParts">
+    <Type Name="T_MMS_ChkAcmPart">
+      <Column Name="ChkAcId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AcId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PartName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ChkdBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_ChkAcmPart" Member="T_G_EmployeeMaster" ThisKey="ChkdBy" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_MMS_AcmPart_T_MMS_ChkAcmPart" Member="T_MMS_AcmPart" ThisKey="AcId" OtherKey="AcId" Type="T_MMS_AcmPart" IsForeignKey="true" />
+      <Association Name="T_MMS_GDNItem_T_MMS_ChkAcmPart" Member="T_MMS_GDNItem" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_GDNItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ClassingMaster" Member="T_MMS_ClassingMasters">
+    <Type Name="T_MMS_ClassingMaster">
+      <Column Name="ClassingId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_MMS_ClassingMaster_T_MMS_MaterialConfig" Member="T_MMS_MaterialConfigs" ThisKey="ClassingId" OtherKey="ClassingId" Type="T_MMS_MaterialConfig" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Compliance" Member="T_MMS_Compliances">
+    <Type Name="T_MMS_Compliance">
+      <Column Name="CpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Compliance" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SubmittedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Narration" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Compliance" Member="T_G_EmployeeMaster" ThisKey="SubmittedBy" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_MMS_GDN_T_MMS_Compliance" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+      <Association Name="T_MMS_TransitGuidline_T_MMS_Compliance" Member="T_MMS_TransitGuidline" ThisKey="GuId" OtherKey="GuId" Type="T_MMS_TransitGuidline" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Conversion" Member="T_MMS_Conversions">
+    <Type Name="T_MMS_Conversion">
+      <Column Name="ConvId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="T_MMS_Conversion_T_MMS_ConvMaterial" Member="T_MMS_ConvMaterials" ThisKey="ConvId" OtherKey="ConvId" Type="T_MMS_ConvMaterial" />
+      <Association Name="T_OMS_Resource_T_MMS_Conversion" Member="T_OMS_Resource" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ConvMaterials" Member="T_MMS_ConvMaterials">
+    <Type Name="T_MMS_ConvMaterial">
+      <Column Name="ConvId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="ScaleofCons" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_Conversion_T_MMS_ConvMaterial" Member="T_MMS_Conversion" ThisKey="ConvId" OtherKey="ConvId" Type="T_MMS_Conversion" IsForeignKey="true" />
+      <Association Name="T_MMS_GDN_T_MMS_ConvMaterial" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_ConvMaterial" Member="T_OMS_SubResource" ThisKey="SubResID" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_CountSch" Member="T_MMS_CountSches">
+    <Type Name="T_MMS_CountSch">
+      <Column Name="CSId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Period" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_DeptRoles" Member="T_MMS_DeptRoles">
+    <Type Name="T_MMS_DeptRole">
+      <Column Name="Dept" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Role" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bitsstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_DespatchReqmts" Member="T_MMS_DespatchReqmts">
+    <Type Name="T_MMS_DespatchReqmt">
+      <Column Name="DisId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Explanation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UploadProof" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_DespRqmtType_T_MMS_DespatchReqmt" Member="T_MMS_DespRqmtType" ThisKey="DId" OtherKey="DId" Type="T_MMS_DespRqmtType" IsForeignKey="true" />
+      <Association Name="T_MMS_GDN_T_MMS_DespatchReqmt" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_DespRqmtType" Member="T_MMS_DespRqmtTypes">
+    <Type Name="T_MMS_DespRqmtType">
+      <Column Name="DId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DisName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Compliance" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_DespRqmtType_T_MMS_DespatchReqmt" Member="T_MMS_DespatchReqmts" ThisKey="DId" OtherKey="DId" Type="T_MMS_DespatchReqmt" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Drivers" Member="T_MMS_Drivers">
+    <Type Name="T_MMS_Driver">
+      <Column Name="DrId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cleaner" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Contact1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Contact2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Contact3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_Driver_T_MMS_TptVehicle" Member="T_MMS_TptVehicles" ThisKey="DrId" OtherKey="DrId" Type="T_MMS_TptVehicle" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_GDN" Member="T_MMS_GDNs">
+    <Type Name="T_MMS_GDN">
+      <Column Name="GDNId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TripSheet" Storage="_POID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Origin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OriginRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodsStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TransMode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSTN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RouteDesrciption" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="GDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GdnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GDNtime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DestWorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WOVendor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoyaltyChalanaNO" Type="System.Int32" CanBeNull="true" />
+      <Column Name="InvoiceNo" Type="System.String" CanBeNull="true" />
+      <Column Name="RCId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="RCQty" Type="System.Decimal" CanBeNull="true" />
+      <Association Name="T_MMS_GDN_T_MMS_Compliance" Member="T_MMS_Compliances" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_Compliance" />
+      <Association Name="T_MMS_GDN_T_MMS_ConvMaterial" Member="T_MMS_ConvMaterials" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_ConvMaterial" />
+      <Association Name="T_MMS_GDN_T_MMS_DespatchReqmt" Member="T_MMS_DespatchReqmts" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_DespatchReqmt" />
+      <Association Name="T_MMS_GDN_T_MMS_MovementRecord" Member="T_MMS_MovementRecords" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_MovementRecord" />
+      <Association Name="T_MMS_GDN_T_MMS_OtherCharge" Member="T_MMS_OtherCharges" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_OtherCharge" />
+      <Association Name="T_MMS_GDN_T_MMS_TransitTransfer" Member="T_MMS_TransitTransfers" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_TransitTransfer" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_GDN" Member="T_G_EmployeeMaster" ThisKey="OriginRepr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_GDN1" Member="T_G_EmployeeMaster1" ThisKey="DestRepr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="WorkSite_T_MMS_GDN" Member="WorkSite1" ThisKey="WorkSite" OtherKey="Site_ID" Type="WorkSite" IsForeignKey="true" />
+      <Association Name="T_MMS_Location_T_MMS_GDN" Member="T_MMS_Location" ThisKey="Destination" OtherKey="LId" Type="T_MMS_Location" IsForeignKey="true" />
+      <Association Name="T_MMS_Location_T_MMS_GDN1" Member="T_MMS_Location1" ThisKey="Origin" OtherKey="LId" Type="T_MMS_Location" IsForeignKey="true" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_GDN" Member="T_MMS_TptVehicle" ThisKey="VId" OtherKey="VId" Type="T_MMS_TptVehicle" IsForeignKey="true" />
+      <Association Name="VendorDetail_T_MMS_GDN" Member="VendorDetail" ThisKey="vendor_id" OtherKey="vendor_id" Type="VendorDetail" IsForeignKey="true" />
+      <Association Name="VendorDetails_T_MMS_GDN" Member="VendorDetail1" ThisKey="vendor_id" OtherKey="vendor_id" Type="VendorDetails" IsForeignKey="true" />
+      <Association Name="VendorDetails_T_MMS_GDN1" Member="VendorDetails" ThisKey="WOVendor" OtherKey="vendor_id" Type="VendorDetails" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_GDNStatus" Member="T_MMS_GDNStatus">
+    <Type Name="T_MMS_GDNStatus">
+      <Column Name="GdnStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Guidlines" Member="T_MMS_Guidlines">
+    <Type Name="T_MMS_Guidline">
+      <Column Name="GId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Compliance" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Indent_Issues" Member="T_MMS_Indent_Issues">
+    <Type Name="T_MMS_Indent_Issue">
+      <Column Name="IssueId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IndentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubResId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VehicleNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Reciver" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IssuedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Inward" Member="T_MMS_Inwards">
+    <Type Name="T_MMS_Inward">
+      <Column Name="InId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Label" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShelfLife" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_Inward" Member="T_OMS_SubResource" ThisKey="SubResID" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+      <Association Name="T_MMS_GDNItem_T_MMS_Inward" Member="T_MMS_GDNItem" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_GDNItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_IssueMode" Member="T_MMS_IssueModes">
+    <Type Name="T_MMS_IssueMode">
+      <Column Name="ModeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Lendings" Member="T_MMS_Lendings">
+    <Type Name="T_MMS_Lending">
+      <Column Name="LendId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="AuthPer" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="LossId" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="LeTyId" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="DurationDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Rcvddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="HireRate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="IsHire" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" />
+      <Column Name="WorkSite" AutoSync="Never" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="SubResId" Type="System.Int32" CanBeNull="true" UpdateCheck="Always" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Lending" Member="T_G_EmployeeMaster" ThisKey="AuthPer" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_MMS_LendingType_T_MMS_Lending" Member="T_MMS_LendingType" ThisKey="LeTyId" OtherKey="LeTyId" Type="T_MMS_LendingType" IsForeignKey="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_Lending" Member="T_OMS_SubResource" ThisKey="SubResId" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_LendingType" Member="T_MMS_LendingTypes">
+    <Type Name="T_MMS_LendingType">
+      <Column Name="LeTyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LendingType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_MMS_LendingType_T_MMS_Lending" Member="T_MMS_Lendings" ThisKey="LeTyId" OtherKey="LeTyId" Type="T_MMS_Lending" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Locations" Member="T_MMS_Locations">
+    <Type Name="T_MMS_Location">
+      <Column Name="LId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CityID" Type="System.Int32" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="T_MMS_Location_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="LId" OtherKey="Destination" Type="T_MMS_GDN" />
+      <Association Name="T_MMS_Location_T_MMS_GDN1" Member="T_MMS_GDNs1" ThisKey="LId" OtherKey="Origin" Type="T_MMS_GDN" />
+      <Association Name="T_MMS_Location_T_MMS_TransitTransfer" Member="T_MMS_TransitTransfers" ThisKey="LId" OtherKey="PrevDest" Type="T_MMS_TransitTransfer" />
+      <Association Name="T_MMS_Location_T_MMS_TransitTransfer1" Member="T_MMS_TransitTransfers1" ThisKey="LId" OtherKey="NewDest" Type="T_MMS_TransitTransfer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_MaterialConfig" Member="T_MMS_MaterialConfigs">
+    <Type Name="T_MMS_MaterialConfig">
+      <Column Name="MCId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MRId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClassingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Period" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Allowable" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StockIn" Type="System.Int16" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StockOut" Type="System.Int16" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="T_MMS_MaterialConfig_T_MMS_Catelogue" Member="T_MMS_Catelogues" ThisKey="MCId" OtherKey="MCId" Type="T_MMS_Catelogue" />
+      <Association Name="T_MMS_ClassingMaster_T_MMS_MaterialConfig" Member="T_MMS_ClassingMaster" ThisKey="ClassingId" OtherKey="ClassingId" Type="T_MMS_ClassingMaster" IsForeignKey="true" />
+      <Association Name="T_MMS_RankMaster_T_MMS_MaterialConfig" Member="T_MMS_RankMaster" ThisKey="MRId" OtherKey="MRId" Type="T_MMS_RankMaster" IsForeignKey="true" />
+      <Association Name="T_OMS_Resource_T_MMS_MaterialConfig" Member="T_OMS_Resource" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_MovementRecord" Member="T_MMS_MovementRecords">
+    <Type Name="T_MMS_MovementRecord">
+      <Column Name="MrId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Conversation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_GDN_T_MMS_MovementRecord" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_MovementRecord" Member="T_MMS_TptVehicle" ThisKey="VId" OtherKey="VId" Type="T_MMS_TptVehicle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_OtherCharges" Member="T_MMS_OtherCharges">
+    <Type Name="T_MMS_OtherCharge">
+      <Column Name="ChId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_GDN_T_MMS_OtherCharge" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_QA" Member="T_MMS_QAs">
+    <Type Name="T_MMS_QA">
+      <Column Name="QAId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChkdBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pass" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PassQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_QA" Member="T_G_EmployeeMaster" ThisKey="ChkdBy" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_MMS_GDNItem_T_MMS_QA" Member="T_MMS_GDNItem" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_GDNItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Racks" Member="T_MMS_Racks">
+    <Type Name="T_MMS_Rack">
+      <Column Name="RackId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BlcokId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RackCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RackImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PrimaryRackId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="IsLeaf" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_RankMaster" Member="T_MMS_RankMasters">
+    <Type Name="T_MMS_RankMaster">
+      <Column Name="MRId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_RankMaster_T_MMS_Catelogue" Member="T_MMS_Catelogues" ThisKey="MRId" OtherKey="MRId" Type="T_MMS_Catelogue" />
+      <Association Name="T_MMS_RankMaster_T_MMS_MaterialConfig" Member="T_MMS_MaterialConfigs" ThisKey="MRId" OtherKey="MRId" Type="T_MMS_MaterialConfig" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ReserveQty" Member="T_MMS_ReserveQties">
+    <Type Name="T_MMS_ReserveQty">
+      <Column Name="ResId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SpaceType_T_MMS_ReserveQty" Member="T_MMS_SpaceType" ThisKey="SType" OtherKey="SType" Type="T_MMS_SpaceType" IsForeignKey="true" />
+      <Association Name="T_OMS_Resource_T_MMS_ReserveQty" Member="T_OMS_Resource" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ReserveStcokType" Member="T_MMS_ReserveStcokTypes">
+    <Type Name="T_MMS_ReserveStcokType">
+      <Column Name="RSTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RSType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Roles" Member="T_MMS_Roles">
+    <Type Name="T_MMS_Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bitstatus" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Masterpage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_MMS_Role_T_MMS_UserRole" Member="T_MMS_UserRoles" ThisKey="RoleID" OtherKey="RoleID" Type="T_MMS_UserRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Space" Member="T_MMS_Spaces">
+    <Type Name="T_MMS_Space">
+      <Column Name="SpId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpaceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SDId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ancestor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="L" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="B" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="D" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Distance" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Executive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Security" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Security2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpacePlan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsDefined" Type="System.Boolean" CanBeNull="true" />
+      <Association Name="T_MMS_Space_T_MMS_Block" Member="T_MMS_Blocks" ThisKey="SpId" OtherKey="SpId" Type="T_MMS_Block" />
+      <Association Name="T_MMS_Space_T_MMS_SpaceConfig" Member="T_MMS_SpaceConfigs" ThisKey="SpId" OtherKey="SPId" Type="T_MMS_SpaceConfig" />
+      <Association Name="T_MMS_Space_T_MMS_SpacePlan" Member="T_MMS_SpacePlans" ThisKey="SpId" OtherKey="SpId" Type="T_MMS_SpacePlan" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Space" Member="T_G_EmployeeMaster" ThisKey="Executive" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Space1" Member="T_G_EmployeeMaster1" ThisKey="Security" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="WorkSite_T_MMS_Space" Member="WorkSite1" ThisKey="WorkSite" OtherKey="Site_ID" Type="WorkSite" IsForeignKey="true" />
+      <Association Name="T_MMS_SpaceType_T_MMS_Space" Member="T_MMS_SpaceType" ThisKey="SType" OtherKey="SType" Type="T_MMS_SpaceType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SpaceConfig" Member="T_MMS_SpaceConfigs">
+    <Type Name="T_MMS_SpaceConfig">
+      <Column Name="SCId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SPId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Space" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="L" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="B" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="D" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SDId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SpaceConfig_T_MMS_SpaceMaterial" Member="T_MMS_SpaceMaterials" ThisKey="SCId" OtherKey="SCId" Type="T_MMS_SpaceMaterial" />
+      <Association Name="T_MMS_Space_T_MMS_SpaceConfig" Member="T_MMS_Space" ThisKey="SPId" OtherKey="SpId" Type="T_MMS_Space" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SpaceMaterial" Member="T_MMS_SpaceMaterials">
+    <Type Name="T_MMS_SpaceMaterial">
+      <Column Name="RackId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SCId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SDId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Space" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SpaceConfig_T_MMS_SpaceMaterial" Member="T_MMS_SpaceConfig" ThisKey="SCId" OtherKey="SCId" Type="T_MMS_SpaceConfig" IsForeignKey="true" />
+      <Association Name="T_MMS_StockPlan_T_MMS_SpaceMaterial" Member="T_MMS_StockPlan" ThisKey="StId" OtherKey="StId" Type="T_MMS_StockPlan" IsForeignKey="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_SpaceMaterial" Member="T_OMS_SubResource" ThisKey="SubResID" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+      <Association Name="T_MMS_SpaceDesign_T_MMS_SpaceMaterial" Member="T_MMS_SpaceDesign" ThisKey="SDId" OtherKey="SDId" Type="T_MMS_SpaceDesign" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SpacePlan" Member="T_MMS_SpacePlans">
+    <Type Name="T_MMS_SpacePlan">
+      <Column Name="SPlanId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BlockName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Ancestors" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsLeaf" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PlanImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_Space_T_MMS_SpacePlan" Member="T_MMS_Space" ThisKey="SpId" OtherKey="SpId" Type="T_MMS_Space" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SpaceType" Member="T_MMS_SpaceTypes">
+    <Type Name="T_MMS_SpaceType">
+      <Column Name="SType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpaceType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SpaceType_T_MMS_ReserveQty" Member="T_MMS_ReserveQties" ThisKey="SType" OtherKey="SType" Type="T_MMS_ReserveQty" />
+      <Association Name="T_MMS_SpaceType_T_MMS_Space" Member="T_MMS_Spaces" ThisKey="SType" OtherKey="SType" Type="T_MMS_Space" />
+      <Association Name="T_MMS_SpaceType_T_MMS_SpaceDesign" Member="T_MMS_SpaceDesigns" ThisKey="SType" OtherKey="SType" Type="T_MMS_SpaceDesign" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Stock" Member="T_MMS_Stocks">
+    <Type Name="T_MMS_Stock">
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AvailQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_StockPlan" Member="T_MMS_StockPlans">
+    <Type Name="T_MMS_StockPlan">
+      <Column Name="StId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SPTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Method" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Pic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_StockPlan_T_MMS_SpaceMaterial" Member="T_MMS_SpaceMaterials" ThisKey="StId" OtherKey="StId" Type="T_MMS_SpaceMaterial" />
+      <Association Name="T_MMS_StockPlan_T_MMS_SpaceDesign" Member="T_MMS_SpaceDesigns" ThisKey="StId" OtherKey="StId" Type="T_MMS_SpaceDesign" />
+      <Association Name="T_MMS_StockPlanType_T_MMS_StockPlan" Member="T_MMS_StockPlanType" ThisKey="SPTypeId" OtherKey="SPTypeId" Type="T_MMS_StockPlanType" IsForeignKey="true" />
+      <Association Name="T_OMS_Resource_T_MMS_StockPlan" Member="T_OMS_Resource" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_StockPlanType" Member="T_MMS_StockPlanTypes">
+    <Type Name="T_MMS_StockPlanType">
+      <Column Name="SPTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlanType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_StockPlanType_T_MMS_StockPlan" Member="T_MMS_StockPlans" ThisKey="SPTypeId" OtherKey="SPTypeId" Type="T_MMS_StockPlan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_StockRotation" Member="T_MMS_StockRotations">
+    <Type Name="T_MMS_StockRotation">
+      <Column Name="SRId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[In]" Member="In" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Out" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Periodical" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_StockRotation_T_MMS_StockItem" Member="T_MMS_StockItems" ThisKey="SRId" OtherKey="SRId" Type="T_MMS_StockItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_ToolingType" Member="T_MMS_ToolingTypes">
+    <Type Name="T_MMS_ToolingType">
+      <Column Name="TTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ToolingType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_TptVehicle" Member="T_MMS_TptVehicles">
+    <Type Name="T_MMS_TptVehicle">
+      <Column Name="VId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DrId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VehName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="VehType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VehRegnNr" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="VId" OtherKey="VId" Type="T_MMS_GDN" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_MovementRecord" Member="T_MMS_MovementRecords" ThisKey="VId" OtherKey="VId" Type="T_MMS_MovementRecord" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_TransitProb" Member="T_MMS_TransitProbs" ThisKey="VId" OtherKey="VId" Type="T_MMS_TransitProb" />
+      <Association Name="T_MMS_Driver_T_MMS_TptVehicle" Member="T_MMS_Driver" ThisKey="DrId" OtherKey="DrId" Type="T_MMS_Driver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_TransitDamages" Member="T_MMS_TransitDamages">
+    <Type Name="T_MMS_TransitDamage">
+      <Column Name="DamId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Damage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_TransitGuidlines" Member="T_MMS_TransitGuidlines">
+    <Type Name="T_MMS_TransitGuidline">
+      <Column Name="GuId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Damage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Narration" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CareTaker" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_TransitGuidline_T_MMS_Compliance" Member="T_MMS_Compliances" ThisKey="GuId" OtherKey="GuId" Type="T_MMS_Compliance" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_TransitGuidline" Member="T_G_EmployeeMaster" ThisKey="CareTaker" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_TransitProbs" Member="T_MMS_TransitProbs">
+    <Type Name="T_MMS_TransitProb">
+      <Column Name="TrPrId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Problem" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Solution" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_TptVehicle_T_MMS_TransitProb" Member="T_MMS_TptVehicle" ThisKey="VId" OtherKey="VId" Type="T_MMS_TptVehicle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_TransitTransfer" Member="T_MMS_TransitTransfers">
+    <Type Name="T_MMS_TransitTransfer">
+      <Column Name="TransfID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrevDest" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewDest" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_GDN_T_MMS_TransitTransfer" Member="T_MMS_GDN" ThisKey="GDNId" OtherKey="GDNId" Type="T_MMS_GDN" IsForeignKey="true" />
+      <Association Name="T_MMS_Location_T_MMS_TransitTransfer" Member="T_MMS_Location" ThisKey="PrevDest" OtherKey="LId" Type="T_MMS_Location" IsForeignKey="true" />
+      <Association Name="T_MMS_Location_T_MMS_TransitTransfer1" Member="T_MMS_Location1" ThisKey="NewDest" OtherKey="LId" Type="T_MMS_Location" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_UserRoles" Member="T_MMS_UserRoles">
+    <Type Name="T_MMS_UserRole">
+      <Column Name="EmpId" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_Role_T_MMS_UserRole" Member="T_MMS_Role" ThisKey="RoleID" OtherKey="RoleID" Type="T_MMS_Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_OMS_Resources" Member="T_OMS_Resources">
+    <Type Name="T_OMS_Resource">
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="ResourceMake" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ResourceUnit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ResourceBasicRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ResourceLead" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ResourceLeadRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ResourceLPH" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ResourcerRemarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ResourceOutPut" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Extension" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GoodsCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_OMS_Resource_T_MMS_Conversion" Member="T_MMS_Conversions" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_MMS_Conversion" />
+      <Association Name="T_OMS_Resource_T_MMS_MaterialConfig" Member="T_MMS_MaterialConfigs" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_MMS_MaterialConfig" />
+      <Association Name="T_OMS_Resource_T_MMS_ReserveQty" Member="T_MMS_ReserveQties" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_MMS_ReserveQty" />
+      <Association Name="T_OMS_Resource_T_MMS_StockPlan" Member="T_MMS_StockPlans" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_MMS_StockPlan" />
+      <Association Name="T_OMS_Resource_T_MMS_SpaceDesign" Member="T_MMS_SpaceDesigns" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_MMS_SpaceDesign" />
+      <Association Name="T_OMS_Resource_T_MMS_SSNItem" Member="T_MMS_SSNItems" ThisKey="ResourceID" OtherKey="ResourceId" Type="T_MMS_SSNItem" />
+      <Association Name="T_OMS_Resource_T_PM_ResVsGroup" Member="T_PM_ResVsGroups" ThisKey="ResourceID" OtherKey="ResourceId" Type="T_PM_ResVsGroup" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_OMS_SubResources" Member="T_OMS_SubResources">
+    <Type Name="T_OMS_SubResource">
+      <Column Name="SubResID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubResourceName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="SubResDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="SubResRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SubResUnit" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GdnItemID" Type="System.Int32" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="T_OMS_SubResource_T_MMS_ConvMaterial" Member="T_MMS_ConvMaterials" ThisKey="SubResID" OtherKey="SubResID" Type="T_MMS_ConvMaterial" />
+      <Association Name="T_OMS_SubResource_T_MMS_Inward" Member="T_MMS_Inwards" ThisKey="SubResID" OtherKey="SubResID" Type="T_MMS_Inward" />
+      <Association Name="T_OMS_SubResource_T_MMS_Lending" Member="T_MMS_Lendings" ThisKey="SubResID" OtherKey="SubResId" Type="T_MMS_Lending" />
+      <Association Name="T_OMS_SubResource_T_MMS_SpaceMaterial" Member="T_MMS_SpaceMaterials" ThisKey="SubResID" OtherKey="SubResID" Type="T_MMS_SpaceMaterial" />
+      <Association Name="T_OMS_SubResource_T_MMS_Loss" Member="T_MMS_Losses" ThisKey="SubResID" OtherKey="SubResID" Type="T_MMS_Loss" />
+      <Association Name="T_OMS_SubResource_T_MMS_Tooling" Member="T_MMS_Toolings" ThisKey="SubResID" OtherKey="SubResID" Type="T_MMS_Tooling" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_ENQUIRY" Member="T_PM_ENQUIRies">
+    <Type Name="T_PM_ENQUIRY">
+      <Column Name="EnqID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DOENQ" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="status" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="IndentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Empid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PM_ENQUIRY_T_PM_Offer" Member="T_PM_Offers" ThisKey="EnqID" OtherKey="EnqId" Type="T_PM_Offer" />
+      <Association Name="T_PM_Indent_T_PM_ENQUIRY" Member="T_PM_Indent" ThisKey="IndentId" OtherKey="IndentId" Type="T_PM_Indent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_Indent" Member="T_PM_Indents">
+    <Type Name="T_PM_Indent">
+      <Column Name="IndentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Raisedby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProjectId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Indent_Number" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DOI" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AppStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vettedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssignedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Indent_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VetRemarks" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="AssignRemarks" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DeptId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CancelRemarks" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Column Name="Vetdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Assdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelledBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PM_Indent_T_PM_ENQUIRY" Member="T_PM_ENQUIRies" ThisKey="IndentId" OtherKey="IndentId" Type="T_PM_ENQUIRY" />
+      <Association Name="T_PM_Indent_T_PM_Indent_Item" Member="T_PM_Indent_Items" ThisKey="IndentId" OtherKey="IndentId" Type="T_PM_Indent_Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_Indent_Items" Member="T_PM_Indent_Items">
+    <Type Name="T_PM_Indent_Item">
+      <Column Name="IndentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Specification" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Purpose" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Required_On" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="T_PM_Indent_T_PM_Indent_Item" Member="T_PM_Indent" ThisKey="IndentId" OtherKey="IndentId" Type="T_PM_Indent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_Offers" Member="T_PM_Offers">
+    <Type Name="T_PM_Offer">
+      <Column Name="OfferID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EnqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOffer" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApprovalStatus" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Empid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApprovedEmpID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PM_Offer_T_PM_PurchaseOrder" Member="T_PM_PurchaseOrders" ThisKey="OfferID" OtherKey="OfferID" Type="T_PM_PurchaseOrder" />
+      <Association Name="T_PM_ENQUIRY_T_PM_Offer" Member="T_PM_ENQUIRY" ThisKey="EnqId" OtherKey="EnqID" Type="T_PM_ENQUIRY" IsForeignKey="true" />
+      <Association Name="VendorDetails_T_PM_Offer" Member="VendorDetails" ThisKey="VendorID" OtherKey="vendor_id" Type="VendorDetails" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_PurchaseOrder" Member="T_PM_PurchaseOrders">
+    <Type Name="T_PM_PurchaseOrder">
+      <Column Name="POID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PONo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Podate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="raisedby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="OfferID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PONAME" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="POValue" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="EmpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CancelRem" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="IndentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmmentNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PM_PurchaseOrder_T_PM_PurchaseOrderdetail" Member="T_PM_PurchaseOrderdetails" ThisKey="POID" OtherKey="POID" Type="T_PM_PurchaseOrderdetail" />
+      <Association Name="T_PM_Offer_T_PM_PurchaseOrder" Member="T_PM_Offer" ThisKey="OfferID" OtherKey="OfferID" Type="T_PM_Offer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_PurchaseOrderdetails" Member="T_PM_PurchaseOrderdetails">
+    <Type Name="T_PM_PurchaseOrderdetail">
+      <Column Name="PodetID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="POID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Itemid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BalQty" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="T_PM_PurchaseOrder_T_PM_PurchaseOrderdetail" Member="T_PM_PurchaseOrder" ThisKey="POID" OtherKey="POID" Type="T_PM_PurchaseOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VendorDetails" Member="VendorDetails">
+    <Type Name="VendorDetail">
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vendor_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="vendor_address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="contact_person" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="bankname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="bankACCNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TINNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="VendorDetail_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="vendor_id" OtherKey="vendor_id" Type="T_MMS_GDN" />
+      <Association Name="VendorDetail_T_MMS_SSN" Member="T_MMS_SSNs" ThisKey="vendor_id" OtherKey="Customer" Type="T_MMS_SSN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SpaceDesign" Member="T_MMS_SpaceDesigns">
+    <Type Name="T_MMS_SpaceDesign">
+      <Column Name="SDId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DesignName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="L" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="B" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="HtStackble" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SL" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SB" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SH" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Gap" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="GapLB" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="GapB" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="StId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrkTime" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PkUnits" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Align" Type="System.Int16" DbType="Bit" CanBeNull="true" />
+      <Column Name="StackUnits" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_MMS_SpaceDesign_T_MMS_SpaceMaterial" Member="T_MMS_SpaceMaterials" ThisKey="SDId" OtherKey="SDId" Type="T_MMS_SpaceMaterial" />
+      <Association Name="T_MMS_SpaceType_T_MMS_SpaceDesign" Member="T_MMS_SpaceType" ThisKey="SType" OtherKey="SType" Type="T_MMS_SpaceType" IsForeignKey="true" />
+      <Association Name="T_MMS_StockPlan_T_MMS_SpaceDesign" Member="T_MMS_StockPlan" ThisKey="StId" OtherKey="StId" Type="T_MMS_StockPlan" IsForeignKey="true" />
+      <Association Name="T_OMS_Resource_T_MMS_SpaceDesign" Member="T_OMS_Resource" ThisKey="ResourceID" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_StockItems" Member="T_MMS_StockItems">
+    <Type Name="T_MMS_StockItem">
+      <Column Name="StItems" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRId" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SCId" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GDNItemId" Storage="_GDNID" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="T_MMS_StockRotation_T_MMS_StockItem" Member="T_MMS_StockRotation" ThisKey="SRId" OtherKey="SRId" Type="T_MMS_StockRotation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Approvals" Member="T_MMS_Approvals">
+    <Type Name="T_MMS_Approval">
+      <Column Name="App" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SRemarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PRemarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SaleOrder" Member="T_MMS_SaleOrders">
+    <Type Name="T_MMS_SaleOrder">
+      <Column Name="SOId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PONo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CustId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pic" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SGDNItems" Member="T_MMS_SGDNItems">
+    <Type Name="T_MMS_SGDNItem">
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SGDNId" Storage="_GDNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SalesItemId" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BalQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RcvdQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="InvoiceImg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_IDs" Type="System.Int32" CanBeNull="true" />
+      <Column Name="AccptQty" Type="System.Decimal" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="T_MMS_SGDNItem_T_MMS_SalesItem" Member="T_MMS_SalesItems" ThisKey="SalesItemId" OtherKey="SalesItemId" Type="T_MMS_SalesItem" />
+      <Association Name="T_MMS_SGDN_T_MMS_SGDNItem" Member="T_MMS_SGDN" ThisKey="SGDNId" OtherKey="SGDNId" Type="T_MMS_SGDN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SalesItems" Member="T_MMS_SalesItems">
+    <Type Name="T_MMS_SalesItem">
+      <Column Name="SalesItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SOId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Make" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Specification" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SalesItem_T_MMS_SSNItem" Member="T_MMS_SSNItems" ThisKey="SalesItemId" OtherKey="SalesItemId" Type="T_MMS_SSNItem" />
+      <Association Name="T_MMS_SGDNItem_T_MMS_SalesItem" Member="T_MMS_SGDNItem" ThisKey="SalesItemId" OtherKey="SalesItemId" Type="T_MMS_SGDNItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SGDN" Member="T_MMS_SGDNs">
+    <Type Name="T_MMS_SGDN">
+      <Column Name="SGDNId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TripSheet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Origin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OriginRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodsStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GdnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GDNtime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WOVendor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WOSelf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Distance" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RoyaltyChallan" Type="System.String" CanBeNull="true" />
+      <Column Name="RCId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="RCQty" Type="System.Decimal" CanBeNull="true" />
+      <Association Name="T_MMS_SGDN_T_MMS_SGDNItem" Member="T_MMS_SGDNItems" ThisKey="SGDNId" OtherKey="SGDNId" Type="T_MMS_SGDNItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SRN" Member="T_MMS_SRNs">
+    <Type Name="T_MMS_SRN">
+      <Column Name="SRNID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TripSheet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Origin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OriginRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vendor_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModuleId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="InvoiceNo" Type="System.String" CanBeNull="true" />
+      <Association Name="T_MMS_SRN_T_MMS_SRNItem" Member="T_MMS_SRNItems" ThisKey="SRNID" OtherKey="SRNID" Type="T_MMS_SRNItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SRNItems" Member="T_MMS_SRNItems">
+    <Type Name="T_MMS_SRNItem">
+      <Column Name="SRNItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SRNID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PodetID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_IDS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Distance" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="ReqQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RcvdQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="AccptQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="InvoiceImg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="RecivedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReciverComments" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApproverComments" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_SRN_T_MMS_SRNItem" Member="T_MMS_SRN" ThisKey="SRNID" OtherKey="SRNID" Type="T_MMS_SRN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VendorDetails" Member="VendorDetails1">
+    <Type Name="VendorDetails">
+      <Column Name="vendor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vendor_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="vendor_address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="contact_person" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="bankname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="bankACCNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TINNO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Createdby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Createdon" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="modifiedby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modifiedon" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LedgerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="VendorDetails_T_MMS_GDN" Member="T_MMS_GDNs" ThisKey="vendor_id" OtherKey="vendor_id" Type="T_MMS_GDN" />
+      <Association Name="VendorDetails_T_MMS_GDN1" Member="T_MMS_GDNs1" ThisKey="vendor_id" OtherKey="WOVendor" Type="T_MMS_GDN" />
+      <Association Name="VendorDetails_T_PM_Offer" Member="T_PM_Offers" ThisKey="vendor_id" OtherKey="VendorID" Type="T_PM_Offer" />
+      <Association Name="VendorDetails_T_MMS_SSN" Member="T_MMS_SSNs" ThisKey="vendor_id" OtherKey="Customer" Type="T_MMS_SSN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_GDNItems" Member="T_MMS_GDNItems">
+    <Type Name="T_MMS_GDNItem">
+      <Column Name="GDNItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GDNId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PodetID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="BalQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RcvdQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="DmgQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="DmgImage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RejQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RejImage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Allowable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InvoiceImg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="UnpckgPersons" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Au_IDs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Distance" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Association Name="T_MMS_GDNItem_T_MMS_ChkAcmPart" Member="T_MMS_ChkAcmParts" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_ChkAcmPart" />
+      <Association Name="T_MMS_GDNItem_T_MMS_Inward" Member="T_MMS_Inwards" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_Inward" />
+      <Association Name="T_MMS_GDNItem_T_MMS_QA" Member="T_MMS_QAs" ThisKey="GDNItemId" OtherKey="GDNItemId" Type="T_MMS_QA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SO_Monitors" Member="T_MMS_SO_Monitors">
+    <Type Name="T_MMS_SO_Monitor">
+      <Column Name="MntrId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SOID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Receiver" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AltRcvr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monitor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AltMntr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RcvrDept" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MntrDept" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Worksite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_G_DepartmentMaster_T_MMS_SO_Monitor" Member="T_G_DepartmentMaster" ThisKey="MntrDept" OtherKey="DepartmentUId" Type="T_G_DepartmentMaster" IsForeignKey="true" />
+      <Association Name="T_G_DepartmentMaster_T_MMS_SO_Monitor1" Member="T_G_DepartmentMaster1" ThisKey="RcvrDept" OtherKey="DepartmentUId" Type="T_G_DepartmentMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor" Member="T_G_EmployeeMaster" ThisKey="AltMntr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor1" Member="T_G_EmployeeMaster1" ThisKey="AltRcvr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor2" Member="T_G_EmployeeMaster2" ThisKey="Monitor" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SO_Monitor3" Member="T_G_EmployeeMaster3" ThisKey="Receiver" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="WorkSite_T_MMS_SO_Monitor" Member="WorkSite1" ThisKey="Worksite" OtherKey="Site_ID" Type="WorkSite" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SSN" Member="T_MMS_SSNs">
+    <Type Name="T_MMS_SSN">
+      <Column Name="SSNId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OriginRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestRepr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VehId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModuleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSINDate" Type="System.DateTime" CanBeNull="true" />
+      <Association Name="T_MMS_SSN_T_MMS_SSNItem" Member="T_MMS_SSNItems" ThisKey="SSNId" OtherKey="SSNId" Type="T_MMS_SSNItem" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SSN" Member="T_G_EmployeeMaster" ThisKey="OriginRepr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_SSN1" Member="T_G_EmployeeMaster1" ThisKey="DestRepr" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="VendorDetail_T_MMS_SSN" Member="VendorDetail" ThisKey="Customer" OtherKey="vendor_id" Type="VendorDetail" IsForeignKey="true" />
+      <Association Name="VendorDetails_T_MMS_SSN" Member="VendorDetails" ThisKey="Customer" OtherKey="vendor_id" Type="VendorDetails" IsForeignKey="true" />
+      <Association Name="WorkSite_T_MMS_SSN" Member="WorkSite1" ThisKey="WorkSite" OtherKey="Site_ID" Type="WorkSite" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_SSNItems" Member="T_MMS_SSNItems">
+    <Type Name="T_MMS_SSNItem">
+      <Column Name="SSNItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SSNId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SalesItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemRate" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="AuId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="ReqQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="RcvdQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="AccptQty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RecivedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReciverComments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApproverComments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Invoiceimg" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Au_IDs" Type="System.Int32" CanBeNull="true" />
+      <Association Name="AU_T_MMS_SSNItem" Member="AU" ThisKey="AuId" OtherKey="Au_ID" Type="AU" IsForeignKey="true" />
+      <Association Name="T_MMS_SalesItem_T_MMS_SSNItem" Member="T_MMS_SalesItem" ThisKey="SalesItemId" OtherKey="SalesItemId" Type="T_MMS_SalesItem" IsForeignKey="true" />
+      <Association Name="T_MMS_SSN_T_MMS_SSNItem" Member="T_MMS_SSN" ThisKey="SSNId" OtherKey="SSNId" Type="T_MMS_SSN" IsForeignKey="true" />
+      <Association Name="T_OMS_Resource_T_MMS_SSNItem" Member="T_OMS_Resource" ThisKey="ResourceId" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_IssueDetails" Member="T_MMS_IssueDetails">
+    <Type Name="T_MMS_IssueDetail">
+      <Column Name="IssueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GRNItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Association Name="T_MMS_Issue_T_MMS_IssueDetail" Member="T_MMS_Issue" ThisKey="IssueID" OtherKey="IssueID" Type="T_MMS_Issue" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Issues" Member="T_MMS_Issues">
+    <Type Name="T_MMS_Issue">
+      <Column Name="IssueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TaskID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reciever" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TransMode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IssuedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_MMS_Issue_T_MMS_IssueDetail" Member="T_MMS_IssueDetails" ThisKey="IssueID" OtherKey="IssueID" Type="T_MMS_IssueDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Loss" Member="T_MMS_Losses">
+    <Type Name="T_MMS_Loss">
+      <Column Name="LossId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LCost" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lost" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TotCost" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DibitCost" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_Loss" Member="T_OMS_SubResource" ThisKey="SubResID" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_ResVsGroup" Member="T_PM_ResVsGroups">
+    <Type Name="T_PM_ResVsGroup">
+      <Column Name="ResourceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Category_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cat_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LedgerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_OMS_Resource_T_PM_ResVsGroup" Member="T_OMS_Resource" ThisKey="ResourceId" OtherKey="ResourceID" Type="T_OMS_Resource" IsForeignKey="true" />
+      <Association Name="T_PM_Category_T_PM_ResVsGroup" Member="T_PM_Category" ThisKey="Category_Id" OtherKey="Category_Id" Type="T_PM_Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PM_Categories" Member="T_PM_Categories">
+    <Type Name="T_PM_Category">
+      <Column Name="Category_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cat_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssetTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LedgerID" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Association Name="T_PM_Category_T_PM_ResVsGroup" Member="T_PM_ResVsGroups" ThisKey="Category_Id" OtherKey="Category_Id" Type="T_PM_ResVsGroup" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_G_BillGenType" Member="T_G_BillGenTypes">
+    <Type Name="T_G_BillGenType">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Days" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PreOrder" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_G_CityMaster" Member="T_G_CityMasters">
+    <Type Name="T_G_CityMaster">
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CItyName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_G_StateMaster" Member="T_G_StateMasters">
+    <Type Name="T_G_StateMaster">
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StateName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Bitstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_MMS_Tooling" Member="T_MMS_Toolings">
+    <Type Name="T_MMS_Tooling">
+      <Column Name="ToolId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthPer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DurationDesc" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Rcvddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PreMatureCost" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="WorkSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRNItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IssueID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecedStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthorisedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthorisedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DurationUnit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsReturned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="T_G_EmployeeMaster_T_MMS_Tooling" Member="T_G_EmployeeMaster" ThisKey="AuthPer" OtherKey="EmpId" Type="T_G_EmployeeMaster" IsForeignKey="true" />
+      <Association Name="T_OMS_SubResource_T_MMS_Tooling" Member="T_OMS_SubResource" ThisKey="SubResID" OtherKey="SubResID" Type="T_OMS_SubResource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.MMS_POPULATERESOURCEUOM" Method="MMS_POPULATERESOURCEUOM">
+    <Parameter Name="ResourceID" Parameter="resourceID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RetVal" Parameter="retVal" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MMS_DropDownUOM" Method="MMS_DropDownUOM">
+    <ElementType Name="MMS_DropDownUOMResult">
+      <Column Name="Au_Name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Au_Id" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_getresourcerooms" Method="p_getresourcerooms">
+    <Parameter Name="resourceid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_getresourceroomsResult">
+      <Column Name="ResourceName" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="subresource" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_STORE_SPACE_DESIGN" Method="MMS_STORE_SPACE_DESIGN">
+    <Parameter Name="WorkSite" Parameter="workSite" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ResourceID" Parameter="resourceID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_STORE_SPACE_DESIGNResult">
+      <Column Name="SCId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Available" Type="System.Decimal" DbType="Decimal(0,0)" CanBeNull="true" />
+      <Column Name="SpaceName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BlockName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_Resources" Method="MMS_DDL_Resources">
+    <ElementType Name="MMS_DDL_ResourcesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_INDENT_STATUS" Method="MMS_INDENT_STATUS">
+    <ElementType Name="MMS_INDENT_STATUSResult">
+      <Column Name="slno" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="indentid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="indent_number" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Decimal" DbType="Decimal(0,0)" CanBeNull="true" />
+      <Column Name="IndentedBy" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="site_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Assignedto" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="vet" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="departmentname" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="doi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="vetdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="assdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MMSStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Required_On" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ResourceName" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_Mode" Method="MMS_DDL_Mode">
+    <ElementType Name="MMS_DDL_ModeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_AcmParts" Method="MMS_DDL_AcmParts">
+    <ElementType Name="MMS_DDL_AcmPartsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_AU" Method="MMS_DDL_AU">
+    <ElementType Name="MMS_DDL_AUResult">
+      <Column Name="Au_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Au_Name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_Code" Method="MMS_DDL_Code">
+    <ElementType Name="MMS_DDL_CodeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_DespRqmtType" Method="MMS_DDL_DespRqmtType">
+    <ElementType Name="MMS_DDL_DespRqmtTypeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_Drivers" Method="MMS_DDL_Drivers">
+    <ElementType Name="MMS_DDL_DriversResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(72)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_EmployeeMaster" Method="MMS_DDL_EmployeeMaster">
+    <ElementType Name="MMS_DDL_EmployeeMasterResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_GdnItems" Method="MMS_DDL_GdnItems">
+    <ElementType Name="MMS_DDL_GdnItemsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_gvStorage" Method="MMS_DDL_gvStorage">
+    <ElementType Name="MMS_DDL_gvStorageResult">
+      <Column Name="StId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubResID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpaceName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BlockName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubResName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Available" Type="System.Decimal" DbType="Decimal(0,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_Locations" Method="MMS_DDL_Locations">
+    <ElementType Name="MMS_DDL_LocationsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_PurchaseOrder" Method="MMS_DDL_PurchaseOrder">
+    <ElementType Name="MMS_DDL_PurchaseOrderResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_RankMaster" Method="MMS_DDL_RankMaster">
+    <ElementType Name="MMS_DDL_RankMasterResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_SpaceDesign" Method="MMS_DDL_SpaceDesign">
+    <ElementType Name="MMS_DDL_SpaceDesignResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_SpaceType" Method="MMS_DDL_SpaceType">
+    <ElementType Name="MMS_DDL_SpaceTypeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_StockPlan" Method="MMS_DDL_StockPlan">
+    <ElementType Name="MMS_DDL_StockPlanResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_StockPlanType" Method="MMS_DDL_StockPlanType">
+    <ElementType Name="MMS_DDL_StockPlanTypeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_SubResources" Method="MMS_DDL_SubResources">
+    <ElementType Name="MMS_DDL_SubResourcesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_TptVehicle" Method="MMS_DDL_TptVehicle">
+    <ElementType Name="MMS_DDL_TptVehicleResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_TransitGuidlines" Method="MMS_DDL_TransitGuidlines">
+    <ElementType Name="MMS_DDL_TransitGuidlinesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_VendorDetails" Method="MMS_DDL_VendorDetails">
+    <ElementType Name="MMS_DDL_VendorDetailsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_WorkOrder" Method="MMS_DDL_WorkOrder">
+    <ElementType Name="MMS_DDL_WorkOrderResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_WorkSite" Method="MMS_DDL_WorkSite">
+    <ElementType Name="MMS_DDL_WorkSiteResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_GDN" Method="MMS_DDL_GDN">
+    <ElementType Name="MMS_DDL_GDNResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_EmployeeExecutive" Method="MMS_DDL_EmployeeExecutive">
+    <Parameter Name="Site_ID" Parameter="site_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_EmployeeExecutiveResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(51)" CanBeNull="true" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_EmployeeExecutive" Method="MMS_DDL_EmployeeExecutive1">
+    <Parameter Name="Site_ID" Parameter="site_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_EmployeeExecutiveResult1">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(51)" CanBeNull="true" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_SearchResources" Method="MMS_DDL_SearchResources">
+    <Parameter Name="SEARCH" Parameter="sEARCH" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="MMS_DDL_SearchResourcesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_EmployeeQADropDown" Method="MMS_DDL_EmployeeQADropDown">
+    <Parameter Name="QAID" Parameter="qAID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WorkSiteID" Parameter="workSiteID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_EmployeeQADropDownResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(77)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_VENDORINFO" Method="MMS_DDL_VENDORINFO">
+    <ElementType Name="MMS_DDL_VENDORINFOResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_VENDORINFOWO" Method="MMS_DDL_VENDORINFOWO">
+    <ElementType Name="MMS_DDL_VENDORINFOWOResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_LendingType" Method="MMS_DDL_LendingType">
+    <ElementType Name="MMS_DDL_LendingTypeResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_SOOrder" Method="MMS_DDL_SOOrder">
+    <ElementType Name="MMS_DDL_SOOrderResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_ServiceBillsVendors" Method="MMS_DDL_ServiceBillsVendors">
+    <ElementType Name="MMS_DDL_ServiceBillsVendorsResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(181)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_ServiceBillVendors" Method="MMS_DDL_ServiceBillVendors">
+    <ElementType Name="MMS_DDL_ServiceBillVendorsResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(181)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_TransportWO" Method="MMS_TransportWO">
+    <ElementType Name="MMS_TransportWOResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(232)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_VendorDetailsByWS" Method="MMS_DDL_VendorDetailsByWS">
+    <Parameter Name="WSID" Parameter="wSID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_VendorDetailsByWSResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vendor_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_EmployeeMasterByWS" Method="MMS_DDL_EmployeeMasterByWS">
+    <Parameter Name="WSID" Parameter="wSID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_EmployeeMasterByWSResult">
+      <Column Name="Name" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(77)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_TptVehicleByWS" Method="MMS_DDL_TptVehicleByWS">
+    <Parameter Name="WSID" Parameter="wSID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_TptVehicleByWSResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_TransportWOByWS" Method="MMS_TransportWOByWS">
+    <Parameter Name="WSID" Parameter="wSID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_TransportWOByWSResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(232)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_LocationsByWS" Method="MMS_DDL_LocationsByWS">
+    <Parameter Name="WSID" Parameter="wSID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MMS_DDL_LocationsByWSResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_InsertLoss" Method="MMS_InsertLoss">
+    <Parameter Name="SubResID" Parameter="subResID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LCost" Parameter="lCost" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="Lost" Parameter="lost" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="TotCost" Parameter="totCost" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Parameter Name="DibitCost" Parameter="dibitCost" Type="System.Decimal" DbType="Decimal(18,4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MMS_GetStoreIssuers" Method="MMS_GetStoreIssuers">
+    <ElementType Name="MMS_GetStoreIssuersResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_GetStoreReciver" Method="MMS_GetStoreReciver">
+    <ElementType Name="MMS_GetStoreReciverResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_IssuedSubResources" Method="MMS_DDL_IssuedSubResources">
+    <ElementType Name="MMS_DDL_IssuedSubResourcesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_ClassingMaster" Method="MMS_DDL_ClassingMaster">
+    <ElementType Name="MMS_DDL_ClassingMasterResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MMS_DDL_ToolingType" Method="MMS_DDL_ToolingType">
+    <ElementType Name="MMS_DDL_ToolingTypeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
+  <settings>
+    <!--Determines if the bundle file should be automatically optimized after creation/update.-->
+    <minify>true</minify>
+    <!--Determine whether to generate/re-generate this bundle on building the solution.-->
+    <runOnBuild>false</runOnBuild>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+  </settings>
+  <!--The order of the <file> elements determines the order of the files in the bundle.-->
+  <files>
+    <file>/Includes/JS/xpmenuv21.js</file>
+    <file>/Includes/JS/xc.js</file>
+    <file>/Includes/JS/Validation.js</file>
+    <file>/Includes/JS/Tooltip.js</file>
+    <file>/Includes/JS/shortcut.js</file>
+    <file>/Includes/JS/prototype.lite.js</file>
+    <file>/Includes/JS/onload.js</file>
+    <file>/Includes/JS/moo.fx.js</file>
+    <file>/Includes/JS/LiveSearch.js</file>
+    <file>/Includes/JS/litebox-1.0.js</file>
+    <file>/Includes/JS/json2.js</file>
+    <file>/Includes/JS/jsDraw2DX_Uncompressed.js</file>
+    <file>/Includes/JS/jquery1.2.1.js</file>
+    <file>/Includes/JS/jquery1.10.1.js</file>
+    <file>/Includes/JS/jquery-ui.js</file>
+    <file>/Includes/JS/jQuery-2.1.4.min.js</file>
+    <file>/Includes/JS/jquery-1.10.1.min.js</file>
+    <file>/Includes/JS/goSamples.js</file>
+    <file>/Includes/JS/go.js</file>
+    <file>/Includes/JS/effects.js</file>
+    <file>/Includes/JS/collapsemenu.js</file>
+    <file>/Includes/JS/CalendarControl.js</file>
+    <file>/Includes/JS/bootstrap.min.js</file>
+    <file>/Includes/JS/app.min.js</file>
+    <file>/Includes/JS/app.js</file>
+    <file>/Includes/JS/_scriptaculous.js</file>
+    <file>/Includes/JS/_prototype.js</file>
+    <file>/Includes/JS/_lightbox.js</file>
+  </files>
+</bundle>

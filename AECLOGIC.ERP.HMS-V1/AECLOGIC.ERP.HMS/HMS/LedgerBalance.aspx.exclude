@@ -1,0 +1,134 @@
+<%@ Page Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true"
+    CodeBehind="LedgerBalance.aspx.cs" Inherits="LedgerBalances" Title="Untitled Page" %>
+<%@ Register Namespace="AjaxControlToolkit" TagPrefix="ajax" Assembly="AjaxControlToolkit" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Src="Controls/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
+    <asp:UpdatePanel ID="UP1" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <table id="LB1" runat="server" cellpadding="2" cellspacing="2" width="100%">
+                <tr>
+                    <td colspan="4">
+                        <AEC:Topmenu ID="topmenu" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Primary:<asp:RadioButton ID="rbPrimary" runat="server" Checked="true" OnCheckedChanged="rbPrimary_CheckedChanged"
+                            AutoPostBack="true" />
+                             Secondary:
+                        <asp:RadioButton ID="rbSecondary" runat="server" AutoPostBack="true" OnCheckedChanged="rbSecondary_CheckedChanged" />
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td style="width: 124px;" valign="top">
+                        <asp:ListBox ID="lstLB" runat="server" AutoPostBack="true" CssClass="Groups" OnSelectedIndexChanged="lstLB_SelectedIndexChanged">
+                        </asp:ListBox>
+                    </td>
+                    <td valign="top">
+                        <%--<div id="dvLedgerBalances" runat="server" visible="false" style="width: 100%">--%>
+                        <table width="100%">
+                            <tr>
+                                <td style="width: 100%">
+                                    <ajaxToolkit:Accordion runat="server" Width="100%" ID="Accordion1" SelectedIndex="-1" AutoSize="None"
+                                        FadeTransitions="false" TransitionDuration="50" FramesPerSecond="40" HeaderCssClass="accordionHeader"
+                                        HeaderSelectedCssClass="accordionHeaderSelected" ContentCssClass="accordionContent"
+                                        RequireOpenedPane="false" SuppressHeaderPostbacks="true">
+                                        <Panes>
+                                            <ajaxToolkit:AccordionPane runat="server" ID="AccordionPane1">
+                                                <Header>
+                                                    Click Here To Search
+                                                </Header>
+                                                <content>
+                                                    <table id="tb1" cellpadding="1" cellspacing="1" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                Ledger Name:
+                                                                <asp:TextBox ID="txtLedgerName" runat="server"></asp:TextBox>
+                                                                <asp:Button ID="btnsearch" runat="server" CssClass="savebutton" Text="Search" OnClick="btnsearch_Click" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </content>
+                                            </ajaxToolkit:AccordionPane>
+                                        </Panes>
+                                    </ajaxToolkit:Accordion>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="UpdateProgressCSS">
+                                        <asp:UpdateProgress ID="updateProgress" runat="server" DisplayAfter="1">
+                                            <ProgressTemplate>
+                                                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Loading.gif" ImageAlign="AbsMiddle" />
+                                                please wait...
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <asp:GridView ID="GvLedgerBalances" runat="server" AutoGenerateColumns="false" AlternatingRowStyle-BackColor="GhostWhite"
+                                        HeaderStyle-CssClass="tableHead" ShowFooter="true" Width="100%" OnRowCommand="GvLedgerBalances_RowCommand"
+                                        OnRowDataBound="GvLedgerBalances_RowDataBound" EmptyDataText="No Ledger found under the selected group.">
+                                        <Columns>
+                                            <asp:HyperLinkField ItemStyle-CssClass="Ledgers" HeaderText="Ledger (Head of Account)"
+                                                DataTextField="Ledger" DataNavigateUrlFields="LedgerId" DataNavigateUrlFormatString="LedgerBalancesdetails.aspx?LedgerId={0}"
+                                                Target="_blank" />
+                                            <asp:TemplateField HeaderText="Debit">
+                                                <ItemStyle Width="150" HorizontalAlign="Right" />
+                                                <HeaderStyle Width="150" HorizontalAlign="Right" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblLedgerName" runat="server" Text='<%# NUM.NumberFormatting(Convert.ToDouble(Eval("DEBIT").ToString()))%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <FooterStyle HorizontalAlign="Right" />
+                                                <FooterTemplate>
+                                                    <b>
+                                                        <%=TotalDebits%></b>
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Credit">
+                                                <ItemStyle Width="150" HorizontalAlign="Right" />
+                                                <HeaderStyle Width="150" HorizontalAlign="Right" />
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblLedgerName" runat="server" Text='<%# NUM.NumberFormatting(Convert.ToDouble(Eval("CREDIT").ToString()))%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <FooterStyle HorizontalAlign="Right" />
+                                                <FooterTemplate>
+                                                    <b>
+                                                        <%=TotalCredits%></b>
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    Balances
+                                                </HeaderTemplate>
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <ItemTemplate>
+                                                    <asp:HyperLink ID="lnkBalances" runat="server" CssClass="LnkStyle" Text='<%#Eval("balance") %>'
+                                                        Target="_blank" NavigateUrl='<%#String.Format("LedgerBalancesdetails.aspx?LedgerId={0}",Eval("LedgerId").ToString()) %>'></asp:HyperLink>
+                                                </ItemTemplate>
+                                                <FooterStyle HorizontalAlign="Right" />
+                                                <FooterTemplate>
+                                                    <b>
+                                                        <%=TotalBalance%></b>
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                    <uc1:Paging ID="pgledger" runat="server" />
+                                </td>
+                            </tr>
+                        </table>
+                        <%--</div>--%>
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Content>

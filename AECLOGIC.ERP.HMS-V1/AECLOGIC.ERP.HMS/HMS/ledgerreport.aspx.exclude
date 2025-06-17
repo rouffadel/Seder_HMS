@@ -1,0 +1,229 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true" CodeBehind="ledgerreport.aspx.cs" Inherits="ledgerreport" %>
+<%@ Register Namespace="AjaxControlToolkit" TagPrefix="Ajax" Assembly="AjaxControlToolkit" %>
+<%@ Register Src="Controls/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" Runat="Server">
+  <script language="javascript" type="text/javascript">
+
+        function validateget() {
+
+            if (document.getElementById('<%=Ddlledgers.ClientID %>').selectedIndex == 0) {
+                alert("Select Ledger"); return false;
+            }
+
+            if (document.getElementById('<%=txtFrom.ClientID%>').value != "") {
+                if (!chkDate('<%=txtFrom.ClientID %>', 'From Date', 'false', ''))
+                    return false;
+            }
+
+            if (document.getElementById('<%=txtTo.ClientID%>').value != "") {
+                if (!chkDate('<%=txtTo.ClientID %>', 'To Date', 'false', ''))
+                    return false;
+            }
+            //            datechk(document.getElementById('<%=txtFrom.ClientID%>').value, isPastDate);
+            //            datechk(document.getElementById('<%=txtTo.ClientID%>').value, isPastDate);
+        }
+
+
+
+
+        function FilterLedgers(Fiter, ddlledgers) {
+            var sFiter = getObj(Fiter).value;
+            var sddlledgers = getObj(ddlledgers);
+            var sCompanyID = getObj('<%=hdnCompanyID.ClientID %>').value;
+
+
+            var Res = ADLLedgers.FilterLedger(sCompanyID, sFiter);
+            var len = sddlledgers.options.length;
+            for (i = len - 1; i >= 0; i--) {
+                sddlledgers.options.remove(i);
+            }
+
+            var optn = document.createElement("OPTION");
+            optn.text = "--- Select ---";
+            optn.value = "0";
+            sddlledgers.options.add(optn);
+
+            len = Res.value.Tables[0].Rows.length;
+            for (i = 0; i < len; i++) {
+
+                optn = document.createElement("OPTION");
+                optn.text = Res.value.Tables[0].Rows[i].Ledger;
+                optn.value = Res.value.Tables[0].Rows[i].ledgerID;
+                sddlledgers.options.add(optn);
+
+            }
+
+
+        }
+        function CancelAsyncPostBack() {
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            if (prm.get_isInAsyncPostBack()) {
+                prm.abortPostBack();
+            }
+        }
+       
+
+    </script>
+
+    <asp:UpdatePanel ID="Up1" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:HiddenField EnableViewState="true" ID="hdnCompanyID" runat="server" />
+            <table id="T1" runat="server" cellpadding="2" cellspacing="2" width="100%">
+                   <tr>
+                    <td colspan="2" style="width: 95px">
+                        <AEC:Topmenu ID="topmenu" runat="server" />
+                    </td>
+                </tr>           
+                <tr>
+                    <td>
+                        <Ajax:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="1">
+                            <ProgressTemplate>
+                                <asp:Panel ID="Panel1" CssClass="overlay" runat="server">
+                                    <asp:Panel ID="Panel2" CssClass="loader" runat="server">
+                                        <asp:Image runat="server" ImageUrl="~/images/Loding.gif" ImageAlign="AbsMiddle" ID="imgs1"
+                                            Style="width: 32px" />
+                                        <input id="btnCacel" onclick="CancelAsyncPostBack()" type="button" value="Cancel" />
+                                        Please wait...</asp:Panel>
+                                </asp:Panel>
+                            </ProgressTemplate>
+                        </Ajax:UpdateProgress>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                       
+                        Secondary Nature
+                        <asp:DropDownList ID="ddlAssetType" runat="server" CssClass="Groups">
+                        </asp:DropDownList>
+                        Ledger Account:
+                        <asp:DropDownList ID="Ddlledgers" runat="server" CssClass="Ledgers" />
+                        <Ajax:ListSearchExtender ID="LSEDEBIT" IsSorted="true" PromptText="Type Here To Search"
+                            PromptPosition="Top" PromptCssClass="PromptText" QueryPattern="Contains" runat="server"
+                            TargetControlID="Ddlledgers" />
+                        <asp:TextBox ID="txtCreditFilter" runat="server" Width="200"></asp:TextBox>
+                        <Ajax:TextBoxWatermarkExtender ID="TW1" runat="server" TargetControlID="txtCreditFilter"
+                            WatermarkText="[Filter Ledgers]">
+                        </Ajax:TextBoxWatermarkExtender>
+                        <asp:Button ID="btnFilter" runat="server" CssClass="ButtonStyle" Height="21px" Text="Search"
+                            Width="64px" OnClick="btnFilter_Click" />
+                    </td>
+                </tr>
+                <%--<tr>
+                    <td colspan="4" style="height: 23px">
+                    <asp:RadioButtonList ID="rbDate" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rbDate_SelectedIndexChanged" RepeatDirection="Horizontal" RepeatLayout="Flow"></asp:RadioButtonList>
+                    </td>
+                </tr>--%>
+                <tr>
+                    <td align="left" width="100%">
+                        <asp:RadioButtonList ID="rbTransPeriod" runat="server" RepeatDirection="Horizontal"
+                            OnSelectedIndexChanged="rbTransPeriod_SelectedIndexChanged" AutoPostBack="True">
+                            <asp:ListItem Value="1">Today</asp:ListItem>
+                            <asp:ListItem Value="7">Week</asp:ListItem>
+                            <asp:ListItem Value="15">Fortnight</asp:ListItem>
+                            <asp:ListItem Value="30">Month</asp:ListItem>
+                            <asp:ListItem Value="90">Quarterly</asp:ListItem>
+                            <asp:ListItem Value="180">Half Yearly</asp:ListItem>
+                            <asp:ListItem Value="365">Yearly</asp:ListItem>
+                            <asp:ListItem Value="0">Custom</asp:ListItem>
+                        </asp:RadioButtonList>
+                        WorkSite
+                        <asp:DropDownList ID="ddlCostCenter" runat="server" CssClass="Ledgers" >
+                        </asp:DropDownList>
+                        Date From
+                        <asp:TextBox ID="txtFrom" runat="server" CssClass="TextBoxStyle" TabIndex="10" Width="79px"></asp:TextBox>
+                        <Ajax:CalendarExtender ID="C1" runat="server" Format="dd/MM/yyyy" OnClientDateSelectionChanged="function hideCalendar(cb) { cb.hide(); }"
+                            PopupButtonID="txtFrom" TargetControlID="txtFrom" />
+                        &nbsp;&nbsp;&nbsp;To
+                        <asp:TextBox ID="txtTo" runat="server" CssClass="TextBoxStyle" TabIndex="10" Width="73px"></asp:TextBox>
+                        <Ajax:CalendarExtender ID="C2" runat="server" Format="dd/MM/yyyy" OnClientDateSelectionChanged="function hideCalendar(cb) { cb.hide(); }"
+                            PopupButtonID="txtTo" TargetControlID="txtTo" />
+                       
+                        <asp:Button ID="BtnGet" runat="server" CssClass="ButtonStyle" OnClick="BtnGet_Click"
+                            OnClientClick="javascript:return validateget();" Text="Get Details" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" width="100%">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ledger (Head of Account) :
+                        <asp:Label ID="lblLedgerName" runat="server" Font-Bold="true" CssClass="Ledgers" />
+                    </td>
+                </tr>
+                <tr runat="server" id="trOpeningBalance" visible="false">
+                    <td>
+                        <b>Opening Balance</b> :
+                        <asp:Label ID="lblOpeningBalance" runat="server" Font-Bold="true" CssClass="BlueText" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <asp:GridView ID="GV" runat="server" ShowFooter="true" AutoGenerateColumns="false"
+                            Width="100%" HeaderStyle-CssClass="tableHead" OnRowCommand="GV_RowCommand" EmptyDataText="No Records Found!"
+                            EmptyDataRowStyle-CssClass="EmptyRowData">
+                            <Columns>
+                                <asp:BoundField DataField="vocdate" HeaderText="Date" ItemStyle-HorizontalAlign="Left"
+                                    HeaderStyle-HorizontalAlign="Left" ItemStyle-Width="70" HeaderStyle-Width="70"
+                                    ControlStyle-Width="70" />
+                                <asp:BoundField HeaderText="Particulars" ItemStyle-HorizontalAlign="Left" HeaderStyle-HorizontalAlign="Left"
+                                    DataField="REMARKS" />
+                                <asp:BoundField DataField="vouchername" HeaderText="Vch Type" ItemStyle-HorizontalAlign="Left"
+                                    HeaderStyle-HorizontalAlign="Left" ItemStyle-Width="70" HeaderStyle-Width="70"
+                                    ControlStyle-Width="70" />
+                                <asp:BoundField DataField="slno" HeaderText="Vch No." ItemStyle-HorizontalAlign="Right"
+                                    HeaderStyle-HorizontalAlign="Right" ItemStyle-Width="50" HeaderStyle-Width="50"
+                                    ControlStyle-Width="50" />
+                                <asp:TemplateField HeaderText="Debit">
+                                    <ItemStyle HorizontalAlign="Right" />
+                                    <FooterStyle HorizontalAlign="Right" />
+                                    <HeaderStyle HorizontalAlign="Right" />
+                                    <ItemTemplate>
+                                        <%# GetAmtDr(decimal.Parse(Eval("DEBIT").ToString())).ToString()%>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        <b>
+                                            <%# GetTotalDr().ToString()%></b>
+                                    </FooterTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Credit">
+                                    <ItemStyle HorizontalAlign="Right" />
+                                    <FooterStyle HorizontalAlign="Right" />
+                                    <HeaderStyle HorizontalAlign="Right" />
+                                    <ItemTemplate>
+                                        <%# GetAmtCr(decimal.Parse(Eval("CREDIT").ToString())).ToString()%>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        <b>
+                                            <%# GetTotalCr().ToString()%></b>
+                                    </FooterTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField Visible="false">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <asp:LinkButton CommandName="View" Text="View" runat="server" ID="lnkView" CssClass="LnkStyle"
+                                            CommandArgument='<%# DataBinder.Eval(Container.DataItem,"transid")%>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Closing Balance</b> :
+                        <asp:Label ID="lblClosingBalance" runat="server" Font-Bold="true" CssClass="BlueText" />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <uc1:Paging ID="pgLedgerReport" runat="server" />
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Content>
+

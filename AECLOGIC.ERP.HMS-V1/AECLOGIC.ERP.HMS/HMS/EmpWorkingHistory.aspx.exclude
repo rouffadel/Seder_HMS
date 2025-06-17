@@ -1,0 +1,108 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true"
+    CodeBehind="EmpWorkingHistory.aspx.cs" Inherits="EmpWorkingHistory" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<%@ Register Src="Controls/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
+    <table width="100%">
+        <tr>
+            <td>
+                <AEC:Topmenu ID="topmenu" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <cc1:Accordion ID="EmpWorkDetailsAccordion" runat="server" HeaderCssClass="accordionHeader"
+                    HeaderSelectedCssClass="accordionHeaderSelected" ContentCssClass="accordionContent"
+                    AutoSize="None" FadeTransitions="false" TransitionDuration="50" FramesPerSecond="40"
+                    RequireOpenedPane="false" SuppressHeaderPostbacks="true">
+                    <Panes>
+                        <cc1:AccordionPane ID="EmpWorkDetails" runat="server" HeaderCssClass="accordionHeader"
+                            ContentCssClass="accordionContent">
+                            <Header>
+                                Search Criteria
+                            </Header>
+                            <Content>
+                                <table cellpadding="0" cellspacing="0" style="width: 100%">
+                                    <tr>
+                                        <td colspan="2">
+                                            <asp:Label ID="lblWS" runat="server" Text="Worksite"></asp:Label>:
+                                            <asp:DropDownList ID="ddlworksites" runat="server" CssClass="droplist" AccessKey="w"
+                                                ToolTip="[Alt+w+Enter]">
+                                            </asp:DropDownList>
+                                            &nbsp;&nbsp;
+                                            <asp:Label ID="lblDept" runat="server" Text="Department"></asp:Label>:
+                                            <asp:DropDownList ID="ddldepartments" runat="server" CssClass="droplist" TabIndex="2">
+                                            </asp:DropDownList>
+                                            &nbsp;&nbsp;
+                                            <asp:Label ID="lblEmpID" runat="server" Text="EmpID"></asp:Label>:
+                                            <asp:TextBox ID="txtEmpID" runat="server"></asp:TextBox>
+                                            <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" TargetControlID="txtEmpID"
+                                                WatermarkCssClass="Watermarktxtbox" WatermarkText="[Filter EmpID]">
+                                            </cc1:TextBoxWatermarkExtender>
+                                            &nbsp;&nbsp;
+                                            <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>:
+                                            <asp:TextBox ID="txtusername" runat="server"></asp:TextBox>
+                                            <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender22" runat="server" TargetControlID="txtusername"
+                                                WatermarkCssClass="Watermarktxtbox" WatermarkText="[Filter Name]">
+                                            </cc1:TextBoxWatermarkExtender>
+                                            &nbsp;&nbsp;
+                                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="savebutton" Width="80px"
+                                                AccessKey="i" ToolTip="[Alt+i OR Alt+i+Enter]" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </Content>
+                        </cc1:AccordionPane>
+                    </Panes>
+                </cc1:Accordion>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:GridView ID="grdEmpWrkDetails" runat="server" AutoGenerateColumns="False" AlternatingRowStyle-BackColor="GhostWhite"
+                    CssClass="gridview" EmptyDataText="No Records Found" Width="100%">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Employee" HeaderStyle-HorizontalAlign="Left" SortExpression="Name">
+                            <ItemTemplate>
+                                <asp:Label ID="lblEmpName" runat="server" Text='<%#Eval("name") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Design" HeaderText="Designation" HeaderStyle-HorizontalAlign="Left">
+                            <HeaderStyle HorizontalAlign="Left" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Category" HeaderText="Trades" HeaderStyle-HorizontalAlign="Left">
+                            <HeaderStyle HorizontalAlign="Left" />
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Worksite" HeaderStyle-HorizontalAlign="Left">
+                            <ItemTemplate>
+                                <asp:Label ID="lblWorksite" runat="server" Text='<%#Eval("name") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Department" HeaderStyle-HorizontalAlign="Left">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDepartment" runat="server" Text='<%#Eval("DepartmentName") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="DateofJoin" HeaderText="From Date" HeaderStyle-HorizontalAlign="Left" />
+                        <asp:BoundField DataField="DateofReleave" HeaderText="To Date" HeaderStyle-HorizontalAlign="Left" />
+                    </Columns>
+                    <EmptyDataRowStyle CssClass="EmptyRowData" />
+                    <HeaderStyle CssClass="tableHead" />
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 17px">
+                <uc1:Paging ID="EmpWorkingHistoryPaging" runat="server" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>

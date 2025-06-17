@@ -1,0 +1,396 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using HumanResource;
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.ApplicationBlocks.Data;
+using System.IO;
+using System.Configuration;
+using System.Collections;
+using System.Web.Security;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class HireNew : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    AttendanceDAC objAtt = new AttendanceDAC();
+    bool viewall;
+    int mid = 0;
+    string menuname;
+    string menuid;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            string id = Session["UserId"].ToString();
+        }
+        catch
+        {
+            Response.Redirect("Home.aspx");
+        }
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        Session["MId"] = mid;
+        tblHired.Visible = tblOwn.Visible = tblHotalBooking.Visible = false;
+        if (!IsPostBack)
+        {
+            ViewState["PodetID"] = 0;
+            ViewState["HBLID"]=0;
+            ViewState["VendorID"] = 0;
+            ViewState["WODate"]=string.Empty;
+            ViewState["VendorName"] = string.Empty;
+            Session["PoWo"] = 0;
+            GetWs();
+            ddlownWS.SelectedIndex = ddlHLWS.SelectedIndex = ddlType.SelectedIndex  = ddlHLHirType.SelectedIndex = ddlHLWS.SelectedIndex = 0;
+        }
+    }
+    public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            viewall = (bool)ViewState["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+    public void GetWs()
+    {
+        DataSet dstemp = new DataSet();
+        dstemp = objAtt.GetWorkSite(0, '1');
+        ddlHLWS.DataSource = dstemp.Tables[0];
+        ddlHLWS.DataTextField = "Site_Name";
+        ddlHLWS.DataValueField = "Site_ID";
+        ddlHLWS.DataBind();
+        ddlHLWS.Items.Insert(0, new ListItem("---SELECT---", "0", true));
+        ddlHLWS.SelectedItem.Value = "1";
+
+        ddlownWS.DataSource = dstemp.Tables[0];
+        ddlownWS.DataTextField = "Site_Name";
+        ddlownWS.DataValueField = "Site_ID";
+        ddlownWS.DataBind();
+        ddlownWS.Items.Insert(0, new ListItem("---SELECT---", "0", true));
+        ddlownWS.SelectedItem.Value = "1";
+    }
+    protected void txtWO_TextChanged(object sender, EventArgs e)
+    {
+        ddlType.SelectedIndex = 0;
+        lblPOAvailable.Visible = true;
+        int PONO = Convert.ToInt32(txtWO.Text);
+        int Type = Convert.ToInt32(ddlType.SelectedValue);
+        DataSet ds=new DataSet();
+      //ds = AttendanceDAC.HR_SearchWo(PONO);
+        ds = AttendanceDAC.HR_GetWODetails(PONO);
+        if (ds.Tables.Count > 1)
+        {
+            tblItemview.Visible = true;
+            gvItemview.DataSource = ds.Tables[1];
+            gvItemview.DataBind();
+        }
+        if (ds.Tables[0].Rows.Count == 0)
+        {
+            tblHired.Visible = false;
+            btnHLSave.Visible = false;
+            lblPOAvailable.ForeColor = System.Drawing.Color.Red;
+            lblPOAvailable.Text = "PO/WO is Not Available";
+            lblHPurpose.Text = lblHVName.Text = lblHVMobile.Text = lblHArmentOn.Text = txtHLVAddress.Text = "";
+            ddlHLWS.SelectedIndex = 0;
+        }
+        else
+        {
+            UploadControl1.FileUploadPath = Server.MapPath(Request.ApplicationPath + "/Lands-Buildings/" + PONO);
+            string PoWo = PONO.ToString();
+            Session["PoWo"] = PoWo;
+            btnHLSave.Visible = true;
+            lblPOAvailable.Text = "PO/WO is Available";
+            lblPOAvailable.ForeColor = System.Drawing.Color.Green;
+            tblHired.Visible = false;
+           
+        }
+
+       
+
+    }
+    protected void BtnItemsSelect_Click(object sender, EventArgs e)
+    {
+
+    }
+  
+    protected void ddlHLHirType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+          tblHired.Visible = true;
+          //int Type = Convert.ToInt32(ddlHLHirType.SelectedValue);
+          //if (Type == 1)//month
+          //{
+              //trHLMonth1.Visible = true;
+             // trHLMonth2.Visible = true;
+              //trHLDays1.Visible = false;
+              //trHLDays2.Visible = false;
+          //}
+          //else
+          //{ //Days
+          //    trHLDays1.Visible = true;
+          //    trHLDays2.Visible = true;
+          //    trHLMonth1.Visible = false;
+          //    trHLMonth2.Visible = false;
+          //}
+       
+    }
+    protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
+        int Type = Convert.ToInt32(ddlType.SelectedValue);
+        if (Type == 1) //hired land
+        {
+            if (lblPOAvailable.Text == "PO/WO is Available")
+            {
+                tblHired.Visible = true;
+            }
+            else
+            {
+                tblHired.Visible = false;
+            }
+
+                      
+            tblOwn.Visible = false;
+            tblHotalBooking.Visible = false;
+        }
+        if (Type == 2)//hired Building
+        {
+            if (lblPOAvailable.Text == "PO/WO is Available")
+            {
+                tblHired.Visible = true;
+            }
+            else
+            {
+                tblHired.Visible = false;
+            }
+            tblOwn.Visible = false;
+            tblHotalBooking.Visible = false;
+        }
+        if (Type == 3)//own Land
+        {
+            tblOwn.Visible = true;
+            tblHotalBooking.Visible = false;
+            tblHired.Visible = false;
+        } 
+        if (Type == 4)//own Building
+        {
+            tblOwn.Visible = true;
+            tblHotalBooking.Visible = false;
+            tblHired.Visible = false;
+        } 
+        if (Type == 5)//Hotal Room
+        {
+            tblHired.Visible = false;
+            tblOwn.Visible = false;
+            tblHotalBooking.Visible = true;
+        }
+        GetWs();
+        DataSet ds = new DataSet();
+        int PONO = Convert.ToInt32(txtWO.Text);
+        ds = AttendanceDAC.HR_GetWODetails(PONO);
+        if (Type == 1 || Type == 2)
+        {
+            if (lblPOAvailable.Text == "PO/WO is Available")
+            {
+                tblHired.Visible = true;
+            }
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                lblHPurpose.Text = ds.Tables[0].Rows[0]["PONAME"].ToString();
+                lblHVName.Text = ds.Tables[0].Rows[0]["vendor_name"].ToString();
+                ViewState["VendorName"] = lblHVName.Text;
+                lblHVMobile.Text = ds.Tables[0].Rows[0]["mobile"].ToString();
+                lblHArmentOn.Text = ds.Tables[0].Rows[0]["PODate"].ToString();
+                ViewState["WODate"] = lblHArmentOn.Text;
+                txtHLVAddress.Text = ds.Tables[0].Rows[0]["vendor_address"].ToString();
+                ddlHLWS.SelectedIndex = Convert.ToInt32(ds.Tables[0].Rows[0]["Site_ID"].ToString());//Convert.ToInt32().ToString();
+                ViewState["VendorID"] = Convert.ToInt32(ds.Tables[0].Rows[0]["vendor_id"].ToString());
+                lblHAmount.Text = Convert.ToInt32(ds.Tables[0].Rows[0]["AMOUNT"]).ToString();
+                ddlHLHirType.SelectedValue = ds.Tables[0].Rows[0]["Typeid"].ToString();
+                trHLMonth2.Visible = true; //ddlHLHirType.SelectedIndex = 1;
+                ViewState["PodetID"] = ds.Tables[0].Rows[0]["PodetID"].ToString();
+                txtHLFromDay.Text = lblHArmentOn.Text;
+                DataSet ds1 = new DataSet();
+                ds1 = AttendanceDAC.HR_GetItemAddress(PONO);
+                if (ds1.Tables[0].Rows.Count > 0)
+                {
+                    ViewState["HBLID"] = ds1.Tables[0].Rows[0][0].ToString();
+                    txtHLLAddress.Text= ds1.Tables[0].Rows[0][1].ToString();
+                    txtHLBAOL.Text = ds1.Tables[0].Rows[0][2].ToString();
+                }
+                
+            }
+        }
+        if (Type == 3 || Type == 4)
+        {
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                tblOwn.Visible = true;
+                txtOVName.Text = ds.Tables[0].Rows[0]["vendor_name"].ToString();
+                txtOVMobile.Text = ds.Tables[0].Rows[0]["mobile"].ToString();
+                txtORgtdOn.Text = ds.Tables[0].Rows[0]["PODate"].ToString();
+                txtOLBAddresss.Text = ds.Tables[0].Rows[0]["vendor_address"].ToString();
+                ddlownWS.SelectedValue = Convert.ToInt32(ds.Tables[0].Rows[0]["Site_ID"].ToString()).ToString();
+                lblOAmt.Text = ds.Tables[0].Rows[0]["AMOUNT"].ToString();
+                ViewState["VendorID"] = Convert.ToInt32(ds.Tables[0].Rows[0]["vendor_id"].ToString());
+                ddlHLHirType.SelectedValue = ds.Tables[0].Rows[0]["Typeid"].ToString();
+                ViewState["PodetID"] = ds.Tables[0].Rows[0]["PodetID"].ToString();
+                txtHLFromDay.Text = lblHArmentOn.Text;
+            }
+        }
+        if (Type == 5)
+        {
+            tblHotalBooking.Visible = true;
+        }
+    }
+    protected void txtHLToDay_TextChanged(object sender, EventArgs e)
+    {
+        tblHired.Visible = true;
+            DateTime From = CODEUtility.ConvertToDate(txtHLFromDay.Text.Trim(), DateFormat.DayMonthYear);
+            //DateTime Until = CODEUtility.ConvertToDate(txtHLToDay.Text.Trim(), DateFormat.DayMonthYear);
+           // TimeSpan span = Until.Subtract(From);
+           // int totdays = span.Days+1;
+            //lblHLDays.Text=totdays.ToString();
+    }
+    protected void txtHLCharge_TextChanged(object sender, EventArgs e)
+    {
+        tblHired.Visible = true;
+       // double Charge = Convert.ToDouble(txtHLCharge.Text);
+        //double TotChargeAmount=Charge*Convert.ToDouble( lblHLDays.Text);
+       // lblHLAmount.Text = TotChargeAmount.ToString();
+    }
+    protected void txtRDayUntill_TextChanged(object sender, EventArgs e)
+    {
+        tblHired.Visible = true;
+        DateTime From = CODEUtility.ConvertToDate(txtRDayFrom.Text.Trim(), DateFormat.DayMonthYear);
+        DateTime Until = CODEUtility.ConvertToDate(txtRDayUntill.Text.Trim(), DateFormat.DayMonthYear);
+        TimeSpan span = Until.Subtract(From);
+        int totdays = span.Days+1;
+        lblRTotdays.Text = totdays.ToString();
+    }
+    protected void txtRRooms_TextChanged(object sender, EventArgs e)
+    {
+        double Charge = Convert.ToDouble(txtHCharge.Text);
+        double TotChargeAmount = Charge * Convert.ToDouble(lblRTotdays.Text);
+        lblTotAmount.Text = TotChargeAmount.ToString();
+    }
+    protected void lnkHUpload_Click(object sender, EventArgs e)
+    {
+        string PoWo;
+        PoWo =txtWO.Text;
+        Session["PoWo"] = PoWo;
+       // CreateFolder(PoWo);
+        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "pop", "window.open('./UploadPage/Home.aspx?id=" + PoWo + "' , '_blank')", true);
+       tblHired.Visible = true;
+    }
+    protected void lnkOUpload_Click(object sender, EventArgs e)
+    {
+        string PoWo;
+        PoWo = txtWO.Text;
+        Session["PoWo"] = PoWo;
+       // CreateFolder(PoWo);
+        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "pop", "window.open('./UploadPage/Home.aspx?id=" + PoWo + "' , '_blank')", true);
+     tblHired.Visible = true;
+    }
+    private void CreateFolder(string FolderName)
+    {
+        string PoWo =txtWO.Text;
+        if (!Directory.Exists(Server.MapPath(".\\Lands-Buildings\\" +"PoWo\\" + FolderName)))
+        {
+            DirectoryInfo oDirectoryInfo;
+            oDirectoryInfo = Directory.CreateDirectory(Server.MapPath(".\\Lands-Buildings\\" + FolderName));
+        }
+    }
+
+    protected void lnkAmtHike_Click(object sender, EventArgs e)
+    {
+        
+        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "pop", "window.open('./HireAmountHike.aspx?WOID=" + Convert.ToInt32(Session["PoWo"]) + "&Amt=" + lblHAmount.Text +"&type=" + Convert.ToInt32(ddlHLHirType.SelectedValue) + "' , '_blank')", true);
+        tblHired.Visible = true;
+    }
+    protected void btnHLSave_Click(object sender, EventArgs e)
+    {
+       
+      
+        int VendorID = Convert.ToInt32(ViewState["VendorID"]);
+        int PODetID = Convert.ToInt32(ViewState["PodetID"]);
+        string VendorName = ViewState["VendorName"].ToString();
+        Label lbl = new Label(); lbl.Text = ViewState["WODate"].ToString();
+        DateTime WoDate = CODEUtility.ConvertToDate(lbl.Text.Trim(), DateFormat.DayMonthYear);
+        int WONo = Convert.ToInt32(txtWO.Text);
+       int Item = Convert.ToInt32(ddlType.SelectedValue);
+       DateTime AgremtOn = CODEUtility.ConvertToDate(lblHArmentOn.Text.Trim(), DateFormat.DayMonthYear);
+       string Pupose=lblHPurpose.Text;
+       string VName=lblHVName.Text;
+       string VMobile=lblHVMobile.Text;
+       string VAddress=txtHLVAddress.Text;
+       int HireType=Convert.ToInt32(ddlHLHirType.SelectedValue);
+       int HBLID = Convert.ToInt32(ViewState["HBLID"]);
+        //DataSet ds=new DataSet();
+        //ds = AttendanceDAC.HR_GetItemAddress(WONo);
+        //if (ds.Tables[0].Rows.Count > 0)
+        //{
+        //    ViewState["HBLID"] = ds.Tables[0].Rows[0][0].ToString();
+        //}
+       DateTime? HireFrom=null;
+      // DateTime? DeHireOn=null;
+      // bool IsDehireUnFixed = false;
+       double MonthlyRent=0;
+      // double ChargePerDay=0;
+        if (HireType == 1)//Monthly
+       {
+           //IsDehireUnFixed = Convert.ToBoolean(ChkHLFixed.Checked);
+           //HireFrom = CODEUtility.ConvertToDate(txtHLHirefrom.Text.Trim(), DateFormat.DayMonthYear);
+           //if (IsDehireUnFixed == true)
+           //{
+           //    DeHireOn = null;
+           //}
+           //else
+           //{
+           //   // DeHireOn = CODEUtility.ConvertToDate(txtHLUnHireDate.Text.Trim(), DateFormat.DayMonthYear);
+           //}
+           MonthlyRent = Convert.ToDouble(lblHAmount.Text.ToString()); 
+       }
+        else
+       {
+           HireFrom = CODEUtility.ConvertToDate(txtHLFromDay.Text.Trim(), DateFormat.DayMonthYear);
+          // DeHireOn = CODEUtility.ConvertToDate(txtHLToDay.Text.Trim(), DateFormat.DayMonthYear);
+          // int TotDays = Convert.ToInt32(lblHLDays.Text);
+           //ChargePerDay = Convert.ToDouble(txtHLCharge.Text);
+           //double DayAmountTotal = Convert.ToDouble(lblHLAmount.Text);
+       }
+       string ItemAddress = txtHLLAddress.Text;
+       string ItemSpecification = txtHLBAOL.Text;
+       int ForWS=Convert.ToInt32(ddlHLWS.SelectedValue);
+       int SubmittedBy = Convert.ToInt32(Session["UserId"]);
+       int ForWorkSite = Convert.ToInt32(ddlHLWS.SelectedValue);
+       //  public static void HR_InsUpHiredLandBuildings(int HBLID,int PODetID, int WONo, DateTime WoDate, int VendorID, string VendorName, int Item, int HireType, DateTime? HireFrom,double MonthlyRent, string ItemAddress, string ItemSpecification, int SubmittedBy, int ForWorkSite)
+
+       AttendanceDAC.HR_InsUpHiredLandBuildings(HBLID, Convert.ToInt32(ViewState["PodetID"]), WONo, WoDate, VendorID, VendorName, Item, HireType, HireFrom,MonthlyRent,ItemAddress,ItemSpecification,SubmittedBy,ForWorkSite);
+       AlertMsg.MsgBox(Page, "Done!");
+
+    }
+}

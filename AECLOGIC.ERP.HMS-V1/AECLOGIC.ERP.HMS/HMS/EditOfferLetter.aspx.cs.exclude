@@ -1,0 +1,167 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using HumanResource;
+public partial class EditOfferLetter : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+   
+     int mid = 0;
+    bool viewall;
+    string menuname;
+    string menuid; 
+    
+    string sDesignation = "Site Manager";
+    double Salary = 12000;
+
+    private string siteurl = System.Configuration.ConfigurationManager.AppSettings["SiteUrl"].ToString();
+
+    string RegEmailID = System.Configuration.ConfigurationManager.AppSettings["RegEmailID"].ToString();
+    string SMTPServer = System.Configuration.ConfigurationManager.AppSettings["SMTPServer"].ToString();
+
+
+    AttendanceDAC objApp = new AttendanceDAC();
+    HRCommon objHrCommon = new HRCommon();
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            string id =  Convert.ToInt32(Session["UserId"]).ToString();
+        }
+        catch
+        {
+            Response.Redirect("Home.aspx");
+        }
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+       topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        if (!IsPostBack)
+        {
+          
+            DataSet ds;
+            txtAppDate.Text = DateTime.Now.ToString(ConfigurationManager.AppSettings["DateFormat"]);
+            if (Request.QueryString.Count > 0)
+            {
+                ds = new DataSet();
+                ds = objApp.GetWorkSite(0,'1');
+                ddlProject.DataSource = ds.Tables[0];
+                ddlProject.DataTextField = "Site_Name";
+                ddlProject.DataValueField = "Site_ID";
+                ddlProject.DataBind();
+                ds = objApp.GetAppOfferDetails(Convert.ToInt32(Request.QueryString["id"]));
+                //ds = objApp.GetAppDetails(16);
+
+                if (ds != null && ds.Tables.Count != 0 && ds.Tables[0].Rows.Count != 0)
+                {
+                    lblName.Text = ds.Tables[0].Rows[0]["name"].ToString();
+                    lblAddress.Text = ds.Tables[0].Rows[0]["Address"].ToString();
+                    lblCity.Text = ds.Tables[0].Rows[0]["City"].ToString();
+                    lblState.Text = ds.Tables[0].Rows[0]["State"].ToString();
+                    lblCountry.Text = ds.Tables[0].Rows[0]["Country"].ToString(); ;
+                    lblPin.Text = " - " + ds.Tables[0].Rows[0]["pin"].ToString(); ;
+                    lblPhone.Text = ds.Tables[0].Rows[0]["Phone"].ToString();
+                    txtDesig.Text = ds.Tables[0].Rows[0]["Position"].ToString();
+                    txtSalary.Text = ds.Tables[0].Rows[0]["Salary"].ToString();
+
+                    txtDOJ.Text = DateTime.Now.GetDateTimeFormats()[3].ToString();
+
+                    //if (ds.Tables[0].Rows[0]["image"].ToString() != "")
+                    //imgPhoto.ImageUrl = "./EmpImages/" + Request.QueryString["id"] + "." + ds.Tables[0].Rows[0]["ImageType"].ToString();
+                    //imgPhoto.ImageUrl = "./EmpImages/14.jpg";
+
+                    lblDate.Text = "Date : " + DateTime.Now.GetDateTimeFormats()[10];
+
+                    //ds = objApp.GetEmpDocs(16, 1);
+
+                    string StrText = ds.Tables[0].Rows[0]["OfferLetter"].ToString().Replace("\"", "").Replace("'", "");//Replace("[designation]", ds.Tables[0].Rows[0]["Designation"].ToString()).Replace("[salary]", Convert.ToDouble(ds.Tables[0].Rows[0]["Salary"]).ToString("#,#0") + "/- CTC ( " + CODEUtility.NumberToText(Convert.ToInt32(ds.Tables[0].Rows[0]["Salary"])) + " Rupees Only)").Replace("[doj]", CODEUtility.Convertdate(ds.Tables[0].Rows[0]["ReqDOJ"].ToString()).ToString()).Replace("[company]", ConfigurationManager.AppSettings["Company"]);
+
+                    TextEditor.InnerHtml = StrText.Replace("%", "");
+                    txtRTB.Text = StrText;
+                    //TextEditor.InnerHtml = strText;
+
+                    Page.RegisterStartupScript("ll", "<script language='javascript' type='text/javascript'> LoadDiv();</script>");
+                }
+            }
+            txtAppDate.Attributes.Add("onblur", "javascript:return ChangeAppDate();");
+
+        }
+    }
+      public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+       
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            viewall = (bool)ViewState["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+
+
+            string str = txtRTB.Text.Replace("\"", "").Replace("'", "");
+            objHrCommon.AppID = Convert.ToInt32(Request.QueryString["id"]);
+            objHrCommon.Salary = Convert.ToDouble(txtSalary.Text);
+            objHrCommon.Designation = txtDesig.Text;
+            objHrCommon.ReqDate = Convert.ToDateTime(txtDOJ.Text);
+            objHrCommon.OfferLetter = str;
+            objHrCommon.UserID = Convert.ToInt32(Session["Id"]);
+            if (ddljobtype.SelectedItem.Value == "1")
+            {
+                objHrCommon.JobType = 1;
+            }
+            else
+            {
+                objHrCommon.JobType = 0;
+            }
+            objHrCommon.SiteID = Convert.ToInt32(ddlProject.SelectedValue);
+            objApp.AddApplicantOfferDetails(objHrCommon);
+
+
+
+            Response.Redirect("ViewOfferLetterList.aspx");
+            // SendMailToApplicant();
+
+
+        }
+        catch (Exception ex)
+        {
+
+            AlertMsg.MsgBox(Page, "Sorry for the inconvinience. Try again.\nError:" + ex.Message.ToString(),AlertMsg.MessageType.Error); 
+        }
+
+
+
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewOfferLetterList.aspx");
+    }
+}

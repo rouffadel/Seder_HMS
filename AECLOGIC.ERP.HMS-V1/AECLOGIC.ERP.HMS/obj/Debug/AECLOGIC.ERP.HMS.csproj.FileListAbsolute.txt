@@ -1,0 +1,554 @@
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojResolveAssemblyReference.cache
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.pdb
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojResolveAssemblyReference.cache
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojResolveAssemblyReference.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojResolveAssemblyReference.cache
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojAssemblyReference.cache
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.Common.dll
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.pdb
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.pdb
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojAssemblyReference.cache
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.Common.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojAssemblyReference.cache
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\RdlCompile.cache
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\RdlCompile.compiled
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.Common.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\RdlCompile.cache
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\RdlCompile.compiled
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CopyComplete
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.AssemblyReference.cache
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csprojResolveAssemblyReference.cache
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Aeclogic.Common.DAL.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.HMS.BLL.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Ajax.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AjaxControlToolkit.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Antlr3.Runtime.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AspNet.ScriptManager.jQuery.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashControl.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\FlashUpload.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.Common.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Owin.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Providers.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\WebGrease.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.COMMON.dll.config
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMS.dll.config
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Core.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Catel.Serialization.Json.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\System.Web.Optimization.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\EntityFramework.SqlServer.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Google.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.AssemblyReference.cache
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.2CC55B6B.Up2Date
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll.config
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.dll
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\AECLOGIC.ERP.HMSV1.pdb
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\bin\Newtonsoft.Json.dll
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.AssemblyReference.cache
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMS.csproj.CoreCompileInputs.cache
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.2CC55B6B.Up2Date
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.dll
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.ERP.HMS\obj\Debug\AECLOGIC.ERP.HMSV1.pdb

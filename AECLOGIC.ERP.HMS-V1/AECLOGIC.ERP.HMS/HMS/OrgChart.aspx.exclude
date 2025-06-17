@@ -1,0 +1,549 @@
+<%@ Page Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true" CodeBehind="OrgChart.aspx.cs"
+    Inherits="OrgChart1" Title="" %>
+ <%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
+
+<script language="javascript" type="text/javascript">
+    
+     function RightClick(event)
+      {
+            var obj = event.srcElement || event.target;
+            var seltreeNode = obj;
+            var EmpID=new String(seltreeNode.title); 
+            if(EmpID!="")
+            test(EmpID,obj);
+      }
+        
+    function showWindowDailog(url,width,height)
+    {
+        var newWindow = window.showModalDialog(url, '','dialogHeight: '+ height +'px; dialogWidth: ' + width +'px; edge: Raised; center: Yes; resizable: Yes; status: No;');
+    }
+  function test(EmpID,TVId)
+ {
+ 
+  var vEmployee = AjaxDAL.GetEmployee(EmpID);
+  
+  
+    if(vEmployee.erorr ==null)
+    {
+        //asign info
+        document.getElementById('lblID').innerText=EmpID;
+        document.getElementById('lblName').innerText=vEmployee.value.Name;
+        document.getElementById('lblMobile1').innerText=vEmployee.value.Mobile1;
+        document.getElementById('lblMobile2').innerText=vEmployee.value.Mobile2;
+        document.getElementById('ancMail').innerText=vEmployee.value.Mailid;
+        document.getElementById('ancMail').href="mailto:" +vEmployee.value.Mailid;
+        document.getElementById('ancAltMail').innerText=vEmployee.value.AltMail;
+        document.getElementById('ancAltMail').href="mailto:" +vEmployee.value.AltMail;
+        document.getElementById('lblCategory').innerText=vEmployee.value.Category;
+        lnkShowImage.style.visibility="visible";
+        document.getElementById('imgPhoto').style.visibility="hidden";
+        document.getElementById('imgPhoto').style.width="1px";
+        document.getElementById('imgPhoto').style.height="1px";
+        document.getElementById('linkAttendence').title="OrgViewAttendance.aspx?Empid=" + EmpID;
+        document.getElementById('linkResponsibilities').title="Responsibility.aspx?Empid=" + EmpID;
+        document.getElementById('linkHistory').title="History.aspx?Empid=" + EmpID;             
+        //document.getElementById('lblHdnImg').value= vEmployee.value.Image;
+        document.getElementById('lblHdnImg').value= "./EmpImages/"+ vEmployee.value.Image;
+        
+        //Table Display
+        var top = document.body.scrollTop
+            ? document.body.scrollTop
+            : (window.pageYOffset
+                ? window.pageYOffset
+                : (document.body.parentElement
+                    ? document.body.parentElement.scrollTop
+                    : 0
+                )
+            );
+    
+        if(tempY+top+420 >=(top+window.screen.availHeight)){
+                document.getElementById('tblDisplay').style.top=(tempY+ top)- ((tempY+ 440)-(window.screen.availHeight)) ;}
+                else{
+                    document.getElementById('tblDisplay').style.top=(tempY+ top);}
+          
+                document.getElementById('tblDisplay').style.left=tempX+200;
+                document.getElementById('tblDisplay').style.position="absolute";
+//                document.getElementById('tblDisplay').style.visibility="visible";     
+       ShowDisplay();
+    }
+    else
+    {
+        document.getElementById('tblDisplay').style.visibility="hidden";
+        document.getElementById('imgPhoto').style.visibility="hidden";     
+    }
+  
+
+//   var StrEmp=new String(document.getElementById('<%=hdn.ClientID%>').value);
+//   var Det;
+//   
+//   for(i=0;i<StrEmp.split('^').length;i++)
+//   {
+//     Det=new String(StrEmp.split('^')[i]);
+//    
+//     if(EmpID==Det.split('~')[0])
+//     {
+//       document.getElementById('lblID').innerText=EmpID;
+//       document.getElementById('lblName').innerText=Det.split('~')[1];
+//       document.getElementById('lblMobile1').innerText=Det.split('~')[2];
+//       document.getElementById('lblMobile2').innerText=Det.split('~')[3];
+//       document.getElementById('ancMail').innerText=Det.split('~')[4];
+//       document.getElementById('ancMail').href="mailto:" +Det.split('~')[4];
+//       document.getElementById('ancAltMail').innerText=Det.split('~')[6];
+//       document.getElementById('ancAltMail').href="mailto:" +Det.split('~')[6];
+//       document.getElementById('lblCategory').innerText=Det.split('~')[7];
+//        lnkShowImage.style.visibility="visible";
+//        document.getElementById('imgPhoto').style.visibility="hidden";
+//        document.getElementById('imgPhoto').style.width="1px";
+//        document.getElementById('imgPhoto').style.height="1px";
+//       document.getElementById('linkAttendence').title="OrgViewAttendance.aspx?Empid=" + EmpID;
+//       document.getElementById('linkResponsibilities').title="Responsibility.aspx?Empid=" + EmpID;
+//       document.getElementById('linkHistory').title="History.aspx?Empid=" + EmpID;
+//       
+//       if(Det.split('~')[5]!="")
+//       document.getElementById('lblHdnImg').value="./EmpImages/"+Det.split('~')[5];
+//       else
+//       document.getElementById('lblHdnImg').value="./EmpImages/0.jpg";
+//       //document.getElementById('imgPhoto').src="../HMS/EmpImages/0.jpg";
+//       var top = document.body.scrollTop
+//    ? document.body.scrollTop
+//    : (window.pageYOffset
+//        ? window.pageYOffset
+//        : (document.body.parentElement
+//            ? document.body.parentElement.scrollTop
+//            : 0
+//        )
+//    );
+//    
+//     if(tempY+top+420 >=(top+window.screen.availHeight)){
+//        document.getElementById('tblDisplay').style.top=(tempY+ top)- ((tempY+ 440)-(window.screen.availHeight)) ;}
+//      else{
+//          document.getElementById('tblDisplay').style.top=(tempY+ top);}
+//          
+//      document.getElementById('tblDisplay').style.left=tempX+200;
+//      document.getElementById('tblDisplay').style.position="absolute";
+//      document.getElementById('tblDisplay').style.visibility="visible";     
+//       
+//       
+//       break;
+//     }
+//    else
+//    {
+//        document.getElementById('tblDisplay').style.visibility="hidden";
+//        document.getElementById('imgPhoto').style.visibility="hidden";     
+//    }
+  // } 
+   return false;
+ }
+<!--
+
+// Detect if the browser is IE or not.
+// If it is not IE, we assume that the browser is NS.
+var IE = document.all?true:false
+
+// If NS -- that is, !IE -- then set up for mouse capture
+if (!IE) document.captureEvents(Event.MOUSEMOVE)
+
+// Set-up to use getMouseXY function onMouseMove
+        document.onmousemove = getMouseXY;
+
+// Temporary variables to hold mouse x-y pos.s
+var tempX = 0
+var tempY = 0
+
+// Main function to retrieve mouse x-y pos.s
+
+function getMouseXY(e) {
+  if (IE) { // grab the x-y pos.s if browser is IE
+    tempX = event.clientX + document.body.scrollLeft
+    tempY = event.clientY + document.body.scrollTop
+  } else {  // grab the x-y pos.s if browser is NS
+    tempX = e.pageX
+    tempY = e.pageY
+  }  
+  // catch possible negative values in NS4
+  if (tempX < 0){tempX = 0}
+  if (tempY < 0){tempY = 0}  
+  // show the position values in the form named Show
+  // in the text fields named MouseX and MouseY
+ 
+  return true
+}
+function HideDisplay()
+{
+    document.getElementById('imgPhoto').style.visibility="hidden";
+ document.getElementById('tblDisplay').style.visibility="hidden";
+
+}
+function ShowDisplay()
+{
+   if(document.getElementById('chkDetails').checked)
+    { 
+  document.getElementById('tblDisplay').style.visibility="visible";
+ }
+ else{
+ document.getElementById('tblDisplay').style.visibility="hidden";
+ }
+
+}
+function ReLoadOrg()
+{
+    if(document.getElementById('chkimage').checked)
+    {
+       // alert(window.location);
+        window.location.href="./OrgChart.aspx?id=1";
+    }
+    else{
+        window.location.href="./OrgChart.aspx?id=0";
+    
+    }
+}
+function chkChange(flg)
+{
+    document.getElementById('chkimage').checked=flg;   
+}
+function Preload() {
+
+    HideDisplay();
+    var args = Preload.arguments; 
+    document.imageArray = new Array(args.length);
+    for(var i=0; i<args.length; i++) {
+        document.imageArray[i] = new Image;
+        document.imageArray[i].src = args[i];
+    }
+}
+  
+   function changeStyle(TvID)
+   {
+   
+     var Tags= document.getElementById(TvID).getElementsByTagName("A");
+     for(var i=0;i<Tags.length;i++)
+     {
+        var ObjEle=Tags[i];
+        var str=new String(ObjEle.href);
+        
+        
+//        if(ObjEle.href.substring(ObjEle.href.lastIndexOf('\\\\')+2,ObjEle.href.length-2)=="0")
+        if(str.split('\\\\').length==3)
+        {
+            ObjEle.style.fontWeight="bold";     
+            ObjEle.style.textDecoration="none";
+            ObjEle.style.color="#339";
+            ObjEle.href="#";     
+            ObjEle.style.textDecoration="none";
+            ObjEle.style.cursor="none";
+        }
+        if(str.split('\\\\').length==2)
+        {
+            ObjEle.style.fontWeight="bold";     
+            ObjEle.style.textDecoration="none";
+            ObjEle.style.color="#cc4a01";
+            //ObjEle.href="#";     
+            ObjEle.style.textDecoration="none";
+            //ObjEle.style.cursor="none";
+        }
+     }
+   }
+//--> 
+function  ShowImg()
+{
+    lnkShowImage.style.visibility="hidden";
+    document.getElementById('imgPhoto').src=document.getElementById('lblHdnImg').value;
+    document.getElementById('imgPhoto').style.visibility="visible";
+    document.getElementById('imgPhoto').style.width="128px";
+    document.getElementById('imgPhoto').style.height="160px";
+}
+    </script>
+
+    <div style="height: auto;">
+        <table width="100%">
+ <tr><td colspan="4"> <AEC:Topmenu ID="topmenu" runat="server" /></td></tr>
+            <tr>
+                <td colspan="2">
+                    &nbsp;<input type="checkbox" id="chkimage" onclick="javascript:ReLoadOrg();" name="With Images" />With
+                    Images&nbsp;<input type="checkbox"  id="chkDetails" onclick="javascript:ShowDisplay();" name="With Details" />With Details
+                   
+                    <br />
+                </td>
+            </tr>
+            <tr style="height: auto">
+                <td width="30%" valign="top" style="height: auto">
+                    <asp:TreeView ID="tvDirectors" ExpandDepth="1" runat="server" ImageSet="Simple" Font-Size="Large"
+                        LineImagesFolder="~/TreeLineImages" ShowLines="True" NodeIndent="40" 
+                        EnableTheming="True" >
+                        <ParentNodeStyle Font-Bold="False" />
+                        <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px"
+                            VerticalPadding="0px" />
+                        <NodeStyle Font-Names="Verdana" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
+                            NodeSpacing="0px" VerticalPadding="0px" Font-Bold="False" />
+                        <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                    </asp:TreeView>
+                </td>
+                <td style="vertical-align: top; height: auto">
+                </td>
+            </tr>
+            <tr style="height: auto">
+                <td width="30%" valign="top" style="height: auto">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                       
+                            <asp:TreeView ID="tvProjects" ExpandDepth="1" runat="server" ImageSet="Simple" OnTreeNodePopulate="tvProjects_TreeNodePopulate"
+                                OnSelectedNodeChanged="tvProjects_SelectedNodeChanged" Font-Size="Large" LineImagesFolder="~/TreeLineImages"
+                                ShowLines="True" NodeIndent="40" EnableTheming="True">
+                                <ParentNodeStyle Font-Bold="False" />
+                                <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px"
+                                    VerticalPadding="0px" />
+                                <NodeStyle Font-Names="Verdana" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
+                                    NodeSpacing="0px" VerticalPadding="0px" Font-Bold="False" />
+                                <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                            </asp:TreeView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                   <div class="UpdateProgressCSS">
+                <ajax:UpdateProgress ID="updateProgress" AssociatedUpdatePanelID="UpdatePanel1" runat="server" DisplayAfter="1">
+                    <ProgressTemplate>
+                        <asp:Panel ID="pnlFirst" CssClass="overlay" runat="server">
+                            <asp:Panel ID="pnlSecond" CssClass="loader" runat="server">
+                                <img src="Images/Loading.gif"   alt="update is in progress" />
+                                <input id="btnCacel" onclick="CancelAsyncPostBack()" type="button" value="Cancel" /></asp:Panel>
+                        </asp:Panel>
+                    </ProgressTemplate>
+                </ajax:UpdateProgress>
+                
+            </div>
+                </td>
+                <td style="vertical-align: top; height: auto">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="pageheader">
+                    Legend
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td class="pageheader">
+                    Attendance
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                Directors
+                            </td>
+                            <td>
+                                Management
+                            </td>
+                            <td>
+                                Manager
+                            </td>
+                            <td>
+                                Department
+                            </td>
+                            <td>
+                                Head
+                            </td>
+                            <td>
+                                General
+                            </td>
+                            <td>
+                                OD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tvOrgBOD_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvOrgDirectors_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvOrgPrjMan_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvOrgDept_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvOrgDeptHead_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvOrgNode_TD">
+                                &nbsp;
+                            </td>
+                            <td class="tvODNode_TD">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <table border="1px" cellpadding="2" cellspacing="2">
+                        <tr>
+                            <td style="width: 100px;">
+                                <b>Present(s)</b>
+                            </td>
+                            <td style="width: 50px;">
+                                <asp:Label ID="lblpresent" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Absent(s)</b>
+                            </td>
+                            <td style="width: 50px;">
+                                <asp:Label ID="lblabsent" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Total</b>
+                            </td>
+                            <td style="width: 50px;">
+                                <asp:Label ID="lbltot" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="Footnote">
+                <td colspan="4">
+                    <b>Note:</b> Department wise attendance may not show correct numbers when a person
+                    belonging to one department holds additional charge(s) of other department(s). His
+                    parent department shows attendance marked and the additional charge(s) holding department(s)
+                    will not show attendance.
+                </td>
+            </tr>
+        </table>
+        <table style="border-bottom: black 1px solid; position: absolute; 
+            border-left: black 1px solid;width: 500px; border-collapse: collapse;
+            border-top: black 1px solid; top: 0px;
+            border-right: black 1px solid; left: 500px; background-color: #ffffff" id="tblDisplay" 
+            border="0" cellspacing="0" cellpadding="3">
+            <tbody>
+                <tr>
+                    <td style="background-color: #d56511; color: white" colspan="4">
+                        <strong>
+                            <label id="lblID">
+                            </label>
+                            <label id="lblName">
+                            </label>
+                        </strong>
+                    </td>
+                    <td colspan="2" onclick="javascript:return tblDisplay.style.visibility='hidden';"
+                        style="width: 20px; color: white; background-color: #d56511;">
+                        <b style="cursor: pointer">X</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:1px"  rowspan="7">
+                        <img alt="" src="Images/" id="imgPhoto" >
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px">
+                        <strong>Mobile1</strong>
+                    </td>
+                    <td style="width: 1px">
+                        <strong>:</strong>
+                    </td>
+                    <td style="width: 60%">
+                        <label id="lblMobile1">
+                        </label>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px">
+                        <strong>Mobile2</strong>
+                    </td>
+                    <td style="width: 1px">
+                        <strong>:</strong>
+                    </td>
+                    <td style="width: 60%">
+                        <label id="lblMobile2">
+                        </label>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px">
+                        <strong>Email</strong>
+                    </td>
+                    <td style="width: 1px">
+                        <strong>:</strong>
+                    </td>
+                    <td style="width: 60%">
+                        <a id="ancMail"></a>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px">
+                        <strong>Alt Email</strong>
+                    </td>
+                    <td style="width: 1px">
+                        <strong>:</strong>
+                    </td>
+                    <td style="width: 60%">
+                        <a id="ancAltMail"></a>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 80px">
+                        <strong> Category</strong></td>
+                    <td style="width: 1px">
+                         <strong>:</strong></td>
+                    <td style="width: 60%"><label id="lblCategory">
+                        </label>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <a id="linkAttendence" style="text-decoration: underline" title="Attendance" onclick="javascript:showWindowDailog(this.title,800,300);"
+                            href="#">Attendance</a> &nbsp; | &nbsp; <a id="linkResponsibilities" href="#" style="text-decoration: underline"
+                                onclick="javascript:showWindowDailog(this.title,850,410);" title="linkDuties">Responsibilities</a>
+                        &nbsp; | &nbsp; <a id="linkHistory" href="#" style="text-decoration: underline" onclick="javascript:showWindowDailog(this.title,700,380);"
+                            title="linkDuties">History</a>
+                        <%--<a id="lnkHistory" href="#" style="text-decoration:underline" onclick="javascript:showWindowDailog(this.title,500,350);" title="linkDuties">History</a>--%>
+                    </td>
+                    <td style="width: 20px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #eeeeee; color: white; height: 10px;">
+                    </td>
+                    
+                    <td colspan="3" style="background-color: #eeeeee; color: white; height: 10px">
+                       <a id="lnkShowImage" style=" cursor: pointer; text-decoration:underline;" onclick="ShowImg();" >Click here to view photo</a><input type="hidden" id="lblHdnImg" value="" />
+                    </td>
+                    <td style="background-color: #eeeeee; color: white; height: 10px">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <asp:HiddenField ID="hdn" runat="server" />
+    </div>
+</asp:Content>

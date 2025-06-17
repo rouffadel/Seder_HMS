@@ -1,0 +1,215 @@
+﻿HTML, body {margin:0px; padding:0px; 
+    font-size: 11px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+    line-height:17px;
+    color:#666;
+    } /* Use "#333" if client required darker color */
+h1{
+	margin:0;
+	padding:0;
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+h2{
+	margin:0;
+	padding:0;
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;	
+}
+table {
+    font-size: 11px;
+	font-family: verdana, Arial, Helvetica, sans-serif;
+    line-height:17px;    
+}
+.textright{
+	text-align:right;
+}
+.bold{
+	font-weight:bold;
+}
+legend{
+	font-weight:bold;
+	color:#336699;
+}
+/* Style for ANCOHOR element */
+A {color:#0066cc; text-decoration:none;} 
+A:HOVER {color:#666; text-decoration:none;}
+
+/* Style for FORM elements */
+INPUT, TEXTAREA {font:10px verdana;
+	margin-left: 3px;
+	margin-bottom: 0px;
+    }
+.form_text {font:10px verdana; text-decoration:none;}
+
+/* Style for ERROR MESSAGE */
+.errormessage {color:#900; background:#ffc; border:solid 1px #ccc; width:100%;}
+.highlight {color:#900;}
+
+/* Style for LOGIN AREA */
+#loginarea {border:solid 1px #999; padding:10px;}
+
+/* Style for ADMINISTRATIVE AREA */
+#sidenavigation {width:150px; padding:5px; margin:0px; background:#3c3c3c; vertical-align:top;}
+#maintextarea {width:100%; border-right:solid 1px #999; padding:10px; margin:0px; vertical-align:top;}
+#maintextarea1 {width:1000px; border-right:solid 1px #999; border-left:solid 1px #999; padding:50px; margin:0px; vertical-align:top;}
+
+/* Style for GRID */
+.heading {font-weight: bold; font-size:10px;}
+.gridbdr {border:solid 1px #cccccc; border-collapse:collapse;}
+.gridbdr .heading {background:#F5F5F5;}
+.txt{font-size:11px; color:#333333;}
+
+
+/* Style for GRID 1.0 */
+.PanHeader {
+	padding: 10px;
+	margin-bottom: 20px;
+	/*background-color: #ffc;*/
+}
+
+#pagetitle {
+	float: left;
+}
+
+#PageDescription {
+	margin-top: 30px;
+}
+
+#col2 {
+	float: right;
+}
+
+#col1 {
+	float: left;
+	width:auto;
+}
+.PanError {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('/images/icon_error.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #C00;
+	margin-bottom: 20px;
+}
+
+.panstyle {padding-bottom:20px; width:100%;}
+
+.PanSuccess {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('/images/icon_info.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #060;
+	margin-bottom: 20px;
+}
+.PanAtoZ {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('/images/icon_info.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.PanNoRecord {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('/images/icon_alert.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.PanSelect
+{
+    border:1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.PanAddUpdate {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.PanSearch 
+{
+    border-left:1px solid #ccc;
+    border-top:1px solid #ccc;    
+    border-right:1px solid #ccc;
+	padding: 5px;
+/*	margin-bottom: 20px;*/
+}
+
+.PanGrid {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.FormLabel {
+	width: 150px;
+	vertical-align:top;
+}
+
+.PanDetailDescription {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.special
+{
+   color:#000000;
+   font-weight:bold;
+}
+
+.breadcrumb{
+	background:#5c5c5c; 
+	height:32px;
+	line-height:32px; 
+	padding:0 15px;
+	color:#fff;			
+}
+.breadcrumb a
+{
+    color:#fff;
+}
+.breadcrumb a:hover
+{
+	color:#fff;
+    text-decoration:underline;
+}
+.bottom{
+	background:#5c5c5c; 
+	line-height:32px; 
+	padding:0 15px;
+	text-align:right;
+	color:#cccccc;					
+}
+
+.pagination{
+	border-bottom:dashed 1px #666666;
+	border-top:dashed 1px #666666;	
+	padding:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+.PanAddUpdate {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 20px;
+}

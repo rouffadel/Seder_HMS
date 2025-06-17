@@ -1,0 +1,155 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddVehicle.aspx.cs" Inherits="AddVehicle" %>
+
+<%@ OutputCache Location="None" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="Controls/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>New Vehicle</title>
+    <base target="_self" />
+
+    <script type="text/javascript" language="javascript">
+        function CloseReload() {
+            self.close();
+            parent.history.go(0);
+        }
+        
+    </script>
+
+    <link href="Includes/CSS/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="Includes/CSS/StyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
+  
+    </asp:ScriptManager>
+    <div>
+        <asp:Panel ID="pnlSpaceType" runat="server" BorderStyle="Solid" BackColor="#DCDCDC"
+            BorderColor="#DCDCDC" Width="680px">
+            <table>
+                <tr>
+                    <td>
+                        <AEC:Topmenu ID="topmenu" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="InputHeaderLabel">
+                        New Vehicle
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td valign="top">
+                        <table>
+                            <tr id="trID" visible="false" runat="server">
+                                <td>
+                                    <asp:Label ID="uxIDLabel" runat="server" Text="Current Record ID:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="uxID" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Driver Name<span style="color: #CC3300">*</span>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="ddlDriver" runat="server" Width="180" DataValueField="ID" DataTextField="Name"
+                                        AppendDataBoundItems="true" CssClass="droplist">
+                                    </asp:DropDownList>
+                                    <cc1:ListSearchExtender QueryPattern="Contains" ID="LEDestRepre" runat="server" IsSorted="true"
+                                        PromptCssClass="PromptText" PromptPosition="Top" PromptText="Type to search"
+                                        TargetControlID="ddlDriver" />
+                                    <asp:LinkButton ID="lnkNewDriver" Text="Click to Create New Driver" OnClientClick="window.showModalDialog('DriverDetails.aspx','','dialogWidth:540px; dialogHeight:440px; center:yes');"
+                                        runat="server"></asp:LinkButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Reg No. <span style="color: #CC3300">*</span> (Series - Number)
+                                </td>
+                                <td valign="middle">
+                                    <asp:TextBox ID="txtVehicleRegisterNo" Width="60" runat="server" CssClass="droplist"></asp:TextBox>
+                                    -
+                                    <asp:TextBox ID="txtVehicleNo" runat="server" CssClass="droplist" Width="60"></asp:TextBox>
+                                    &nbsp;(Ex: AP 09 BX - 9999)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Vehicle Name<span style="color: #CC3300">*</span>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtVehicleName" runat="server" Text="[Utility/3 wheeler Auto/TATA Long Body]"
+                                        Width="200" CssClass="droplist"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Vehicle Type<span style="color: #CC3300">*</span>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="ddlVehicleType" runat="server" DataValueField="ID" DataTextField="Name"
+                                        AppendDataBoundItems="true" CssClass="droplist">
+                                        <asp:ListItem Text="Select Vehicle Type" Value="0"></asp:ListItem>
+                                        <asp:ListItem Text="Other" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Camper" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="Max Pickup" Value="3"></asp:ListItem>
+                                        <asp:ListItem Text="DCM Toyota" Value="4"></asp:ListItem>
+                                        <asp:ListItem Text="Trailer" Value="5"></asp:ListItem>
+                                        <asp:ListItem Text="Two Wheeler" Value="6"></asp:ListItem>
+                                        <asp:ListItem Text="Three Wheeler" Value="7"></asp:ListItem>
+                                        <asp:ListItem Text="Four Wheeler" Value="8"></asp:ListItem>
+                                        <asp:ListItem Text="Six Tyre Truck" Value="9"></asp:ListItem>
+                                        <asp:ListItem Text="Ten Tyre Truck" Value="10"></asp:ListItem>
+                                        <asp:ListItem Text="Fourteen Tyre Truck" Value="11"></asp:ListItem>
+                                        <asp:ListItem Text="Sixteen Tyre Truck" Value="12"></asp:ListItem>
+                                        <asp:ListItem Text="Tractor" Value="13"></asp:ListItem>
+                                    </asp:DropDownList>
+                                       <cc1:ListSearchExtender QueryPattern="Contains"  ID="ListSearchExtender1" runat="server" IsSorted="true" 
+                                                        PromptCssClass="PromptText" PromptPosition="Top" PromptText="Type to search" 
+                                                        TargetControlID="ddlVehicleType" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <asp:Button ID="btnSaveVehicle" Text="Save" OnClick="btnSaveVehicle_OnClick" runat="server"
+                                        CssClass="savebutton" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <asp:GridView ID="gvVehicle" runat="server" OnRowCommand="Grid_OnRowCommand" CssClass="gridview">
+                    <Columns>
+                        <asp:TemplateField HeaderImageUrl="~/Images/edit.jpg">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkID" runat="server" Text="Edit" CommandArgument='<% #Eval("ID") %>'
+                                    CommandName="Edt"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <%--    <asp:ButtonField ButtonType="Link" Text="Edit" CommandName="Edt" HeaderImageUrl="~/Images/edit.jpg"
+                            HeaderStyle-HorizontalAlign="Center" CausesValidation="false" />--%>
+                    </Columns>
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100%">
+                <uc1:Paging ID="TasksPaging" runat="server" CurrentPage="1" NoOfPages="1" Visible="true" />
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

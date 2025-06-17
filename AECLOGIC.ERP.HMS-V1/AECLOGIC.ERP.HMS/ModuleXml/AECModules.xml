@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AECMODULES>
+  <Modules>
+  <Module Name="" Redirect="../AMS/AdminDefault.aspx" ModulePrefix="A" ModuleID="3" Title="AMS"></Module>    
+<Module Name="" Redirect="../CMS/AdminDefault.aspx" ModulePrefix="C" ModuleID="2" Title="CMS"></Module>  
+  <Module Name="" Redirect="../DMS/AdminDefault.aspx" ModulePrefix="D" ModuleID="5" Title="DMS"></Module>  
+  <Module Name="" Redirect="../EMS/AdminDefault.aspx" ModulePrefix="E" ModuleID="6" Title="EMS"></Module>  
+<Module Name="Human Resource Management System" Redirect="../HMS/AdminDefault.aspx" ModulePrefix="H" ModuleID="1" Title="HMS"></Module>  
+<Module Name="Operations Management System" Redirect="../OMS/AdminDefault.aspx" ModulePrefix="N" ModuleID="8" Title="OMS"></Module>  
+  <Module Name="Material Management System" Redirect="../MMS/AdminDefault.aspx" ModulePrefix="M" ModuleID="7" Title="MMS"></Module>  
+
+  </Modules>  
+  
+
+</AECMODULES>

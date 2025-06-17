@@ -1,0 +1,243 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using HumanResource;
+using System.Collections.Generic;
+
+
+//using CommonDoc;
+
+public partial class LedgerBalances : Common
+{
+    int mid = 0;
+    bool viewall; string menuname; string menuid; string Ledger = "";
+
+    decimal TotalCr; decimal TotalDr;
+
+    Paging_Objects PG = new Paging_Objects();
+
+    protected override void OnInit(EventArgs e)
+    {
+        pgledger.FirstClick += new Paging.PageFirst(EmpListPaging_FirstClick);
+        pgledger.PreviousClick += new Paging.PagePrevious(EmpListPaging_FirstClick);
+        pgledger.NextClick += new Paging.PageNext(EmpListPaging_FirstClick);
+        pgledger.LastClick += new Paging.PageLast(EmpListPaging_FirstClick);
+        pgledger.ChangeClick += new Paging.PageChange(EmpListPaging_FirstClick);
+        pgledger.ShowRowsClick += new Paging.ShowRowsChange(EmpListPaging_ShowRowsClick);
+        pgledger.CurrentPage = 1;
+    }
+
+    void EmpListPaging_ShowRowsClick(object sender, EventArgs e)
+    {
+        pgledger.CurrentPage = 1;
+        BindPager();
+    }
+
+    void EmpListPaging_FirstClick(object sender, EventArgs e)
+    {
+        BindPager();
+    }
+
+    void BindPager()
+    {
+        PG.PageSize = pgledger.CurrentPage;
+        PG.CurrentPage = pgledger.ShowRows;
+        BindGrid();
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+
+
+        if (!IsPostBack)
+        {
+
+            AssetType();
+           
+        }
+
+    }
+
+    public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+
+        ds = Common.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+            //gvCONTRA.Columns[3].Visible = Convert.ToBoolean(ds.Tables[0].Rows[0]["Editable"].ToString());
+            // btnAdd.Enabled = (bool)ds.Tables[0].Rows[0]["Editable"];
+            // btnAttach.Enabled = (bool)ds.Tables[0].Rows[0]["Editable"];
+            // btnDelete.Enabled = (bool)ds.Tables[0].Rows[0]["Editable"];
+            //btnSave.Enabled = (bool)ds.Tables[0].Rows[0]["Editable"];
+            //viewall = (bool)ViewState["ViewAll"];
+        }
+        return MenuId;
+    }
+
+    public void BindGroups()
+    {
+
+        DataSet DsGroups = new DataSet();
+        SqlParameter[] p = new SqlParameter[1];
+        p[0] = new SqlParameter("@companyid", Session["CompanyID"]);
+        DsGroups = FIllObject.FillListBox(ref lstLB, "ACC_GetGroupsForOutLook", "GROUPID", "GROUPNAME", p);
+        lstLB.Height = Unit.Pixel(lstLB.Items.Count * 40);
+        if (lstLB.Height.Value > 550)
+        {
+            lstLB.Height = Unit.Pixel(550);
+        }
+        else if (lstLB.Height.Value < 100)
+        {
+            lstLB.Height = Unit.Pixel(100);
+        }
+        lstLB.SelectedIndex = 0;
+        BindGrid();
+        
+    }
+
+    public void AssetType()
+    {
+        FIllObject.FillListBox(ref lstLB, "ACC_ListBoxAsssetType");
+        lstLB.Height = Unit.Pixel(lstLB.Items.Count * 40);
+        if (lstLB.Height.Value > 350)
+        {
+            lstLB.Height = Unit.Pixel(350);
+        }
+        else if (lstLB.Height.Value < 100)
+        {
+            lstLB.Height = Unit.Pixel(100);
+        }
+        lstLB.SelectedIndex = 0;
+        BindGrid();
+       
+    }
+
+
+
+    protected void GvLedgerBalances_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "View")
+        {
+            LinkButton lnk = new LinkButton();
+            lnk = (LinkButton)e.CommandSource;
+            GridViewRow selectedRow = (GridViewRow)lnk.Parent.Parent;
+
+            string strScript = "<script> ";
+            strScript += "var newWindow = window.showModalDialog('LedgerBalancesDetails.aspx?id=" + e.CommandArgument + "', '','dialogHeight: 400px; dialogWidth: 800px; edge: Raised; center: Yes; resizable: Yes; status: No;location:0;');";
+            strScript += "</script>";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "PopupCP", strScript, false);
+        }
+
+    }
+    protected void GvLedgerBalances_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+    }
+    protected void lstLB_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //dvLedgerBalances.Visible = true;
+        BindGrid();
+    }
+
+    public string TotalBalance;
+    public string TotalCredits;
+    public string TotalDebits;
+    public void BindGrid()
+    {
+        int GroupID = Convert.ToInt32(lstLB.SelectedItem.Value);
+        DataSet ds = new DataSet();
+        SqlParameter[] p = new SqlParameter[8];
+        p[0] = new SqlParameter("@CompanyID", Session["CompanyID"]);
+        p[1] = new SqlParameter("@GroupID", GroupID);
+        p[2] = new SqlParameter("@WorkSiteID", Session["CostCenterID"]);
+        p[3] = new SqlParameter("@CurrentPage", pgledger.CurrentPage);
+        p[4] = new SqlParameter("@PageSize", pgledger.ShowRows);
+        p[5] = new SqlParameter("@NoofRecords", 3);
+        p[5].Direction = ParameterDirection.Output;
+        p[6] = new SqlParameter();
+        p[6].Direction = ParameterDirection.ReturnValue;
+        
+        //if (txtLedgerName.Text != "")
+        //    Ledger = txtLedgerName.Text;
+        //else
+        //    Ledger = 0;
+        //if (Ledger != 0)
+        //    p[14] = new SqlParameter("@Ledger", Ledger);
+        //else
+        //    p[14] = new SqlParameter("@Ledger", SqlDbType.Int);
+
+        p[7] = new SqlParameter("@Ledger", txtLedgerName.Text.Trim().Replace(" ", "%"));
+
+        ds = (DataSet)Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteDataset("ACC_LedgerBalances", p);
+
+        if (ds != null)
+        {
+            if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
+            {
+                TotalBalance = ds.Tables[1].Rows[0]["Balance"].ToString();
+                TotalCredits = ds.Tables[1].Rows[0]["Credit"].ToString();
+                TotalDebits = ds.Tables[1].Rows[0]["Debit"].ToString();
+            }
+        }
+       
+        GvLedgerBalances.DataSource = ds;
+        GvLedgerBalances.DataBind();
+        
+        int totpage = Convert.ToInt32(p[6].Value);
+        int noofrec = Convert.ToInt32(p[5].Value);
+        PG.TotalPages = totpage;
+        PG.NoofRecords = noofrec;
+
+        pgledger.Bind(pgledger.CurrentPage, PG.TotalPages, PG.NoofRecords, PG.PageSize);
+        txtLedgerName.Text = "";
+
+    }
+    protected void rbPrimary_CheckedChanged(object sender, EventArgs e)
+    {
+        rbSecondary.Checked = false;
+        AssetType();
+
+
+    }
+    protected void rbSecondary_CheckedChanged(object sender, EventArgs e)
+    {
+        rbPrimary.Checked = false;
+        BindGroups();
+
+    }
+    protected void btnsearch_Click(object sender, EventArgs e)
+    {
+
+        BindGrid();
+
+    }
+   
+}

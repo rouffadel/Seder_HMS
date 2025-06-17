@@ -1,0 +1,141 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using HumanResource;
+public partial class EmpWorkingHistory : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    #region Declaration
+
+    int mid = 0;
+    bool viewall;
+    string menuname;
+    string menuid;
+    AttendanceDAC objRights = new AttendanceDAC();
+    HRCommon objHrCommon = new HRCommon();
+
+    #endregion Declaration
+
+    #region OnInIt
+    protected override void OnInit(EventArgs e)
+    {
+        EmpWorkingHistoryPaging.FirstClick += new Paging.PageFirst(EmpWorkingHistoryPaging_FirstClick);
+        EmpWorkingHistoryPaging.PreviousClick += new Paging.PagePrevious(EmpWorkingHistoryPaging_FirstClick);
+        EmpWorkingHistoryPaging.NextClick += new Paging.PageNext(EmpWorkingHistoryPaging_FirstClick);
+        EmpWorkingHistoryPaging.LastClick += new Paging.PageLast(EmpWorkingHistoryPaging_FirstClick);
+        EmpWorkingHistoryPaging.ChangeClick += new Paging.PageChange(EmpWorkingHistoryPaging_FirstClick);
+        EmpWorkingHistoryPaging.ShowRowsClick += new Paging.ShowRowsChange(EmpWorkingHistoryPaging_ShowRowsClick);
+        EmpWorkingHistoryPaging.CurrentPage = 1;
+    }
+    void EmpWorkingHistoryPaging_ShowRowsClick(object sender, EventArgs e)
+    {
+        EmpWorkingHistoryPaging.CurrentPage = 1;
+        BindPager();
+    }
+    void EmpWorkingHistoryPaging_FirstClick(object sender, EventArgs e)
+    {
+        BindPager();
+    }
+    void BindPager()
+    {
+        objHrCommon.PageSize = EmpWorkingHistoryPaging.CurrentPage;
+        objHrCommon.CurrentPage = EmpWorkingHistoryPaging.ShowRows;
+        //BindEmpWorkingDetails(objHrCommon);
+    }
+    #endregion OnInIt
+
+    #region PageLoad
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        Session["MId"] = mid;
+        if (!IsPostBack)
+        {
+            BindWorkSites();
+            BindDepartments();
+        }
+    }
+
+    #endregion PageLoad
+
+    #region Supporting Methods
+
+    public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            viewall = (bool)ViewState["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+    public void BindWorkSites()
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            ds = objRights.GetWorkSiteByEmpID( Convert.ToInt32(Session["UserId"]));
+            if (ds != null && ds.Tables.Count != 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ddlworksites.DataSource = ds.Tables[0];
+                ddlworksites.DataTextField = "Site_Name";
+                ddlworksites.DataValueField = "Site_ID";
+                ddlworksites.DataBind();
+                ddlworksites.Items.Insert(0, new ListItem("---ALL---", "0"));
+            }
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+    public void BindDepartments()
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            ds = (DataSet)objRights.GetDaprtmentList();
+            if (ds != null && ds.Tables.Count != 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ddldepartments.DataValueField = "DepartmentUId";
+                ddldepartments.DataTextField = "DeptName";
+                ddldepartments.DataSource = ds;
+                ddldepartments.DataBind();
+                ddldepartments.Items.Insert(0, new ListItem("---ALL---", "0"));
+            }
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    #endregion Supporting Methods
+
+    #region Events
+
+    #endregion Events
+}

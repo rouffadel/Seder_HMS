@@ -1,0 +1,280 @@
+<%@ Master Language="C#" AutoEventWireup="True" CodeBehind="CommonMaster.master.cs" Inherits="AECLOGIC.ERP.COMMON.CommonMaster" %>
+
+<%@ Register Src="ucMenu.ascx" TagName="ucMenu" TagPrefix="uc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Namespace="AjaxControlToolkit" TagPrefix="Ajax" Assembly="AjaxControlToolkit" %>
+<%@ Register Src="Help.ascx" TagName="Help" TagPrefix="uc2" %>
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>HMS:</title>
+    <script src="../Includes/JS/shortcut.js" type="text/javascript"></script>
+   
+    
+   
+    <script src="../Includes/JS/Validation.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" src="../Includes/JS/onload.js" language="javascript"></script>
+    <script src="../Includes/JS/go.js" type="text/javascript"></script>
+    <script src="../Includes/JS/goSamples.js" type="text/javascript"></script>
+   
+</head>
+<body>
+    <script language="javascript" type="text/javascript">
+
+
+        function init() {
+
+            shortcut.add("Alt+F1", function () {
+                ShowSelfHelp();
+            });
+            shortcut.add("F1", function () {
+                ShowSelfHelp();
+            });
+        }
+        window.onload = init;
+
+        function Confirmation() {
+            //  alert("May i remember you to Update your Workdairy?");
+            // window.confirm("May i remember you to Update your Workdairy?")
+            var answer = confirm("May i remember you to Update your Work-Dairy?");
+            if (answer)
+                window.location.href = "../HMS/EmpWork.aspx";
+            // window.location = "EmpWork.aspx";
+            else
+                window.location = "Home.aspx";
+        }
+    
+    </script>
+    <style type="text/css">
+        .imgstyle
+        {
+            border-radius: 6px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border: 1px solid White;
+        }
+    </style>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <table summary="Administrative Area" align="center" border="0" cellpadding="0" cellspacing="0"
+        width="100%">
+        <tr style="height: 50px;">
+            <td colspan="3">
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left">
+                            <a href='<%$AppSettings:WebSiteID%>' target="_blank" style="text-decoration: none"
+                                runat="server" id="img">
+                                <table border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle"
+                                    valign="middle">
+                                    <tr>
+                                        <td>
+                                            
+                                             <asp:Image ID="Image1" runat="server" SkinID="ProductLogo" AlternateText="Logo"  />
+
+                                        </td>
+                                        <td>
+                                            <asp:Label class="ClientCompanyPart1" ID="CompName1" runat="server" Text="<%$AppSettings:CompanyNamePart1%>"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="CompName2" runat="server" class="ClientCompanyPart2" Text="<%$AppSettings:CompanyNamePart2%>"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </a>
+                        </td>
+                        <td style="vertical-align: middle;" align="left">
+                            <table class="ModulesTable" cellpadding="0" cellspacing="0" border="0">
+                                <%--<tr valign="bottom" style="vertical-align: bottom">
+                                    <td style="width: 7px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabLeft.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="lnkA" href="../AMS" runat="server">A</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A1" href="../BMS" runat="server">B</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A2" href="../CMS" runat="server">C</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A3" href="../DMS" runat="server">D</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A4" href="../EMS" runat="server">E</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleTextName">
+                                        Human Resource Management System
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A6" href="../MMS" runat="server">M</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A7" href="../NMS" runat="server">N</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A8" href="../OMS" runat="server">O</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A5" href="../PMS" runat="server">P</a>
+                                    </td>
+                                    <td style="width: 11px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabCenter.gif" />
+                                    </td>
+                                    <td class="ModuleText">
+                                        <a id="A9" href="../QMS" runat="server">Q</a>
+                                    </td>
+                                    <td style="width: 7px">
+                                        <img alt="" style="border: 0px" src="Includes/ModuleTabs/TabRight.gif" />
+                                    </td>
+                                </tr>--%>
+
+                                <tr>
+                                        <td>
+                                            <a href='../AMS' class='ModuleTab'>A</a> 
+                                            <a href='../BMS' class='ModuleTab'>B</a>
+                                            <a href='../CMS' class='ModuleTab'>C</a> 
+                                            <a href='../DMS' class='ModuleTab'>D</a> 
+                                            <a href='../EMS' class='ModuleTab'>E</a> 
+                                            <a href='#'      class='ModuleTabSelected'>Human Resource Management System</a>
+                                            <a href='../MMS' class='ModuleTab'>M</a> 
+                                            <a href='../CP' class='ModuleTab'>N</a>
+                                            <a href='../OMS' class='ModuleTab'>O</a> 
+                                            <a href='../PMS' class='ModuleTab'>P</a>
+                                            <a href='../QMS' class='ModuleTab'>Q</a>
+                                        </td>
+                                    </tr>
+
+
+                            </table>
+                        </td>
+                        <td align="right" style="height: 50px; vertical-align: middle" valign="middle">
+                            <a href="http://www.aeclogic.com" target="_blank" style="border-width: 0px; text-decoration: none;">
+                               
+
+                                <asp:Image ID="Img3" runat="server" SkinID="Logo" AlternateText="AEC LOGIC"  />
+
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr style="height: 30px;">
+            <td class="breadcrumb">
+                <table style="width: 100%">
+                    <tr>
+                        <td align="left">
+                            <asp:HyperLink ID="HyperLink33" runat="server" NavigateUrl="~/AdminDefault.aspx"
+                                ForeColor="Yellow">Home</asp:HyperLink>
+                            <asp:Label ID="lblCompnayName" runat="server"></asp:Label>
+                        </td>
+                        <%--   <td align="right" class="style3">TaskUpdaters:<asp:Label ID="lblTaskUpdaters" runat="server" Text=""></asp:Label> 
+                                                 Updated:<asp:Label ID="lblTaskUpdaters" runat="server" Text=""></asp:Label>
+                                                NotUpdated:<asp:Label ID="lblNotUpdated" runat="server" Text=""></asp:Label></td>--%>
+                        <td align="right" class="breadcrumb" colspan="2">
+                            <asp:HyperLink ID="hlnkTaskUpdaters" Visible="false" NavigateUrl="EmpTaskingSystem.aspx"
+                                runat="server" ForeColor="Lime">Task Updaters:</asp:HyperLink>
+                            <asp:Label ID="lblTaskUpdaters" Visible="false" runat="server" ForeColor="Yellow"></asp:Label>&nbsp;
+                            <asp:HyperLink ID="hlnkUpdated" NavigateUrl="EmpTaskingSystem.aspx?key=1" runat="server"
+                                Visible="false" ForeColor="Lime">Task Updated:</asp:HyperLink>
+                            <asp:Label ID="lblTaskUpdated" runat="server" ForeColor="Yellow" Visible="false"></asp:Label>&nbsp;
+                            <asp:HyperLink ID="hlnkNotUpdated" NavigateUrl="EmpTaskingSystem.aspx?key=2" runat="server"
+                                Visible="false" ForeColor="Lime">Not Updated:</asp:HyperLink>
+                            <asp:Label ID="lblNotUpdated" runat="server" ForeColor="Yellow" Visible="false"></asp:Label>&nbsp;
+                            <asp:HyperLink ID="hlnkNewJoin" NavigateUrl="EmpTaskingSystem.aspx?key=3" runat="server"
+                                Visible="false" ForeColor="Lime">New Join:</asp:HyperLink>
+                            <asp:Label ID="lblNewJoin" runat="server" ForeColor="Yellow" Font-Bold="False" Visible="false"></asp:Label>&nbsp;
+                            <asp:HyperLink ID="hlnkUpadatedToday" NavigateUrl="EmpTaskingSystem.aspx?key=4" runat="server"
+                                Visible="false" ForeColor="Lime">Today Updated:</asp:HyperLink>
+                            <asp:Label ID="lblUpdatedToday" runat="server" ForeColor="Yellow" Font-Bold="False"
+                                Visible="false"></asp:Label>&nbsp;
+                            <asp:Label ID="Label1" runat="server" Text="Recruitments[" Visible="false"></asp:Label>
+                            <asp:HyperLink ID="HypOffers" runat="server" NavigateUrl="" Visible="false"></asp:HyperLink>&nbsp;
+                            <asp:HyperLink ID="HypSelected" runat="server" NavigateUrl="" Visible="false"></asp:HyperLink>&nbsp;
+                            <asp:HyperLink ID="lnkProcess" runat="server" NavigateUrl="" Visible="false"></asp:HyperLink><asp:Label
+                                ID="lblbr" Text="]" runat="server" Visible="false"></asp:Label>&nbsp;
+                            <asp:Label ID="lblNoofusers" CssClass="salutation" runat="server"></asp:Label>
+                            &nbsp;
+                            <asp:Label ID="lblSalutation" CssClass="salutation" runat="server"></asp:Label>&nbsp;
+                            <img id="EmpPhoto" runat="server" visible="false" class="imgstyle" title="" style="text-align: center;
+                                vertical-align: middle" src="" width="20" height="25" alt="Employee Photo" />
+                            <%--<asp:Label ID="lblRole" runat="server" Font-Bold="True" ForeColor="Orange"></asp:Label>--%>
+                            |&nbsp;<asp:LinkButton ID="lnkLogout" 
+                                ForeColor="Yellow" runat="server" OnClick="lnkLogout_Click1">Logout</asp:LinkButton>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="vertical-align: top; width: 100%">
+                <table summary="" id="container" border="0" cellpadding="0" cellspacing="0" width="100%"
+                    runat="server">
+                    <tr>
+                        <td id="sidenavigation" width="180px" class="navbar" valign="top">
+                            <uc1:ucMenu ID="ucMenu1" runat="server" Cssclass="selected" />
+                        </td>
+                        <td valign="top" width="85%" class="content">
+                            <table style="width: 100%; height: 20px">
+                                <tr>
+                                    <td style="width: 100%; text-align: left;">
+                                        <div id="lblBreadCrumb" runat="server" class="pageheader">
+                                        </div>
+                                    </td>
+                                    <td align="right">
+                                        <uc2:Help ID="ucHelp" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="width: 100%; text-align: left;">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceholder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+       <%-- <tr>
+            <td class="bottom">
+                &copy; 2014 AEC Logic Pvt Ltd. All rights reserved.
+            </td>
+        </tr>--%>
+    </table>
+    </form>
+</body>
+</html>

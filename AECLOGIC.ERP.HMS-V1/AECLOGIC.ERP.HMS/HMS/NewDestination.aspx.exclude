@@ -1,0 +1,71 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewDestination.aspx.cs" Inherits="NewDestination" %>
+<%@ OutputCache Location="None"  %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>  
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <base target="_self" />
+    <link href="Includes/CSS/Site.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" language="javascript">
+        function CloseReload() {
+            self.close();
+            parent.history.go(0);
+        }
+        function ValidOrigin() {
+
+            //OriginDescription
+            if (!chkName("<%=txtOrigin.ClientID %>", "Origin", true, ''))
+                return false;
+        }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <asp:Panel ID="pnlSpaceType" runat="server" BorderStyle="Solid" BackColor="#DCDCDC"
+            BorderColor="#DCDCDC" Width="260px">
+        <table>
+        <tr><td> <AEC:Topmenu ID="topmenu" runat="server" /></td></tr>
+            <tr>
+                <td colspan="2">
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Location:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtOrigin" runat="server" CssClass="droplist"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <asp:Button ID="btnOrigin" Text="Add" runat="server" OnClick="butnOrigin_Click"  />
+                </td>
+            </tr>
+            <%--<tr>
+                    <td>
+                        <asp:Label ID="lbl2" runat="server" Text="Destination" ></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDestination"  runat="server" CssClass="droplist"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <asp:Button ID="btnDest" Text="AddDestination"  runat="server" OnClick="butDest_Click"
+                            OnClientClick="javascript:return ValidDest()" />
+                    </td>
+                </tr>--%>
+        </table>
+         </asp:Panel>
+    </div>
+    </form>
+</body>
+</html>

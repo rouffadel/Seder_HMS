@@ -1,0 +1,276 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="HireNew.aspx.cs" Inherits="HireNew" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %> 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="~/Templates/UploadControl.ascx" tagname="UploadControl" tagprefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" Runat="Server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+      <ContentTemplate> 
+<table width="100%">
+<tr><td colspan="2"> <AEC:Topmenu ID="topmenu" runat="server" /></td></tr> 
+<tr><td colspan="2" class="pageheader">New Land & Buildings </td></tr>
+
+<tr><td style="width:198px" class="style3"><b>PO/WO No:</b></td><td>
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="width: 226px">
+                                        <asp:UpdatePanel id="UpdatePanel1" runat="server">
+                                            <contenttemplate>
+                                                       <asp:TextBox ID="txtWO" runat="server"  MaxLength="16" AutoPostBack="true" 
+                                                           ontextchanged="txtWO_TextChanged"></asp:TextBox>
+                                                       <asp:Label ID="lblPOAvailable" runat="server" Font-Bold="True" ForeColor="Red"  Text="Label" Visible="False"></asp:Label>
+                                                    </contenttemplate>
+                                        </asp:UpdatePanel>
+                                         
+                                    </td>
+                                    <td width="300Px">
+                                        <ajax:UpdateProgress DisplayAfter="1" id="UpdateProgress2" runat="server" AssociatedUpdatePanelID="UpdatePanel1"
+                                            DynamicLayout="false">
+                                            <progresstemplate>
+                                                        <img id="Img1" src="Images/ajax-loader.gif" runat="server" style="text-align: left;" alt="0" />Checking
+                                                        ...
+                                                </progresstemplate>
+                                        </ajax:UpdateProgress>
+                                    </td>
+                                </tr>
+                                
+                               
+                            </table></td></tr>
+              
+                            
+ 
+ <tr><td><b>Type:</b>
+     
+</td><td> &nbsp;<asp:DropDownList ID="ddlType" runat="server" AutoPostBack="True" 
+        onselectedindexchanged="ddlType_SelectedIndexChanged" Height="16px">
+    <asp:ListItem Text="--SELECT--" Value="0"></asp:ListItem>
+    <asp:ListItem Text="Hired Land" Value="1"></asp:ListItem>
+    <asp:ListItem Text="Hired Building" Value="2"></asp:ListItem>
+    <%--<asp:ListItem Text="Own Land" Value="3"></asp:ListItem>
+    <asp:ListItem Text="Own Building" Value="4"></asp:ListItem>
+    <asp:ListItem Text="Hotel Room" Value="5"></asp:ListItem>--%>
+    </asp:DropDownList></td></tr>
+
+             </table>
+             <table id="tblItemview" runat="server" visible="false" width="100%">
+                            <tr><td class="pageheader" colspan="2"> Sub Wo View</td></tr>
+                            <tr><td colspan="2">
+                                    <asp:GridView ID="gvItemview" Width="100%" CssClass="gridview" AutoGenerateColumns="false" runat="server">
+                                    <Columns>
+                                    <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="chkItem"  runat="server" />
+                                    </ItemTemplate>
+                                    </asp:TemplateField>
+                                  <%--  <asp:TemplateField Visible="false">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPODetID" runat="server" Text='<%#Eval(PodetID)%>'></asp:Label>
+                                    </ItemTemplate>
+                                    </asp:TemplateField>--%>
+                                    <asp:BoundField HeaderText="PoDetID" DataField="PodetID" />
+                                    
+                                    <asp:BoundField HeaderText="WO" DataField="PoNo" />
+                                    <asp:BoundField HeaderText="Wo Name" DataField="ResourceName" />
+                                    </Columns>
+                                    </asp:GridView> </td></tr>
+                                    <tr><td style="padding-left:200Px">
+                                        <asp:Button ID="BtnItemsSelect" runat="server" CssClass="savebutton" 
+                                            Text="Send" onclick="BtnItemsSelect_Click" /> </td></tr>
+                            </table>
+             <table id="tblHired" visible="false" runat="server" width="100%">
+              <tr><td style="width:199px" ><b>Purpose:</b></td><td>
+                  <asp:Label ID="lblHPurpose" runat="server" Font-Bold="False" 
+                      ForeColor="#0033CC" Text="xxx" 
+                      ></asp:Label>
+                 </td></tr>
+             <tr><td style="width:199px"><b>Vendor Name:</b></td><td>
+                 <asp:Label ID="lblHVName" runat="server" Font-Bold="False" ForeColor="#0033CC" Text="xxx" 
+                     ></asp:Label>
+                 </td></tr>
+             <tr><td style="width:199px" class="style3"><b>Vondor Mobile:</b></td><td>
+                 <asp:Label ID="lblHVMobile" runat="server" Font-Bold="True" ForeColor="Blue" Text="xxx" 
+                     ></asp:Label>
+                 </td></tr>
+            
+             <tr><td style="width:199px" class="style3"><b>Vendor Address:</b></td><td>
+                 <asp:TextBox ID="txtHLVAddress" runat="server" BorderColor="#CC6600" 
+                     BorderStyle="Outset" Height="50px" TextMode="MultiLine" Width="270px" 
+                     ReadOnly="True"></asp:TextBox>
+                 </td></tr>
+                  <tr><td style="width:199px" class="style3"><b>Aggrement On:</b></td><td>
+                      <asp:Label ID="lblHArmentOn" runat="server" Font-Bold="True" ForeColor="Blue" 
+                          Text="xxx"></asp:Label>
+                      &nbsp;*WO Date</td></tr>
+             <tr><td style="width:199px" class="style3"><b>Hire Type:</b></td><td>
+                 &nbsp;<asp:DropDownList ID="ddlHLHirType" Enabled="false" runat="server" AutoPostBack="True" 
+                     onselectedindexchanged="ddlHLHirType_SelectedIndexChanged">
+                 <asp:ListItem Text="Instant" Value="1"></asp:ListItem>
+                 <asp:ListItem Text="Weekly" Value="2"></asp:ListItem>
+                 <asp:ListItem Text="Fortnightly" Value="3"></asp:ListItem>
+                 <asp:ListItem Text="Monthly" Value="4"></asp:ListItem>
+                 <asp:ListItem Text="Quarterly" Value="5"></asp:ListItem>
+                 <asp:ListItem Text="Half-Yearly" Value="6"></asp:ListItem>
+                 <asp:ListItem Text="Yearly" Value="7"></asp:ListItem>
+                 </asp:DropDownList>
+                 </td></tr>
+             <tr id="trHLDays1" runat="server" visible="true">
+                 <td style="width:199px" 
+                     class="style3"><b>Hire From:&nbsp;&nbsp; </b></td><td>
+                 <asp:TextBox ID="txtHLFromDay" runat="server"></asp:TextBox>  <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtHLFromDay" PopupButtonID="txtHLFromDay" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender><%--<b>&nbsp;&nbsp; DeHire Date:&nbsp;&nbsp; </b>
+                     <asp:TextBox ID="txtHLToDay" runat="server" AutoPostBack="True" 
+                         ontextchanged="txtHLToDay_TextChanged"></asp:TextBox> <cc1:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtHLToDay" PopupButtonID="txtHLToDay" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender><b>&nbsp;&nbsp; No of Days: </b>
+                 <asp:Label ID="lblHLDays" runat="server" ForeColor="#0066CC" Font-Bold="True"></asp:Label>--%> 
+                     * Default date is WO Date,Change if Required.</td></tr>
+             <%--<tr id="trHLDays2" runat="server" visible="false">
+                 <td style="width:199px" 
+                     class="style3"><b>Charge/Day(Rs):</b></td><td>
+                 <asp:TextBox ID="txtHLCharge" runat="server" AutoPostBack="True" 
+                         ontextchanged="txtHLCharge_TextChanged"></asp:TextBox> <b>&nbsp; Total Amount(Rs): </b>
+                 <asp:Label
+                     ID="lblHLAmount" runat="server" Font-Bold="True" ForeColor="Blue"></asp:Label></td></tr>--%>
+           <%--  <tr id="trHLMonth1" runat="server" visible="false">
+                 <td style="width:199px" 
+                     class="style3"><b>Hire from:</b></td><td>
+                 <asp:TextBox ID="txtHLHirefrom" runat="server" ></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="txtHLHirefrom" PopupButtonID="txtHLHirefrom" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender><b>&nbsp; DeHire Date: </b>
+                 <asp:TextBox
+                     ID="txtHLUnHireDate" runat="server" ></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender5" runat="server" TargetControlID="txtHLUnHireDate" PopupButtonID="txtHLUnHireDate" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender>&nbsp;
+                 <asp:CheckBox ID="ChkHLFixed" AutoPostBack="true" runat="server" Font-Bold="True" 
+                     Text="Not Fixed" oncheckedchanged="ChkHLFixed_CheckedChanged" />
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Check it if DeHire Date is not fixed</td></tr>--%>
+             <tr id="trHLMonth2" runat="server" visible="true">
+                 <td style="width:199px" 
+                     class="style3"><b>Amount(Rs):</b></td><td>
+&nbsp;<asp:Label ID="lblHAmount" runat="server" Font-Bold="True" ForeColor="Blue"></asp:Label>
+&nbsp; 
+                     <asp:LinkButton ID="lnkAmtHike" runat="server"  
+                         OnClientClick="return confirm('Do u want To Edit Amount?');" Font-Bold="True" 
+                         onclick="lnkAmtHike_Click" Visible="False">Rent-Hike</asp:LinkButton>
+                 &nbsp;</td></tr>
+            
+             <tr><td style="width:199px" class="style3"><b>Land/Building Address:</b></td><td>
+                 <asp:TextBox ID="txtHLLAddress" runat="server" BorderColor="#CC6600" 
+                     BorderStyle="Outset" Height="50px" TextMode="MultiLine" Width="270px"></asp:TextBox>
+                 </td></tr>
+                     <tr><td style="width: 199px" class="style3"><b>For WorkSite:</b></td><td>
+                         &nbsp;<asp:DropDownList ID="ddlHLWS" Enabled="false" runat="server"> 
+                         </asp:DropDownList>
+                     </td></tr>
+             <tr>
+                 <td style="width:199px" 
+                     class="style3"><b>Land/Building Specification:</b></td><td>
+                 <asp:TextBox ID="txtHLBAOL" runat="server" BorderColor="#CC6600" 
+                         BorderStyle="Outset" Height="50px" Width="270px"></asp:TextBox></td></tr> 
+                 <tr><td style="width:199px" class="style3"><b>Documents/Aggrements:</b></td><td>
+                     &nbsp;
+                     <asp:LinkButton ID="lnkHUpload" runat="server" Font-Bold="True" OnClientClick="javascript:return ShowUploadCtrl();"
+                        >Upload Files</asp:LinkButton>
+                     </td></tr>
+                     <tr><td><b>Security Deposit:</b> </td><td>
+                         <asp:TextBox ID="txtAdvance" Text="0" runat="server"></asp:TextBox>&nbsp;
+                         </td></tr>
+                       <tr><td style="width:199px" class="style3"><b></b></td><td>
+                           &nbsp;
+                           <asp:Button ID="btnHLSave" runat="server" CssClass="savebutton" Text="Submit" 
+                               onclick="btnHLSave_Click" /> </td></tr>
+             </table>
+             <table id="tblOwn" visible="false" runat="server" width="100%">
+              <tr><td style="width:199px"><b>Vendor Name:</b></td><td>
+                  <asp:Label ID="txtOVName" runat="server" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                 </td></tr>
+             <tr><td style="width:199px"><b>Vondor Mobile:</b></td><td>
+                 <asp:Label ID="txtOVMobile" runat="server" Font-Bold="False" ForeColor="Blue"></asp:Label>
+                 </td></tr>
+                   <tr><td style="width:199px"><b>Vendor Address:</b></td><td>
+                 <asp:TextBox ID="txtOVendorAddress" runat="server" BorderColor="#CC6600" 
+                     BorderStyle="Outset" Height="50px" TextMode="MultiLine" Width="270px" 
+                     ReadOnly="True"></asp:TextBox>
+                 </td></tr>
+                 <tr><td style="width: 199px"><b>Amount(Rs):</b></td><td>
+                         <asp:Label ID="lblOAmt" runat="server" Font-Bold="True" ForeColor="Blue"></asp:Label>
+                     </td></tr>
+             <tr><td style="width:199px"><b>Registerd On:</b></td><td>
+                 <asp:Label ID="txtORgtdOn" runat="server" Font-Bold="True" ForeColor="#0066CC"></asp:Label>
+                 </td></tr>
+                 <tr><td style="width:199px"><b>Registered At(Office):</b></td><td>
+                 <asp:TextBox ID="txtORegtdAt" runat="server" BorderColor="#CC6600" BorderStyle="Inset" 
+                         Height="50px" TextMode="MultiLine" Width="270px"></asp:TextBox>
+                 </td></tr>
+                  <tr><td style="width:199px"><b>Registration No:</b></td><td>
+                 <asp:TextBox ID="txtORestNo" runat="server"></asp:TextBox>
+                 </td></tr>
+           
+         
+               
+             
+           
+             <tr><td style="width:199px"><b>Building/Land Address:</b></td><td>
+                 <asp:TextBox ID="txtOLBAddresss" runat="server" TextMode="MultiLine" 
+                     BorderStyle="Solid" BorderColor="#CC6600" ReadOnly="True" Height="50px" 
+                     Width="268px"></asp:TextBox></td></tr>
+                     <tr><td style="width: 199px"><b>For WorkSite:</b></td><td>
+                         &nbsp;<asp:DropDownList ID="ddlownWS" runat="server">
+                         </asp:DropDownList>
+                     </td></tr>
+             <tr id="trBChar" visible="false" runat="server"><td style="width:199px"><b>Building 
+                 Specification:</b></td><td>
+                 <asp:TextBox ID="txtOBSpecif" runat="server"></asp:TextBox></td></tr>
+                 <tr id="trAL" visible="false" runat="server"><td style="width:199px" class="style3"><b>Area of Land:</b></td><td>
+                 <asp:TextBox ID="txtOAoL" runat="server" ></asp:TextBox></td></tr>
+                    
+                     
+                 <tr><td style="width:199px"><b>Documents</b></td><td>
+                     &nbsp;
+                     <asp:LinkButton ID="lnkOUpload" runat="server" Font-Bold="True" 
+                         onclick="lnkOUpload_Click">Choose Files</asp:LinkButton>
+                     </td></tr>
+                       <tr><td style="width:199px"><b></b></td><td>
+                           &nbsp;
+                           <asp:Button ID="btnOSave" runat="server" CssClass="savebutton" Text="Submit" 
+                               /> </td></tr>
+             </table>
+             <table id="tblHotalBooking" visible="false" runat="server" width="100%">
+             <tr><td style="width:197px" class="style3"><b>Purpose:</b></td><td>
+                 <asp:TextBox ID="txtRPurose" runat="server"></asp:TextBox>
+                 </td></tr>
+             <tr><td style="width:197px" class="style3"><b>Hotal Name</b></td><td>
+                 <asp:TextBox ID="txtRRName" runat="server"></asp:TextBox>
+                 </td></tr>
+             <tr><td style="width:197px" class="style3"><b>Hotel Address:</b></td><td>
+                 <asp:TextBox ID="txtRHAdress" runat="server" BorderColor="#CC6600" 
+                     BorderStyle="Inset" Height="50px" TextMode="MultiLine" Width="272px"></asp:TextBox>
+                 </td></tr>
+             <tr><td style="width:197px" class="style3"><b>Booked On:</b></td><td>
+                 <asp:TextBox ID="txtRBookedOn" runat="server"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender7" runat="server" TargetControlID="txtRBookedOn" PopupButtonID="txtRBookedOn" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender>
+                 </td></tr>
+             <tr>
+                 <td style="width:197px" 
+                     class="style3"><b>Hire From:&nbsp;&nbsp; </b></td><td>
+                 <asp:TextBox ID="txtRDayFrom" runat="server"></asp:TextBox> <cc1:CalendarExtender ID="CalendarExtender8" runat="server" TargetControlID="txtRDayFrom" PopupButtonID="txtRDayFrom" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender><b>&nbsp;&nbsp; UnHire On:&nbsp;&nbsp; </b>
+                 <asp:TextBox ID="txtRDayUntill" runat="server" AutoPostBack="True" 
+                     
+                         ontextchanged="txtRDayUntill_TextChanged"></asp:TextBox><cc1:CalendarExtender ID="CalendarExtender9" runat="server" TargetControlID="txtRDayUntill" PopupButtonID="txtRDayUntill" Format="dd/MM/yyyy">
+                            </cc1:CalendarExtender><b>&nbsp;&nbsp; No of Days: </b>
+                 <asp:Label ID="lblRTotdays" runat="server" ForeColor="#0066CC" Font-Bold="True"></asp:Label></td></tr>
+            <tr><td class="style3" style="width: 197px"><b>Charge/Day(Rs):</b></td><td>
+                <asp:TextBox ID="txtHCharge" runat="server"></asp:TextBox></td></tr>
+             <tr><td style="width:197px" class="style3"><b>No of Rooms</b></td><td>
+                 <asp:TextBox ID="txtRRooms" runat="server" 
+                     ontextchanged="txtRRooms_TextChanged" AutoPostBack="True"></asp:TextBox>
+&nbsp;&nbsp; <b>Total Amount(Rs):<asp:Label ID="lblTotAmount" runat="server" ForeColor="#0033CC"></asp:Label></b></td></tr>
+             <tr><td style="width:197px" class="style3"><b></b></td><td>
+                 &nbsp;
+                 <asp:Button ID="btnRsave" runat="server" CssClass="savebutton" Text="Submit" />
+                 </td></tr>
+           
+             </table>
+            <uc1:UploadControl ID="UploadControl1" runat="server" />
+              </ContentTemplate>
+              </asp:UpdatePanel> 
+</asp:Content>
+

@@ -1,0 +1,200 @@
+.navbar
+{
+}  
+.mainDiv
+{
+    width:190px;
+    margin-bottom:5px;
+}
+.topItem, .topItem a
+{
+    font: bold 12px tahoma,verdana,sans-serif;
+    letter-spacing: 0;
+    background: url("../IMAGES/arrow-up-title.jpg") no-repeat 0 0;
+    background-position:center center;
+    background-repeat:no-repeat;
+    border: none;
+    width: 190px;
+    height: 25px;
+    line-height:25px;
+    color:White;
+    cursor:pointer;
+    text-indent:2px;
+}
+.topItem a.selected
+ {
+    color:#fffff0;
+ }
+.topItem a.selected:hover
+ {
+    color:#fffff0;
+    text-decoration:none;
+ }
+.topItem a:hover
+{
+    color: #fffff0;
+}
+.topItemOver, .topItemOver a
+{
+    text-indent:2px;
+    font: bold 12px tahoma,verdana,sans-serif;
+    letter-spacing: 0;
+    background: url("../IMAGES/arrow-up-title.jpg") no-repeat 0 0;
+    background-position:center center;
+    background-repeat:no-repeat;
+    height: 25px;
+    line-height:25px;  
+    width: 190px;
+    color: #cccccc;
+    cursor:pointer;
+}
+.topItemClose, .topItemClose a
+{
+    text-indent:2px;
+    font: bold 12px tahoma,verdana,sans-serif;
+    letter-spacing: 0;
+    background: url("../IMAGES/arrow-down-title.jpg") no-repeat 0 0;
+    background-position:center center;
+    background-repeat:no-repeat;
+    height: 25px;
+    line-height:25px;  
+    width: 190px;
+    color: #cccccc;
+    cursor:pointer;
+}
+.topItemCloseOver, .topItemCloseOver a
+{
+    text-indent:2px;
+    font: bold 12px tahoma,verdana,sans-serif;
+    letter-spacing: 0;
+    background: url("../IMAGES/arrow-down-title.jpg") no-repeat 0 0;
+    background-position:center center;
+    background-repeat:no-repeat;
+    height: 25px;
+    line-height:25px;  
+    width: 190px;
+    color: #cccccc;
+    
+    cursor:pointer;
+}
+.dropMenu
+{
+    font: bold 11px tahoma,verdana,sans-serif;	
+    background-color:Gray;
+    color:White;
+    border: 1px solid Gray;
+    
+  filter:alpha(opacity=100);
+}
+.subMenu
+{
+    display:block;
+}
+.subItem
+{
+    margin-top:1px;
+    height:20px;
+    line-height:20px;
+    border-bottom:solid 1px #333333;   
+    font: 11px tahoma,verdana,sans-serif;	
+    text-decoration:none;
+    color: White;
+}
+.subItem a
+{
+    margin-left:10px;
+    font: 11px tahoma,verdana,sans-serif;	 	
+    text-decoration:none;
+    color: White;  
+   
+}
+.subItem a.selected
+{
+    margin-left:10px;
+    font:11px tahoma,verdana,sans-serif;	 	
+    text-decoration:none;
+    color:Lime;   
+    
+}
+.subItem a.selected:hover
+{
+    margin-left:10px;
+    font: 11px tahoma,verdana,sans-serif;	 	
+    text-decoration:none;
+    color:Red;
+}
+.subItemOver
+{
+    margin-top:1px;
+    height:20px;
+    line-height:20px;  
+    font: 11px tahoma,verdana,sans-serif;	  
+    border-bottom:solid 1px #333333;   
+    color: Red;
+    cursor:pointer;  
+}
+.subItemOver a
+{
+    margin-left:10px;
+    font: 11px tahoma,verdana,sans-serif;
+    cursor:pointer;	
+    color: Lime;
+    text-decoration:underline;
+    display:block;
+    cursor:pointer;
+}
+.subItemOver a.selected
+{
+    margin-left:10px;
+    font: 11px tahoma,verdana,sans-serif;
+    cursor:pointer;	
+    color:Yellow;
+    text-decoration:underline;
+    cursor:pointer;
+}
+.subItemOver a:hover
+{
+    color: Lime;
+}
+.subItemOver a.selected:hover
+{
+	font: 11px tahoma,verdana,sans-serif;
+    color:Yellow;
+}
+.drop
+{
+    border-left:1px solid black;
+    border-right:1px solid black;	
+}
+.PanSuccess {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('../Images/icon_info.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #060;
+	margin-bottom: 20px;
+}
+.PanError {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('../Images/icon_error.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #C00;
+	margin-bottom: 20px;
+}
+.PanNoRecord {
+	background-color: #ffc;
+	border: solid 1px;
+	padding: 10px 10px 10px 35px;
+	background-image: url('../Images/icon_alert.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: 600;
+	color: #666;
+}

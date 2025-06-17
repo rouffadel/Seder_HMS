@@ -1,0 +1,96 @@
+﻿using System;
+using System.Linq;
+using DataAccessLayer;
+using System.Data;
+//using CompanyDac;
+using DataAccessLayer;
+using HumanResource;
+
+
+public partial class NewDestination : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    #region LoadEvents
+    int mid = 0; bool viewall; string menuname; string menuid;
+    //Common obj = new Common ();
+    SRN objSRN = new SRN();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            string id =  Convert.ToInt32(Session["UserId"]).ToString();
+        }
+        catch
+        {
+            Response.Redirect("Home.aspx");
+        }
+
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+          Session["menuid"] = menuid; Session["MId"] = mid;
+
+        if (!IsPostBack)
+        {
+          
+        }
+    }
+    #endregion LoadEvents
+
+    #region OnClick
+    protected void butnOrigin_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+
+           int Msg=Convert.ToInt32(objSRN.MMS_AddLocation(txtOrigin.Text));
+            if(Msg>0)
+            AlertMsg.MsgBox(this.Page, "Done");
+            else
+                AlertMsg.MsgBox(this.Page, "Record Already Exists");
+
+
+            string strScript = "<script language='javascript' type='text/javascript'> window.close(); </script>";
+            ClientScript.RegisterStartupScript(typeof(System.Web.UI.Page), "PopupCP", strScript);
+
+        }
+        catch (Exception ex)
+        {
+            AlertMsg.MsgBox(Page, ex.Message.ToString(),AlertMsg.MessageType.Error);
+        }
+    }
+    #endregion OnClick
+
+      public int GetParentMenuId()
+    {
+        int Id;
+        if (Session["Guest"] != null)
+            Id = 2;
+        else
+            Id = 1;
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+
+       // ds = Common.GetAllowed(RoleId, ModuleId, URL, Id);
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+              {
+                  ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+                  ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+          
+        }
+        return MenuId;
+    }
+
+}

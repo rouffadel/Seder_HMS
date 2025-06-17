@@ -1,0 +1,160 @@
+﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Web;
+
+/// <summary>
+/// Summary description for ExportToFile
+/// </summary>
+public class ExportFileUtilDr
+{
+    public ExportFileUtil()
+	{
+		//
+		// TODO: Add constructor logic here
+		//
+	}
+
+
+    public static void ExportToFile(SqlDataReader dr, String ItemColor, String AltItemColor, String FileName, String ContentType)
+    {
+        ExportToFile(dr, ItemColor, AltItemColor, "", FileName, ContentType);
+    }
+
+    public static void ExportToFile(SqlDataReader dr, String ItemColor, String FileName, String ContentType)
+    {
+        ExportToFile( dr, ItemColor, "", "", FileName, ContentType);
+    }
+
+    public static void ExportToFile(SqlDataReader dr, String FileName, String ContentType)
+    {
+        ExportToFile( dr, "", "", "", FileName, ContentType);
+    }
+
+    public static void ExportToExcel(SqlDataReader dr, String ItemColor, String AltItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, AltItemColor, "", FileName + ".xls", "application/vnd.xls");
+    }
+
+    public static void ExportToExcel(SqlDataReader dr, String ItemColor, String AltItemColor,String CrossItemColor, String FileName)
+    {
+        ExportToFile(dr, ItemColor, AltItemColor, CrossItemColor, FileName + ".xls", "application/vnd.xls");
+    }
+    public static void ExportToExcel(SqlDataReader dr, String ItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, "", "", FileName + ".xls", "application/vnd.xls");
+    }
+
+    public static void ExportToExcel(SqlDataReader dr, String FileName)
+    {
+        ExportToFile( dr, "", "", "", FileName + ".xls", "application/vnd.xls");
+    }
+
+    public static void ExportToPDF(SqlDataReader dr, String ItemColor, String AltItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, AltItemColor, "", FileName + ".pdf", "application/pdf");
+    }
+
+    public static void ExportToPDF(SqlDataReader dr, String ItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, "", "", FileName + ".pdf", "application/pdf");
+    }
+
+    public static void ExportToPDF(SqlDataReader dr, String FileName)
+    {
+        ExportToFile( dr, "", "", "", FileName + ".pdf", "application/pdf");
+    }
+
+    public static void ExportToWord(SqlDataReader dr, String ItemColor, String AltItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, AltItemColor, "", FileName + ".doc", "application/ms-word");
+    }
+
+    public static void ExportToWord(SqlDataReader dr, String ItemColor, String FileName)
+    {
+        ExportToFile( dr, ItemColor, "", "", FileName + ".doc", "application/ms-word");
+    }
+
+    public static void ExportToWord(SqlDataReader dr, String FileName)
+    {
+        ExportToFile( dr, "", "", "", FileName + ".doc", "application/ms-word");
+    }
+
+
+    public static void ExportToFile(SqlDataReader dr, String ItemColor, String AltItemColor, String CrossItemColor, String FileName, String ContentType)
+    {
+
+        //Clear the response
+        HttpContext.Current.Response.Clear();
+        HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename=" + FileName);
+        HttpContext.Current.Response.Charset = "";
+        HttpContext.Current.Response.ContentType = ContentType;
+        HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+
+        //You use these variables throughout the application.
+        string strLine;
+
+        //Initialize the string that is used to build the file.
+        HttpContext.Current.Response.Write("<table>");
+        //Enumerate the field names and the records that are used to build 
+        //the file.
+        HttpContext.Current.Response.Write("<tr style='color:White; background-color:Navy; font-weight:bold;'>");
+        for (int i = 0; i <= dr.FieldCount - 1; i++)
+        {
+
+            HttpContext.Current.Response.Write("<td>" + dr.GetName(i).ToString() + "</td>");
+
+        }
+        HttpContext.Current.Response.Write("</tr>");
+
+        if (ItemColor == "")
+            ItemColor = "#ffffff";
+        if (AltItemColor == "")
+            AltItemColor = "#ffffff";
+
+        //Enumerate the database that is used to populate the file.
+        int cnt = 0;
+        while (dr.Read())
+        {
+
+            HttpContext.Current.Response.Write("<tr>");
+
+
+            for (int i = 0; i <= dr.FieldCount - 1; i++)
+            {
+                if (cnt % 2 == 0)
+                {
+                    if (i % 2 == 0)
+                        HttpContext.Current.Response.Write("<td style='background-color:" + ItemColor + ";'>" + dr.GetValue(i).ToString() + "</td>");
+                    else
+                        HttpContext.Current.Response.Write("<td  style='background-color:" + AltItemColor + ";'>" + dr.GetValue(i).ToString() + "</td>");
+                }
+                else
+                {
+                    if (i % 2 == 0)
+                    {
+                        
+                        HttpContext.Current.Response.Write("<td  style='background-color:" + (CrossItemColor == "" ? ItemColor : AltItemColor) + ";'>" + dr.GetValue(i).ToString() + "</td>");
+                    }
+                    else
+                    {
+                        HttpContext.Current.Response.Write("<td   style='background-color:" + (CrossItemColor == "" ? AltItemColor : CrossItemColor) + ";'>" + dr.GetValue(i).ToString() + "</td>");
+                    }
+                }
+            }
+            HttpContext.Current.Response.Write("</tr>");
+            cnt++;
+        }
+
+        HttpContext.Current.Response.Write("</table>");
+
+        //Clean up.
+        dr.Close();
+
+        HttpContext.Current.Response.End();
+
+    }
+
+}

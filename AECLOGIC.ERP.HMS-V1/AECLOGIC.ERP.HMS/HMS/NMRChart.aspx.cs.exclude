@@ -1,0 +1,189 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using HumanResource;
+
+public partial class OrgChart1 : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    AttendanceDAC objAtt = new AttendanceDAC();
+    int status;
+    DataSet ds = new DataSet();
+     int mid = 0;
+    bool viewall;
+    string menuname;
+    string menuid; 
+    int id;
+    DataSet EMPResultSet;
+    DataSet dsProject = new DataSet();
+    DataSet dsEmployeesAttendance = new DataSet();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            string id =  Convert.ToInt32(Session["UserId"]).ToString();
+        }
+        catch
+        {
+            Response.Redirect("Home.aspx");
+        }
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        Session["MId"] = mid;
+        if (!IsPostBack)
+        {
+            string strScript = "";
+            hdn.Value = "";
+            GetProject(1);
+            BindAttandanceCount();
+        }
+        EMPResultSet = objAtt.GetNMS();
+    }
+
+    private void BindAttandanceCount()
+    {
+        DataSet ds = AttendanceDAC.T_HR_GetNMRAttendanceCount();
+        lbltot.Text = ds.Tables[0].Rows[0][0].ToString();
+        lblpresent.Text = ds.Tables[1].Rows[0][0].ToString();
+        lblabsent.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0]) - Convert.ToInt32(ds.Tables[1].Rows[0][0])).ToString();
+    }
+     public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+       
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds!=null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count>0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            viewall = (bool)ViewState["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+    private void AddNodes(ref TreeNode tn)
+    {
+        try
+        {
+            int SiteId = Convert.ToInt32(tn.Parent.Value);
+            int DeptId = Convert.ToInt32(tn.Value);
+            DataRow[] drNMRRows = EMPResultSet.Tables[0].Select("SiteId='" + SiteId.ToString() + "' and DeptID='" + DeptId.ToString() + "'");
+            TreeNode tnNMR = null;
+            foreach (DataRow drRow in drNMRRows)
+            {
+                tnNMR = new TreeNode();
+                tnNMR.Value = drRow["NMRId"].ToString();
+                tnNMR.Text  = drRow["NMRName"].ToString();
+                tnNMR.SelectAction = TreeNodeSelectAction.None;
+                tn.ChildNodes.Add(tnNMR);
+            }
+        }
+        catch { }
+    }
+
+
+  
+    public void GetProject(int PID)
+    {
+        EMPResultSet = objAtt.GetPrjManagersForOC();
+        dsEmployeesAttendance = objAtt.GetNMRAttendanceForOC();
+        foreach (DataRow drRow in EMPResultSet.Tables[0].Rows)
+        {
+            DataRow[] drAtt = dsEmployeesAttendance.Tables[0].Select("SiteId='" + drRow["Prjid"].ToString() + "'");
+            int P = 0;
+            int T = 0;
+            if (drAtt.Length > 0)
+            {
+                P = Convert.ToInt32(drAtt[0]["SitePresent"]);
+                T = Convert.ToInt32(drAtt[0]["SiteTotal"]);
+            }
+            int A = T - P;
+            TreeNode newNode = new TreeNode();
+            newNode.Text = "<span title='' class='tvOrgPrj'>" + drRow["Site_Name"].ToString() + "</span>" + "( P: " + P + ";" + " A: " + A + ";" + " Tot: " + T + " )";
+            newNode.Value = drRow["Prjid"].ToString();
+            newNode.SelectAction = TreeNodeSelectAction.Expand;
+            tvProjects.Nodes.Add(newNode);
+            GetDeptMenu(ref newNode);
+
+        }
+
+
+    }
+
+
+
+
+    public void GetDeptMenu(ref TreeNode node)
+    {
+        int PrjID = Convert.ToInt32(node.Value);
+        EMPResultSet = objAtt.GetNMS();
+        DataRow[] drRows = EMPResultSet.Tables[0].Select("SiteId='" + PrjID.ToString() + "'");
+        List<string> Depts = new List<string>();
+        foreach (DataRow drRow in drRows)
+        {
+            if (!Depts.Contains(drRow["DeptId"].ToString().Trim()))
+            {
+                Depts.Add(drRow["DeptId"].ToString().Trim());
+                DataRow[] drAtt = dsEmployeesAttendance.Tables[0].Select("SiteId='" + node.Value.ToString() + "' and DeptId='" + drRow["DeptId"].ToString() + "'");
+                int P = 0;
+                int T = 0;
+                if (drAtt.Length > 0)
+                {
+                    P = Convert.ToInt32(drAtt[0]["Present"]);
+                    T = Convert.ToInt32(drAtt[0]["Total"]);
+                }
+                int A = T - P;
+                DataRow[] drNMRRows = EMPResultSet.Tables[0].Select("SiteId='" + PrjID.ToString() + "' and DeptID='" + drRow["DeptId"].ToString() + "'");
+                TreeNode newNode = new TreeNode();
+                newNode.Text = "<span title='' class='tvOrgDept'>" + drRow["DepartmentName"].ToString() + "</span>" + "( P: " + P + ";" + " A: " + A + ";" + " Tot: " + T + " )";
+                newNode.Value = drRow["DeptID"].ToString();
+                newNode.SelectAction = TreeNodeSelectAction.Select;
+                node.ChildNodes.Add(newNode);
+            }
+        }
+    }
+
+    protected void tvProjects_TreeNodePopulate(object sender, TreeNodeEventArgs e)
+    {
+    }
+    protected void tvProjects_SelectedNodeChanged(object sender, EventArgs e)
+    {
+        TreeNode trNode = tvProjects.SelectedNode;
+        if (trNode.ChildNodes.Count == 0)
+        {
+            AddNodes(ref trNode);
+            if (trNode.ChildNodes.Count > 0)
+            {
+                trNode.SelectAction = TreeNodeSelectAction.Expand;
+                trNode.Expand();
+            }
+        }
+    }
+
+    protected void tvProjects_TreeNodeDataBound(object sender, TreeNodeEventArgs e)
+    {
+        // e.Node.Text = "<div onmouseover='return test()'>" + e.Node.Text + "</div>";
+    }
+
+}

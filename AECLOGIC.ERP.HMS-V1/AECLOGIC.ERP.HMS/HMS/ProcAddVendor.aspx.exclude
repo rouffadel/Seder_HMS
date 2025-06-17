@@ -1,0 +1,291 @@
+<%@ Page Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true" CodeBehind="ProcAddVendor.aspx.cs"
+    Inherits="ProcAddVendor" Title="Add vendor" EnableEventValidation="false" %>
+
+<%@ Register Src="topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" runat="Server">
+    <script language="javascript" type="text/javascript">
+        function validateVendor() {//   
+
+            if (!Reval('<%=txtVendorName.ClientID %>', 'Vendor Name', '[Enter Vendor Name]'))
+                return false;
+
+            if (!Reval('<%=txtVendorAddr.ClientID %>', 'Vendor Address', '[Enter Vendor Address]'))
+                return false;
+
+            if (!Reval('<%=txtBank.ClientID %>', 'Bank Name', '[Enter Bank Name]'))
+                return false;
+
+            if (!Reval('<%=txtAccNo.ClientID %>', 'Account No', '[Enter Account No]'))
+                return false;
+
+            if (!Reval('<%=txtContactPerson.ClientID %>', 'Contact Person', '[Enter Contact Person Name]'))
+                return false;
+
+            if (!Reval('<%=txtMobile.ClientID %>', 'Mobile No', '[Enter Contact No]'))
+                return false;
+
+            if (!Reval('<%=txtTinNo.ClientID %>', 'Tin No', '[Enter Tin No]'))
+                return false;
+            if (!chkDropDownList('<%=ddlCountry.ClientID %>', 'Country'))
+                 return false;
+            if (!chkDropDownList('<%=ddlState.ClientID %>', 'State'))
+                 return false;
+           
+            if (document.getElementById('<%=txtPassword.ClientID%>').value == "") {
+                alert("Enter Password");
+                return false;
+            }
+
+            if (document.getElementById('<%=txtReenterPassword.ClientID%>').value == "") {
+                alert("Enter NewPassword");
+                return false;
+            }
+
+            if (document.getElementById('<%=txtPassword.ClientID%>').value != document.getElementById('<%=txtReenterPassword.ClientID%>').value) {
+                alert("Password and ConfirmPassWord are not matched");
+                return false;
+            }
+        }
+
+
+        //}
+        
+       
+    </script>
+
+     <script language="javascript" type="text/javascript" >
+     function AddNewCountry()
+        {
+           window.showModalDialog("NewCountry.aspx","", "dialogheight:250px;dialogwidth:400px;status:no;edge:sunken;unadorned:no;resizable:no;");
+
+            }
+        
+    </script>
+    <script language="javascript" type="text/javascript" >
+        function AddNewState() {
+            window.showModalDialog("NewState.aspx", "", "dialogheight:250px;dialogwidth:400px;status:no;edge:sunken;unadorned:no;resizable:no;");
+
+        }
+    </script>
+    <asp:UpdatePanel ID="updvendor" runat="server">
+        <ContentTemplate>
+            <table id="t1" cellpadding="2" cellspacing="0" width="100%">
+                <tr>
+                    <td colspan="4">
+                        <AEC:Topmenu ID="topmenu" runat="server"></AEC:Topmenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Vendor Name<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtVendorName" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TBWE8" runat="server" TargetControlID="txtVendorName"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Vendor Name]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Vendor Address<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtVendorAddr" runat="server" Width="300" Columns="26" Rows="5"
+                            TextMode="MultiLine"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TBWE9" runat="server" TargetControlID="txtVendorAddr"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Vendor Address]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Bank Name<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtBank" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server" TargetControlID="txtBank"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Bank Name]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Bank A/C No<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtAccNo" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender2" runat="server" TargetControlID="txtAccNo"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Account No]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Contact Person<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtContactPerson" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender3" runat="server" TargetControlID="txtContactPerson"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Contact Person Name]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Mobile<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtMobile" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender4" runat="server" TargetControlID="txtMobile"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Contact No]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Phone
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtPhone" runat="server" Width="300"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Tin No<sup class="Must" style="color: #FF0000">*</sup>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtTinNo" runat="server" Width="300"></asp:TextBox>
+                        <cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender5" runat="server" TargetControlID="txtTinNo"
+                            WatermarkCssClass="watermark" WatermarkText="[Enter Tin No]">
+                        </cc1:TextBoxWatermarkExtender>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        Fax
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtFax" runat="server" Width="300"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2">
+                        E-Mail
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtEmail" runat="server" Width="300"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                     <td align="left" colspan="2">
+                        Country<sup class="Must" style="color: #FF0000">*</sup></td>
+                   <%-- <td colspan="2">
+                        <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <asp:LinkButton ID="lnkCountry" runat="server" Text="Add New Country"></asp:LinkButton>
+                        OnClick="lnkCountry_Click"<asp:TextBox ID="txtCountry" runat="server" Visible="false"></asp:TextBox>--%>
+                    <td colspan="2">
+                    <asp:DropDownList ID="ddlCountry" runat="server" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
+                    <asp:LinkButton ID="lnkCountry" runat="server" Text="Add New Country" 
+                            onclick="lnkCountry_Click"></asp:LinkButton></td>
+                </tr>
+                <tr>
+                     <td align="left" colspan="2">
+                        State<sup class="Must" style="color: #FF0000">*</sup></td>
+                    <%--<td colspan="2">
+                        <asp:DropDownList ID="ddlState" runat="server">
+                        </asp:DropDownList>
+                        <asp:LinkButton ID="lnkState" runat="server" Text="Add New State" ></asp:LinkButton>
+                       OnClick="lnkState_Click"<asp:TextBox ID="txtState" runat="server" Visible="false"></asp:TextBox>--%>
+                    <td colspan="2">
+                    <asp:DropDownList ID="ddlState" runat="server" >
+                    </asp:DropDownList>
+                    <asp:LinkButton ID="lnkState" runat="server" Text="Add New State" 
+                            onclick="lnkState_Click"></asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" valign="top">
+                        Category
+                    </td>
+                    <td colspan="2">
+                        <select id="listCategory" runat="server" height="300" multiple style="height: 250;
+                            width: 300px" size="17" class="ddl">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Username<span style="color: #ff0000">*</span>
+                    </td>
+                    <td colspan="2">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:TextBox ID="txtUsername" runat="server" MaxLength="20" AutoPostBack="true" OnTextChanged="txtUsername_TextChanged"></asp:TextBox>
+                                            <asp:Label ID="lblUserAvailable" runat="server" Font-Bold="True" ForeColor="Red"
+                                                Text="Label" Visible="False"></asp:Label>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </td>
+                                <td>
+                                    <asp:UpdateProgress DisplayAfter="1" ID="UpdateProgress2" runat="server" AssociatedUpdatePanelID="UpdatePanel1"
+                                        DynamicLayout="false">
+                                        <ProgressTemplate>
+                                            <img id="Img1" src="IMAGES/ajax-loader.gif" runat="server" style="text-align: left;"
+                                                alt="0" />Checking ...</ProgressTemplate>
+                                    </asp:UpdateProgress>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Password<span style="color: #ff0000">*</span>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtPassword" runat="server" Width="35%" TextMode="Password" MaxLength="20"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Confirm Password<span style="color: Red" id="spncnfpwd" runat="server">*</span>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="txtReenterPassword" runat="server" TextMode="Password" Width="35%"
+                            MaxLength="20" CssClass="text_black"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <asp:Label ID="lblVendorMessage" runat="server" Visible="false" 
+                            style="color: #FF0000"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <asp:Button ID="btnAddVendor" OnClick="btnAddVendor_Click" runat="server" Text="Submit"
+                            CssClass="savebutton"></asp:Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="15">
+                        <div class="UpdateProgressCSS">
+                            <asp:UpdateProgress ID="updateProgress" runat="server" DisplayAfter="1">
+                                <ProgressTemplate>
+                                    <asp:Image ID="Image1" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/updateProgress.gif" />
+                                    please wait...
+                                </ProgressTemplate>
+                            </asp:UpdateProgress>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Content>

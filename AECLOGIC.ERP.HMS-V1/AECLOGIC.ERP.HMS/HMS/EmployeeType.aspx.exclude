@@ -1,0 +1,38 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Templates/CommonMaster.master" AutoEventWireup="true" CodeBehind="EmployeeType.aspx.cs" Inherits="EmployeeType" %>
+<%@ Register Src="~/topmenu.ascx" TagName="Topmenu" TagPrefix="AEC" %>
+<%@ Register Src="Controls/Paging.ascx" TagName="Paging" TagPrefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceholder1" Runat="Server">
+<AEC:Topmenu ID="topmenu" runat="server" />
+<div id="dvvEmpTypeAdd" runat="server">
+    <table width="100%">
+                                <tr>
+                        <td colspan="2" class="pageheader">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 150px; height: 18px;">
+                        <asp:Label ID="lblEmpType" runat="server" Text="Employee Type"></asp:Label>
+                             <span style="color: red">*</span>
+                        </td>
+                        <td align="left" style="height: 18px">
+                            <asp:TextBox ID="txtEmpType" runat="server" Width="316px" MaxLength="50"></asp:TextBox>
+                        </td>
+                    </tr>                   
+                   
+                    <tr>
+                        <td style="width: 104px" valign="top">
+                        <asp:Label ID="lblStatus" runat="server" Text="Status"></asp:Label>
+                             </td>
+                        <td >
+                            <asp:CheckBox ID="chkStatus" runat="server" Checked="True" Text="Active" /></td>
+                    </tr>
+                     <tr>
+                        <td style="padding-left:125Px" colspan="2">
+                            <asp:Button ID="btnSubmit" runat="server" Text="Save" OnClick="btnSubmit_Click" CssClass="savebutton" Width="100px" OnClientClick="javascript:return validate();" /></td>
+                    </tr>
+                    
+                      </table>
+</div>
+</asp:Content>
+

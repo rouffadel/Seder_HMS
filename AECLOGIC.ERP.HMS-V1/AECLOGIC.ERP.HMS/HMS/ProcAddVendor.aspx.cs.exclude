@@ -1,0 +1,253 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using Microsoft.ApplicationBlocks.Data;
+using HumanResource;
+public partial class ProcAddVendor : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    bool viewall; string menuname; string menuid; int mid = 0; int CountryId = 0;
+    
+    //void Page_PreInit(Object sender, EventArgs e)
+    //{
+    //    if (Session["masterpage"] != null)
+    //    {
+    //        this.MasterPageFile = (String)Session["masterpage"];
+    //        switch (Session["masterpage"].ToString())
+    //        {
+    //            case "Admin.master":
+    //                break;
+    //            case "Proc.master":
+    //                break;
+    //            case "Executive.master":
+    //                //Response.Redirect("Home.aspx");
+    //                break;
+    //            case "AsstManager.master":
+    //                Response.Redirect("Home.aspx");
+    //                break;
+    //            case "Assistant.master":
+    //                Response.Redirect("Home.aspx");
+    //                break;
+    //            case "Manager.master":
+    //                Response.Redirect("Home.aspx");
+    //                break;
+    //            default:
+    //                Response.Redirect("Home.aspx");
+    //                break;
+    //        }
+    //    }
+    //    else { Response.Redirect("Login.aspx"); }
+    //}
+    void Page_PreInit(Object sender, EventArgs e)
+    {
+        if (Request.QueryString.Count > 0)
+            if (Convert.ToInt32(Request.QueryString["Id"]) == 1)
+            {
+                this.MasterPageFile = "Default.master";
+            }
+        // else { Response.Redirect("Login.aspx"); }
+
+    }
+    protected void Page_Load(object sender, EventArgs e)    
+    {
+        if (Session["RoleName"].ToString() == "Guest")
+        {
+            btnAddVendor.Enabled = false;
+          
+            
+        }
+        
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind(); 
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid; Session["MId"] = mid;
+        if (!IsPostBack)
+        {
+            btnAddVendor.Attributes.Add("onclick", "javascript:return validateVendor();");
+            lnkCountry.Attributes.Add("onclick", "javascript:return AddNewCountry();");
+            lnkState.Attributes.Add("onclick", "javascript:return AddNewState();");
+            BindCategory();
+            FIllObject.FillEmptyDropDown(ref ddlState);//, "PM_State");
+            //ddlCountry.SelectedIndex = 1;
+            //ddlState.SelectedIndex = 1;
+          FIllObject.FillDropDown(ref ddlCountry, "PM_Country");ddlCountry.SelectedValue = "1";
+
+            ddlCountry_SelectedIndexChanged(this, e);
+            //FIllObject.FillDropDown(ref ddlState, "PM_State");
+           ddlState.SelectedValue = "1";
+        }
+       // FIllObject.FillDropDown(ref ddlCountry, "PM_Country"); //ddlCountry.SelectedValue="1";
+
+       // ddlCountry_SelectedIndexChanged(this, e);
+        //FIllObject.FillDropDown(ref ddlState, "PM_State");
+       // ddlState.SelectedValue = "1";
+
+
+    }
+    void AlertMsg.MsgBox(Page,string alert)
+    {
+        string strScript = "<script language='javascript'>alert(\'" + alert + "\');</script>";
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "PopupCP", strScript, false);
+    }
+    protected void btnAddVendor_Click(object sender, EventArgs e)
+    {
+        
+        if (lblUserAvailable.Text == "Username not available")
+        {
+            AlertMsg.MsgBox(Page,"Username not available");
+        }
+        else
+        {
+        
+        DataSet ds = new DataSet();
+        ProcDept objProcure = new ProcDept();
+        int count = 0;
+        ds = objProcure.GetVendorDetails(-1);
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        {
+            if (txtVendorName.Text.ToUpper().Trim() == ds.Tables[0].Rows[i][1].ToString().ToUpper().Trim())
+            {
+                count = 1;
+            }
+        }
+        if (count == 1)
+        {
+            lblVendorMessage.Visible = true;
+            lblVendorMessage.Text = "" + txtVendorName.Text + "  already Exists";
+            lblVendorMessage.CssClass = "errormsg";
+        }
+        else
+        {
+            returnvalues v = new returnvalues();
+            int Stateid=0;
+            Stateid=Convert.ToInt32(ddlState.SelectedValue);
+         int UserId= Convert.ToInt32(Session["UserId"]);
+
+         int i = v.AddVendor(txtVendorName.Text, txtVendorAddr.Text, txtContactPerson.Text, txtMobile.Text, txtPhone.Text, txtFax.Text, txtEmail.Text, txtBank.Text, txtAccNo.Text, txtTinNo.Text, txtUsername.Text, FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "MD5"), UserId, Stateid);//CountryId,"","");//txtCountry.Text,txtState.Text);
+
+            foreach (ListItem item in listCategory.Items)
+            {
+                SqlParameter[] parms = new SqlParameter[3];
+                parms[0] = new SqlParameter("@vendorid", i);
+                parms[1] = new SqlParameter("@categoryid", item.Value);
+
+                if (item.Selected)
+                { parms[2] = new SqlParameter("@selected", 1); }
+                else
+                { parms[2] = new SqlParameter("@selected", 0); }
+
+                SqlHelper.ExecuteNonQuery("PM_AssignCategory_vendor", parms);
+            }
+
+
+            lblVendorMessage.Visible = true;
+            lblVendorMessage.Text = "" + txtVendorName.Text + "  Added Successfully";
+            txtVendorName.Text = string.Empty;
+            txtVendorAddr.Text = string.Empty;
+            txtContactPerson.Text = string.Empty;
+            txtMobile.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtFax.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtTinNo.Text = "";
+            txtBank.Text = "";
+            txtAccNo.Text = "";
+            listCategory.SelectedIndex = -1;
+        }
+        }
+    }
+    void BindCategory()
+    {
+        DataSet dss = new DataSet();
+        ProcDept objProc = new ProcDept();
+        dss = objProc.GetCategories(0);
+        listCategory.DataSource = (DataTable)dss.Tables[0];
+        listCategory.DataTextField = "Category_Name";
+        listCategory.DataValueField = "Category_Id";
+        listCategory.DataBind();
+    }
+    protected void txtUsername_TextChanged(object sender, EventArgs e)
+    {
+
+
+        if (txtUsername.Text != "")
+        {
+            lblUserAvailable.Visible = false;
+            System.Threading.Thread.Sleep(3000);
+            //obj.Username = txtUsername.Text.Trim();
+
+            int i = (int)ProcDept.UserNameAvailable(txtUsername.Text.Trim());
+            if (i > 0)
+            {
+                lblUserAvailable.Visible = true;
+                lblUserAvailable.ForeColor = System.Drawing.Color.Red;
+                lblUserAvailable.Text = "Username not available";
+                btnAddVendor.Visible = false;
+            }
+            else
+            {
+                lblUserAvailable.ForeColor = System.Drawing.Color.Green;
+                lblUserAvailable.Visible = true;
+                lblUserAvailable.Text = "Username Available";
+                btnAddVendor.Visible = true;
+            }
+        }
+        else
+        {
+            lblUserAvailable.Text = "";
+        }
+    }
+    public int GetParentMenuId()
+    {
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+        ProcDept objProc = new ProcDept();
+        ds = ProcDept.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            viewall = (bool)ViewState["ViewAll"];
+            menuid = MenuId.ToString();
+             mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+    protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        CountryId = Convert.ToInt32(ddlCountry.SelectedValue);
+         SqlParameter[] parms = new SqlParameter[1];
+         parms[0] = new SqlParameter("@CountryId", CountryId);
+         FIllObject.FillDropDown(ref ddlState, "PM_State", parms);
+    }
+
+    protected void lnkCountry_Click(object sender, EventArgs e)
+    {
+        FIllObject.FillDropDown(ref ddlCountry, "PM_Country");
+
+    }
+    protected void lnkState_Click(object sender, EventArgs e)
+    {
+
+        ddlCountry_SelectedIndexChanged(this, e);
+        //FIllObject.FillDropDown(ref ddlState, "PM_State");
+
+    }
+    
+}

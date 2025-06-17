@@ -1,0 +1,72 @@
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\Aeclogic.Common.DAL.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AjaxControlToolkit.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CopyComplete
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+E:\Working\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\Aeclogic.Common.DAL.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AjaxControlToolkit.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CopyComplete
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+E:\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojResolveAssemblyReference.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojResolveAssemblyReference.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojResolveAssemblyReference.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+D:\SEDER\Nagalatha\Working - Copy\Projects\Sedar\HMS Patch\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojAssemblyReference.cache
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CopyComplete
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojAssemblyReference.cache
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CopyComplete
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+C:\172.16.1.35\Working\Working_Copy\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CopyComplete
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+D:\Sabir\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.AssemblyReference.cache
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csprojResolveAssemblyReference.cache
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+D:\NEWSD\SEDERLive\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\Aeclogic.Common.DAL.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AjaxControlToolkit.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.AssemblyReference.cache
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb
+C:\Fadel\Live\Live\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.72CD881B.Up2Date
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.dll
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\bin\Debug\AECLOGIC.HMS.BLL.pdb
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.AssemblyReference.cache
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.csproj.CoreCompileInputs.cache
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.72CD881B.Up2Date
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.dll
+D:\Fadel-Projects\HMS\AECLOGIC.ERP.HMS-V1\AECLOGIC.HMS.BLL\obj\Debug\AECLOGIC.HMS.BLL.pdb

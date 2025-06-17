@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Web.UI.HtmlControls;
+using HumanResource;
+using System.Web.UI.WebControls.WebParts;
+
+
+
+public partial class EmployeeType : AECLOGIC.ERP.COMMON.WebFormMaster
+{
+    int mid = 0;
+    bool viewall;
+    //AttendanceDAC objAtt=new AttendanceDAC();
+    string menuname;
+    string menuid;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        topmenu.MenuId = GetParentMenuId();
+        topmenu.ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+        topmenu.RoleID = Convert.ToInt32(Session["RoleId"].ToString());
+        topmenu.SelectedMenu = Convert.ToInt32(mid.ToString());
+        topmenu.DataBind();
+        Session["menuname"] = menuname;
+        Session["menuid"] = menuid;
+        Session["MId"] = mid;
+        ViewState["EmpTypeID"] = null;
+
+        if (!IsPostBack)
+        {
+
+        }
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        int? EmpTypeID = null;
+        if ( ViewState["EmpTypeID"] != null)
+            EmpTypeID = Convert.ToInt32(ViewState["EmpTypeID"]);
+        string EmpType = txtEmpType.Text;
+        int Status = 0;
+        if (chkStatus.Checked == true)
+            Status = 1;
+        int EmpID =  Convert.ToInt32(Session["UserId"]);
+        int OutPut = AttendanceDAC.InsUpdEmployeeType(ref EmpTypeID, EmpType, Status, EmpID);
+        if (OutPut == 1)
+            AlertMsg.MsgBox(Page, "Inserted Sucessfully.!");
+        else if (OutPut == 2)
+            AlertMsg.MsgBox(Page, "Already Exists.!");
+        else
+            AlertMsg.MsgBox(Page, "Updated Sucessfully.!");
+    }
+    public int GetParentMenuId()
+    {
+        if ( Convert.ToInt32(Session["UserId"]) == null)
+        {
+            Response.Redirect("Home.aspx");
+        }
+        string URL = Request.Url.Segments[Request.Url.Segments.Length - 1] + Request.Url.Query;
+        int RoleId = Convert.ToInt32(Session["RoleId"].ToString());
+        int ModuleId = Convert.ToInt32(Application["ModuleId"].ToString());
+
+        DataSet ds = new DataSet();
+
+        ds = AttendanceDAC.GetAllowed(RoleId, ModuleId, URL);
+        int MenuId = 0;
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        {
+            MenuId = Convert.ToInt32(ds.Tables[0].Rows[0]["Under"]);
+            ViewState["Editable"] = (bool)ds.Tables[0].Rows[0]["Editable"];
+            ViewState["ViewAll"] = (bool)ds.Tables[0].Rows[0]["ViewAll"];
+            btnSubmit.Enabled = Convert.ToBoolean(ds.Tables[0].Rows[0]["Editable"].ToString());
+            viewall = (bool)ViewState["ViewAll"];
+            menuname = ds.Tables[0].Rows[0]["menuname"].ToString();
+            menuid = MenuId.ToString();
+            mid = Convert.ToInt32(ds.Tables[0].Rows[0]["MenuId"].ToString());
+        }
+        return MenuId;
+    }
+}

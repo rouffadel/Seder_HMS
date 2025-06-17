@@ -1,0 +1,1346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93AC9C70-6188-44F7-B7ED-5268EC6C2564}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AECLOGIC.ERP.HMS</RootNamespace>
+    <AssemblyName>AECLOGIC.ERP.HMSV1</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aeclogic.Common.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AECLOGIC.ERP.COMMON\AECLOGIC.ERP.COMMON\bin\Aeclogic.Common.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="AECLOGIC.ERP.COMMON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AECLOGIC.ERP.COMMON.dll</HintPath>
+    </Reference>
+    <Reference Include="AECLOGIC.ERP.HMS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AECLOGIC.ERP.HMS.dll</HintPath>
+    </Reference>
+    <Reference Include="AECLOGIC.HMS.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AECLOGIC.HMS.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Ajax">
+      <HintPath>..\..\AECLOGICERPHMS-DLL\Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit, Version=16.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxControlToolkit.16.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Core">
+      <HintPath>..\packages\Catel.Core.4.4.0\lib\net45\Catel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Catel.Serialization.Json">
+      <HintPath>..\packages\Catel.Serialization.Json.4.4.0\lib\net45\Catel.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControl">
+      <HintPath>..\..\AECLOGICERPHMS-DLL\FlashControl.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashUpload">
+      <HintPath>..\..\AECLOGICERPHMS-DLL\FlashUpload.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core">
+      <HintPath>..\..\..\DLL\Interop.Microsoft.Office.Core.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Word">
+      <HintPath>..\..\..\DLL\Interop.Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.VBIDE">
+      <HintPath>..\..\..\DLL\Interop.VBIDE.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=2.16.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\192.168.10.1\FTPServer\BIReports\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>..\..\AECLOGIC.ERP.MMSV2-V1\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\aecdev3\Documents\Visual Studio 2013\Projects\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.1\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminDefault.aspx" />
+    <Content Include="App_Themes\Profile1\aec_main_styles.css" />
+    <Content Include="App_Themes\Profile1\base.css" />
+    <Content Include="App_Themes\Profile1\bootstrap.css" />
+    <Content Include="App_Themes\Profile1\dashboard.css" />
+    <Content Include="App_Themes\Profile1\filter.css" />
+    <Content Include="App_Themes\Profile1\goSamples.css" />
+    <Content Include="App_Themes\Profile1\IMAGES\AECLogic.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\AECLogic.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\AEClogo.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\ajax-loader.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\arrow-down-title - Copy.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\arrow-down-title.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\arrow-up-title - Copy.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\arrow-up-title.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Arrow.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Backcolor.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Bold.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\bullist.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\but_panel_bg.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Calendar_scheduleHS.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\CANCEL.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Center.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\close.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\codebehind.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\collapse_close.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Copy.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Cut.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\dashminus.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\dashplus.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\DeIndent.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Delete.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\dot.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\downloads.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\editk.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\EndOfText.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\ExportToExcel.bmp" />
+    <Content Include="App_Themes\Profile1\IMAGES\eye-16.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\fgcolor.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\First.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\Flow_Chart.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Fontcolor.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Footer.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\HandWarn.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\HMS_FlowChart.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\HR.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\image.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\images.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\img-close-off.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\importFromEXcel.bmp" />
+    <Content Include="App_Themes\Profile1\IMAGES\inindent.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Italic.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\justify.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Kalandoor Logo.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Last.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\leader.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\left.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Letter Footer.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Letter Footer.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Letter Head.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Letter Header.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Link.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Loading.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\logo %282%29.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Logo-BSS.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Logo.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Logo.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\logo.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\logoSeder.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Mail.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\modify.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\New.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Next.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\numlist.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Open.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\open.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\parea.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Paste.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\PMS_FlowChart.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\PO.PNG" />
+    <Content Include="App_Themes\Profile1\IMAGES\Previous.ico" />
+    <Content Include="App_Themes\Profile1\IMAGES\print.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\print.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Projects.PNG" />
+    <Content Include="App_Themes\Profile1\IMAGES\Redo.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\refresh.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Replace.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Resources.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\right.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Save.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\seaching.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Search-icon16.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Search-icon24.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\Searching.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\separator.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\smiley.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\spacer.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Strikethrough.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Subscript.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\Superscript.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\tick_16.png" />
+    <Content Include="App_Themes\Profile1\IMAGES\tpaint.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\under.GIF" />
+    <Content Include="App_Themes\Profile1\IMAGES\Undo.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\unlink.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\updateProgress.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\updatey.jpg" />
+    <Content Include="App_Themes\Profile1\IMAGES\Vertical.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\web.bmp" />
+    <Content Include="App_Themes\Profile1\IMAGES\wlink.gif" />
+    <Content Include="App_Themes\Profile1\IMAGES\WO.PNG" />
+    <Content Include="App_Themes\Profile1\img\emoticons.png" />
+    <Content Include="App_Themes\Profile1\img\sidebar.png" />
+    <Content Include="App_Themes\Profile1\JS\CalendarControl.js" />
+    <Content Include="App_Themes\Profile1\JS\collapsemenu.js" />
+    <Content Include="App_Themes\Profile1\JS\effects.js" />
+    <Content Include="App_Themes\Profile1\JS\go.js" />
+    <Content Include="App_Themes\Profile1\JS\goSamples.js" />
+    <Content Include="App_Themes\Profile1\JS\jQuery-2.1.4.min.js" />
+    <Content Include="App_Themes\Profile1\JS\jquery1.10.1.js" />
+    <Content Include="App_Themes\Profile1\JS\jquery1.2.1.js" />
+    <Content Include="App_Themes\Profile1\JS\jsDraw2DX_Uncompressed.js" />
+    <Content Include="App_Themes\Profile1\JS\json2.js" />
+    <Content Include="App_Themes\Profile1\JS\litebox-1.0.js" />
+    <Content Include="App_Themes\Profile1\JS\moo.fx.js" />
+    <Content Include="App_Themes\Profile1\JS\onload.js" />
+    <Content Include="App_Themes\Profile1\JS\prototype.lite.js" />
+    <Content Include="App_Themes\Profile1\JS\shortcut.js" />
+    <Content Include="App_Themes\Profile1\JS\Tooltip.js" />
+    <Content Include="App_Themes\Profile1\JS\Validation.js" />
+    <Content Include="App_Themes\Profile1\JS\xc.js" />
+    <Content Include="App_Themes\Profile1\JS\xpmenuv21.js" />
+    <Content Include="App_Themes\Profile1\JS\_lightbox.js" />
+    <Content Include="App_Themes\Profile1\JS\_prototype.js" />
+    <Content Include="App_Themes\Profile1\JS\_scriptaculous.js" />
+    <Content Include="App_Themes\Profile1\login.css" />
+    <Content Include="App_Themes\Profile1\ModuleTabs\TabCenter.gif" />
+    <Content Include="App_Themes\Profile1\ModuleTabs\TabLeft.gif" />
+    <Content Include="App_Themes\Profile1\ModuleTabs\TabRight.gif" />
+    <Content Include="App_Themes\Profile1\ModuleTabs\TabText.gif" />
+    <Content Include="App_Themes\Profile1\sddm.css" />
+    <Content Include="App_Themes\Profile1\StyleSheet.css" />
+    <Content Include="App_Themes\Profile1\stylesheet_1.css" />
+    <Content Include="App_Themes\Profile1\_all-skins.css" />
+    <Content Include="HMS\AdvancedLeaveApplication.aspx" />
+    <Content Include="HMS\Attendance.aspx" />
+    <Content Include="HMS\BarCodeView.aspx" />
+    <Content Include="HMS\Benefits.aspx" />
+    <Content Include="HMS\BussinesstripHelpOthers.aspx" />
+    <Content Include="HMS\EditAttendance.aspx" />
+    <Content Include="HMS\EmpAdvanceApproval.aspx" />
+    <Content Include="HMS\EmpAdvances.aspx" />
+    <Content Include="HMS\EmpCustodianProofs\6.txt" />
+    <Content Include="HMS\EmpCustodianProofs\7.txt" />
+    <Content Include="HMS\EmployeeChanges.aspx" />
+    <Content Include="HMS\EmployeeList.aspx" />
+    <Content Include="HMS\EmpPenalties.aspx" />
+    <Content Include="HMS\EmpSalhikesV2.aspx" />
+    <Content Include="HMS\EmpVacationReturn.aspx" />
+    <Content Include="HMS\Finalexit.aspx" />
+    <Content Include="HMS\Finalexithelpothers.aspx" />
+    <Content Include="HMS\Global.asax" />
+    <Content Include="HMS\HRLeaveApplications.aspx" />
+    <Content Include="HMS\Logs\ErrorLog.txt" />
+    <Content Include="HMS\Logs\HMSEventLog.txt" />
+    <Content Include="HMS\MonthlyPaymentAccountPostingV4.aspx" />
+    <Content Include="HMS\MonthlyPaymentsProcessedV4.aspx" />
+    <Content Include="HMS\MyAdvances.aspx" />
+    <Content Include="HMS\NoSalaryEmployees.aspx" />
+    <Content Include="HMS\NRIDocs.aspx" />
+    <Content Include="HMS\ReAssignPassword.aspx" />
+    <Content Include="HMS\ReportsBarG.aspx" />
+    <Content Include="HMS\TravelMode.aspx" />
+    <Content Include="HMS\VacationalPrint.aspx" />
+    <Content Include="HMS\VacationReturn.aspx" />
+    <Content Include="HMS\VacationSettlementRev4.aspx" />
+    <Content Include="HMS\ViewAdvanceDetails.aspx" />
+    <Content Include="HMS\ViewAttendance.aspx" />
+    <Content Include="HMS\ViewBusinessTrip.aspx" />
+    <Content Include="HMS\ViewEmpExitDetails.aspx" />
+    <Content Include="HMS\ViewEmpLeaveDetails.aspx" />
+    <Content Include="HMS\ViewEmpLoanDetails.aspx" />
+    <Content Include="HRClasses\DataClasses.dbml">
+      <SubType>Designer</SubType>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="HRClasses\ExportFileDr.cs.exclude" />
+    <Content Include="HRClasses\MMSI.dbml">
+      <SubType>Designer</SubType>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MMSI1.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="HRClasses\MMSI.dbml.layout">
+      <DependentUpon>MMSI.dbml</DependentUpon>
+    </Content>
+    <Content Include="Images\action_back.gif" />
+    <Content Include="Images\action_delete.gif" />
+    <Content Include="Images\action_drop.gif" />
+    <Content Include="Images\action_markread.gif" />
+    <Content Include="Images\action_move.gif" />
+    <Content Include="Images\action_reply.gif" />
+    <Content Include="Images\add.ico" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\add_disabled.png" />
+    <Content Include="Images\Alarm-Arrow-Right-icon.png" />
+    <Content Include="Images\ams.png" />
+    <Content Include="Images\AMSFlow_Chart.png" />
+    <Content Include="Images\AMSFlow_Chart1.png" />
+    <Content Include="Images\arrow-down-title - Copy.jpg" />
+    <Content Include="Images\arrow-up-title - Copy.jpg" />
+    <Content Include="Images\base.png" />
+    <Content Include="Images\bms.png" />
+    <Content Include="Images\box.png" />
+    <Content Include="Images\btnAdd.gif" />
+    <Content Include="Images\btnClosePop.ico" />
+    <Content Include="Images\btnSave.gif" />
+    <Content Include="Images\Calendar-icon.png" />
+    <Content Include="Images\Calendar-icon24.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\CANCEL.jpg" />
+    <Content Include="Images\circle.png" />
+    <Content Include="Images\close1.png" />
+    <Content Include="Images\cms.png" />
+    <Content Include="Images\dashminus.gif" />
+    <Content Include="Images\dashplus.gif" />
+    <Content Include="Images\Delete-icon.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\DeleteIcon.png" />
+    <Content Include="Images\DeleteIcon24.png" />
+    <Content Include="Images\delete_disabled.png" />
+    <Content Include="Images\dimensions.gif" />
+    <Content Include="Images\dms.png" />
+    <Content Include="Images\document-excel-24.png" />
+    <Content Include="Images\document-excel-icon.png" />
+    <Content Include="Images\Documents-icon16.png" />
+    <Content Include="Images\Documents-icon32.png" />
+    <Content Include="Images\Down.ico" />
+    <Content Include="Images\edit.jpg" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\edit_disabled.png" />
+    <Content Include="Images\ems.png" />
+    <Content Include="Images\EndOfText.gif" />
+    <Content Include="Images\ERP5-copy_01.jpg" />
+    <Content Include="Images\ERP5-copy_02.jpg" />
+    <Content Include="Images\ERP5-copy_03.jpg" />
+    <Content Include="Images\ERP5-copy_04.jpg" />
+    <Content Include="Images\ERP5-copy_05.jpg" />
+    <Content Include="Images\ERP5-copy_06.jpg" />
+    <Content Include="Images\ERP5-copy_07.jpg" />
+    <Content Include="Images\ERP5-copy_08.jpg" />
+    <Content Include="Images\ERP5-copy_09.jpg" />
+    <Content Include="Images\ERP5-copy_10.jpg" />
+    <Content Include="Images\ERP5-copy_11.jpg" />
+    <Content Include="Images\ERP5-copy_12.jpg" />
+    <Content Include="Images\ERP5-copy_13.jpg" />
+    <Content Include="Images\ERP5-copy_14.jpg" />
+    <Content Include="Images\ERP5-copy_15.jpg" />
+    <Content Include="Images\ERP5-copy_16.jpg" />
+    <Content Include="Images\ERP5-copy_17.jpg" />
+    <Content Include="Images\ERP5-copy_18.jpg" />
+    <Content Include="Images\ERP5-copy_19.jpg" />
+    <Content Include="Images\ERP5-copy_20.jpg" />
+    <Content Include="Images\ERP5-copy_21.jpg" />
+    <Content Include="Images\ERP5-copy_22.jpg" />
+    <Content Include="Images\ERP5-copy_23.jpg" />
+    <Content Include="Images\ERP5-copy_24.jpg" />
+    <Content Include="Images\ERP5-copy_25.jpg" />
+    <Content Include="Images\ERP5-copy_26.jpg" />
+    <Content Include="Images\ERP5-copy_27.jpg" />
+    <Content Include="Images\ERP5-copy_28.jpg" />
+    <Content Include="Images\ERP5-copy_29.jpg" />
+    <Content Include="Images\ERP5-copy_30.jpg" />
+    <Content Include="Images\ERP5-copy_31.jpg" />
+    <Content Include="Images\ERP5-copy_32.jpg" />
+    <Content Include="Images\ERP5-copy_33.jpg" />
+    <Content Include="Images\ERP5-copy_34.jpg" />
+    <Content Include="Images\ERP5-copy_35.jpg" />
+    <Content Include="Images\ERP5-copy_36.jpg" />
+    <Content Include="Images\ERP5-copy_37.jpg" />
+    <Content Include="Images\ERP5-copy_38.jpg" />
+    <Content Include="Images\Excel.png" />
+    <Content Include="Images\ExportToExcel.bmp" />
+    <Content Include="Images\eye-16.png" />
+    <Content Include="Images\filter.png" />
+    <Content Include="Images\folder_inbox.gif" />
+    <Content Include="Images\folder_spam.gif" />
+    <Content Include="Images\green_bg_Tab.gif" />
+    <Content Include="Images\green_left_tab.gif" />
+    <Content Include="Images\green_right_Tab.gif" />
+    <Content Include="Images\HandWarn.ico" />
+    <Content Include="Images\help.png" />
+    <Content Include="Images\hms.png" />
+    <Content Include="Images\Home.png" />
+    <Content Include="Images\Home1.png" />
+    <Content Include="Images\importFromEXcel.bmp" />
+    <Content Include="Images\Kalandoor Logo.jpg" />
+    <Content Include="Images\Letter Footer.jpg" />
+    <Content Include="Images\Letter Footer.png" />
+    <Content Include="Images\Letter Head.png" />
+    <Content Include="Images\Letter Header.jpg" />
+    <Content Include="Images\Loding.gif" />
+    <Content Include="Images\logo - Copy %282%29.png" />
+    <Content Include="Images\Logo-BSS.gif" />
+    <Content Include="Images\Logo-BSS.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logoSeder.png" />
+    <Content Include="Images\logoSeder1.png" />
+    <Content Include="Images\MarkFavIcon.png" />
+    <Content Include="Images\Misc-Calender-icon32.png" />
+    <Content Include="Images\mms.png" />
+    <Content Include="Images\modify.jpg" />
+    <Content Include="Images\nms.png" />
+    <Content Include="Images\OMS.png" />
+    <Content Include="Images\pin-icon.png" />
+    <Content Include="Images\pms.png" />
+    <Content Include="Images\PMS_FlowChart.png" />
+    <Content Include="Images\Previous-icon.png" />
+    <Content Include="Images\Print1.png" />
+    <Content Include="Images\Print1_disabled.png" />
+    <Content Include="Images\qms.png" />
+    <Content Include="Images\Refresh_Disabled.png" />
+    <Content Include="Images\Refresh_Enabled.png" />
+    <Content Include="Images\Reject.png" />
+    <Content Include="Images\Reject_Disabled.png" />
+    <Content Include="Images\removefilter.PNG" />
+    <Content Include="Images\Save.png" />
+    <Content Include="Images\save_disabled.png" />
+    <Content Include="Images\Search-icon16.png" />
+    <Content Include="Images\Search-icon24.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\Search1.png" />
+    <Content Include="Images\Searching.png" />
+    <Content Include="Images\selectArrowDown.png" />
+    <Content Include="Images\Shutdown.png" />
+    <Content Include="Images\Shutdown1.png" />
+    <Content Include="Images\t-account1.png" />
+    <Content Include="Images\tab_active.gif" />
+    <Content Include="Images\tab_hover.gif" />
+    <Content Include="Images\tab_Inactive.gif" />
+    <Content Include="Images\tab_left_active.gif" />
+    <Content Include="Images\tab_left_hover.gif" />
+    <Content Include="Images\tab_left_inactive.gif" />
+    <Content Include="Images\tab_right_active.gif" />
+    <Content Include="Images\tab_right_hover.gif" />
+    <Content Include="Images\tab_right_inactive.gif" />
+    <Content Include="Images\tick_16.png" />
+    <Content Include="Images\updatey.jpg" />
+    <Content Include="Images\UpIcon.ico" />
+    <Content Include="login.html" />
+    <Content Include="Logon.aspx" />
+    <Content Include="Scripts\FamilyDetails.xsc">
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Themes\Profile1\Image.skin" />
+    <Content Include="App_Themes\Profile1\img\Thumbs.db" />
+    <Content Include="App_Themes\Profile1\ModuleTabs\Thumbs.db" />
+    <Content Include="App_Themes\Profile1\stylesheet_1 Changed styleson19thFeb2016.zip" />
+    <Content Include="App_Themes\Profile1\stylesheet_1.zip" />
+    <Content Include="HRObjects\FamilyDetails.xsc">
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Content>
+    <None Include="HRObjects\FamilyDetails.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FamilyDetails.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="HRObjects\FamilyDetails.xss">
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\HMS-16.pubxml" />
+    <None Include="Properties\PublishProfiles\HMSPub.pubxml" />
+    <None Include="Scripts\FamilyDetails.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FamilyDetails.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\FamilyDetails.xss">
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="HMS 03 JAN 16_new.sln" />
+    <Content Include="Images\AECLogic.jpg" />
+    <Content Include="Images\AECLogic.png" />
+    <Content Include="Images\AEClogo.gif" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\arrow-down-title.jpg" />
+    <Content Include="Images\arrow-up-title.jpg" />
+    <Content Include="Images\Arrow.png" />
+    <Content Include="Images\Backcolor.gif" />
+    <Content Include="Images\Bold.GIF" />
+    <Content Include="Images\bullist.GIF" />
+    <Content Include="Images\but_panel_bg.gif" />
+    <Content Include="Images\Calendar_scheduleHS.png" />
+    <Content Include="Images\Center.GIF" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\codebehind.gif" />
+    <Content Include="Images\Copy.GIF" />
+    <Content Include="Images\Cut.GIF" />
+    <Content Include="Images\DeIndent.GIF" />
+    <Content Include="Images\Delete.ico" />
+    <Content Include="Images\dot.jpg" />
+    <Content Include="Images\downloads.png" />
+    <Content Include="Images\editk.ico" />
+    <Content Include="Images\fgcolor.GIF" />
+    <Content Include="Images\First.ico" />
+    <Content Include="Images\Flow_Chart.png" />
+    <Content Include="Images\Fontcolor.gif" />
+    <Content Include="Images\Footer.jpg" />
+    <Content Include="Images\HMS_FlowChart.png" />
+    <Content Include="Images\HR.gif" />
+    <Content Include="Images\image.GIF" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Images\img-close-off.gif" />
+    <Content Include="Images\inindent.GIF" />
+    <Content Include="Images\Italic.GIF" />
+    <Content Include="Images\justify.gif" />
+    <Content Include="Images\Last.ico" />
+    <Content Include="Images\leader.gif" />
+    <Content Include="Images\left.GIF" />
+    <Content Include="Images\Link.gif" />
+    <Content Include="Images\Loading.gif" />
+    <Content Include="Images\Logo.gif" />
+    <Content Include="Images\Logo.jpg" />
+    <Content Include="Images\Mail.gif" />
+    <Content Include="Images\New.gif" />
+    <Content Include="Images\Next.ico" />
+    <Content Include="Images\numlist.GIF" />
+    <Content Include="Images\Open.gif" />
+    <Content Include="Images\parea.gif" />
+    <Content Include="Images\Paste.GIF" />
+    <Content Include="Images\PO.PNG" />
+    <Content Include="Images\Previous.ico" />
+    <Content Include="Images\print.gif" />
+    <Content Include="Images\print.png" />
+    <Content Include="Images\Projects.PNG" />
+    <Content Include="Images\Redo.gif" />
+    <Content Include="Images\refresh.gif" />
+    <Content Include="Images\Replace.gif" />
+    <Content Include="Images\Resources.png" />
+    <Content Include="Images\right.GIF" />
+    <Content Include="Images\Save.gif" />
+    <Content Include="Images\seaching.jpg" />
+    <Content Include="Images\separator.gif" />
+    <Content Include="Images\smiley.gif" />
+    <Content Include="Images\spacer.gif" />
+    <Content Include="Images\Strikethrough.gif" />
+    <Content Include="Images\Subscript.gif" />
+    <Content Include="Images\Superscript.gif" />
+    <Content Include="Images\tpaint.gif" />
+    <Content Include="Images\under.GIF" />
+    <Content Include="Images\Undo.gif" />
+    <Content Include="Images\unlink.gif" />
+    <Content Include="Images\updateProgress.gif" />
+    <Content Include="Images\Vertical.gif" />
+    <Content Include="Images\web.bmp" />
+    <Content Include="Images\wlink.gif" />
+    <Content Include="Images\WO.PNG" />
+    <Content Include="Includes\CSS\base.css" />
+    <Content Include="Includes\CSS\dashboard.css" />
+    <Content Include="Includes\CSS\filter.css" />
+    <Content Include="Includes\CSS\goSamples.css" />
+    <Content Include="Includes\CSS\login.css" />
+    <Content Include="Includes\CSS\sddm.css" />
+    <Content Include="Includes\CSS\StyleSheet.css" />
+    <Content Include="Includes\CSS\stylesheet_1.css" />
+    <Content Include="Includes\IMAGES\arrow-down-title.jpg" />
+    <Content Include="Includes\IMAGES\arrow-up-title.jpg" />
+    <Content Include="Includes\img\emoticons.png" />
+    <Content Include="Includes\img\sidebar.png" />
+    <Content Include="Includes\JS\CalendarControl.js" />
+    <Content Include="Includes\JS\collapsemenu.js" />
+    <Content Include="Includes\JS\effects.js" />
+    <Content Include="Includes\JS\go.js" />
+    <Content Include="Includes\JS\goSamples.js" />
+    <Content Include="Includes\JS\jquery1.10.1.js" />
+    <Content Include="Includes\JS\jquery1.2.1.js" />
+    <Content Include="Includes\JS\jsDraw2DX_Uncompressed.js" />
+    <Content Include="Includes\JS\json2.js" />
+    <Content Include="Includes\JS\litebox-1.0.js" />
+    <Content Include="Includes\JS\moo.fx.js" />
+    <Content Include="Includes\JS\onload.js" />
+    <Content Include="Includes\JS\prototype.lite.js" />
+    <Content Include="Includes\JS\shortcut.js" />
+    <Content Include="Includes\JS\Tooltip.js" />
+    <Content Include="Includes\JS\Validation.js" />
+    <Content Include="Includes\JS\xc.js" />
+    <Content Include="Includes\JS\xpmenuv21.js" />
+    <Content Include="Includes\JS\_lightbox.js" />
+    <Content Include="Includes\JS\_prototype.js" />
+    <Content Include="Includes\JS\_scriptaculous.js" />
+    <Content Include="Includes\ModuleTabs\TabCenter.gif" />
+    <Content Include="Includes\ModuleTabs\TabLeft.gif" />
+    <Content Include="Includes\ModuleTabs\TabRight.gif" />
+    <Content Include="Includes\ModuleTabs\TabText.gif" />
+    <Content Include="Scripts\Index.htm" />
+    <Content Include="JS\common.js" />
+    <Content Include="JS\onload.js" />
+    <Content Include="Logs\ErrorLog.txt" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\OMSWebService\AECLOGIC.ERP.HMS.OMSWebService.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\OMSWebService\AECLOGIC.ERP.HMS.OMSWebService.OMS_GetTasksByPIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\OMSWebService\configuration91.svcinfo" />
+    <None Include="Service References\OMSWebService\configuration.svcinfo" />
+    <None Include="Service References\OMSWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPIPAREX.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPIRETURN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MAKT_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MARA_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MARC_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MARD_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MARM_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MATERIAL_GET_ALLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MBEW_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MEAN_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MFHM_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MLAN_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MLGN_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MLGT_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MLTX_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MPGD_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MPOP_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MVKE_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SAPWebService\AECLOGIC.ERP.HMS.SAPWebService.BAPI_MYMS_GA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\OMSWebService\OMSService.wsdl" />
+    <None Include="Service References\SAPWebService\configuration91.svcinfo" />
+    <None Include="Service References\SAPWebService\configuration.svcinfo" />
+    <None Include="Service References\SAPWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.GetbalanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.GetDeliveryReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.getInboxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.MarkRead_inboxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.Mark_UnRead_inboxResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendBinarySMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendFlashSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendLOGOResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.sendMultiSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendPictureSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendRingToneResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendTextSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendUnicodeSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSService\AECLOGIC.ERP.HMS.SMSService.SendWapPushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SMSService\configuration91.svcinfo" />
+    <None Include="Service References\SMSService\configuration.svcinfo" />
+    <None Include="Service References\SMSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="styles\login__styles.css" />
+    <Content Include="Templates\Help.ascx" />
+    <Content Include="Templates\Paging.ascx" />
+    <Content Include="Templates\topmenu.ascx" />
+    <Content Include="Templates\ucMenu.ascx" />
+    <None Include="App_Data\PublishProfiles\HMS.pubxml" />
+    <None Include="App_Data\PublishProfiles\HMS_Cloud.pubxml" />
+    <Content Include="Scripts\HireNew.aspx.cs.exclude" />
+    <Content Include="Scripts\HireNew.aspx.exclude" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="Includes\IMAGES\Thumbs.db" />
+    <Content Include="Includes\img\Thumbs.db" />
+    <Content Include="Includes\ModuleTabs\Thumbs.db" />
+    <Content Include="NRIDocs\1.xls" />
+    <Content Include="Reports\130968733178802432.xls" />
+    <Content Include="Reports\Departments_Sample_Format.xls" />
+    <Content Include="Reports\Desginations_Sample_Format.xls" />
+    <Content Include="Reports\Devices_Sample_Format.xls" />
+    <Content Include="Reports\EmployeeTypes_Sample_Format.xls" />
+    <Content Include="Reports\MealTypes_Sample_Format.xls" />
+    <Content Include="Reports\Trades_Sample_Format.xls" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Passport\1219.jpg" />
+    <Content Include="RentalDocs\11.gif" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Templates\ucmsg.ascx" />
+    <Content Include="Templates\UcProcess.ascx" />
+    <Content Include="Templates\ucProcess_3.ascx" />
+    <Content Include="Templates\UploadControl.ascx" />
+    <Content Include="TreeLineImages\dash.gif" />
+    <Content Include="TreeLineImages\dashminus.gif" />
+    <Content Include="TreeLineImages\dashplus.gif" />
+    <Content Include="TreeLineImages\i.gif" />
+    <Content Include="TreeLineImages\l.gif" />
+    <Content Include="TreeLineImages\lminus.gif" />
+    <Content Include="TreeLineImages\lplus.gif" />
+    <Content Include="TreeLineImages\minus.gif" />
+    <Content Include="TreeLineImages\noexpand.gif" />
+    <Content Include="TreeLineImages\plus.gif" />
+    <Content Include="TreeLineImages\r.gif" />
+    <Content Include="TreeLineImages\rminus.gif" />
+    <Content Include="TreeLineImages\rplus.gif" />
+    <Content Include="TreeLineImages\t.gif" />
+    <Content Include="TreeLineImages\tminus.gif" />
+    <Content Include="TreeLineImages\tplus.gif" />
+    <Content Include="UploadPage\Default.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="UploadPage\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\SAPWebService\wsdl.wsdl" />
+    <None Include="Service References\SMSService\service.wsdl" />
+    <Content Include="Templates\CommonMaster.master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="website.publishproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HMS\AdvancedLeaveApplication.aspx.cs">
+      <DependentUpon>AdvancedLeaveApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\AdvancedLeaveApplication.aspx.designer.cs">
+      <DependentUpon>AdvancedLeaveApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\BarCodeView.aspx.cs">
+      <DependentUpon>BarCodeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\BarCodeView.aspx.designer.cs">
+      <DependentUpon>BarCodeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\Benefits.aspx.cs">
+      <DependentUpon>Benefits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\Benefits.aspx.designer.cs">
+      <DependentUpon>Benefits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\BussinesstripHelpOthers.aspx.cs">
+      <DependentUpon>BussinesstripHelpOthers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\BussinesstripHelpOthers.aspx.designer.cs">
+      <DependentUpon>BussinesstripHelpOthers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EditAttendance.aspx.cs">
+      <DependentUpon>EditAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EditAttendance.aspx.designer.cs">
+      <DependentUpon>EditAttendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmpAdvanceApproval.aspx.cs">
+      <DependentUpon>EmpAdvanceApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmpAdvanceApproval.aspx.designer.cs">
+      <DependentUpon>EmpAdvanceApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmpAdvances.aspx.cs">
+      <DependentUpon>EmpAdvances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmpAdvances.aspx.designer.cs">
+      <DependentUpon>EmpAdvances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmployeeChanges.aspx.cs">
+      <DependentUpon>EmployeeChanges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmployeeChanges.aspx.designer.cs">
+      <DependentUpon>EmployeeChanges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmpPenalties.aspx.cs">
+      <DependentUpon>EmpPenalties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmpPenalties.aspx.designer.cs">
+      <DependentUpon>EmpPenalties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmpSalhikesV2.aspx.cs">
+      <DependentUpon>EmpSalhikesV2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmpSalhikesV2.aspx.designer.cs">
+      <DependentUpon>EmpSalhikesV2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\EmpVacationReturn.aspx.cs">
+      <DependentUpon>EmpVacationReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\EmpVacationReturn.aspx.designer.cs">
+      <DependentUpon>EmpVacationReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\Finalexit.aspx.cs">
+      <DependentUpon>Finalexit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\Finalexit.aspx.designer.cs">
+      <DependentUpon>Finalexit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\Finalexithelpothers.aspx.cs">
+      <DependentUpon>Finalexithelpothers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\Finalexithelpothers.aspx.designer.cs">
+      <DependentUpon>Finalexithelpothers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\HRLeaveApplications.aspx.cs">
+      <DependentUpon>HRLeaveApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\HRLeaveApplications.aspx.designer.cs">
+      <DependentUpon>HRLeaveApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\MonthlyPaymentAccountPostingV4.aspx.cs">
+      <DependentUpon>MonthlyPaymentAccountPostingV4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\MonthlyPaymentAccountPostingV4.aspx.designer.cs">
+      <DependentUpon>MonthlyPaymentAccountPostingV4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\MonthlyPaymentsProcessedV4.aspx.cs">
+      <DependentUpon>MonthlyPaymentsProcessedV4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\MonthlyPaymentsProcessedV4.aspx.designer.cs">
+      <DependentUpon>MonthlyPaymentsProcessedV4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\MyAdvances.aspx.cs">
+      <DependentUpon>MyAdvances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\MyAdvances.aspx.designer.cs">
+      <DependentUpon>MyAdvances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\NoSalaryEmployees.aspx.cs">
+      <DependentUpon>NoSalaryEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\NoSalaryEmployees.aspx.designer.cs">
+      <DependentUpon>NoSalaryEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\NRIDocs.aspx.cs">
+      <DependentUpon>NRIDocs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\NRIDocs.aspx.designer.cs">
+      <DependentUpon>NRIDocs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ReAssignPassword.aspx.cs">
+      <DependentUpon>ReAssignPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ReAssignPassword.aspx.designer.cs">
+      <DependentUpon>ReAssignPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ReportsBarG.aspx.cs">
+      <DependentUpon>ReportsBarG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ReportsBarG.aspx.designer.cs">
+      <DependentUpon>ReportsBarG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\TravelMode.aspx.cs">
+      <DependentUpon>TravelMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\TravelMode.aspx.designer.cs">
+      <DependentUpon>TravelMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\VacationalPrint.aspx.cs">
+      <DependentUpon>VacationalPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\VacationalPrint.aspx.designer.cs">
+      <DependentUpon>VacationalPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\VacationReturn.aspx.cs">
+      <DependentUpon>VacationReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\VacationReturn.aspx.designer.cs">
+      <DependentUpon>VacationReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\VacationSettlementRev4.aspx.cs">
+      <DependentUpon>VacationSettlementRev4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\VacationSettlementRev4.aspx.designer.cs">
+      <DependentUpon>VacationSettlementRev4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewAdvanceDetails.aspx.cs">
+      <DependentUpon>ViewAdvanceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewAdvanceDetails.aspx.designer.cs">
+      <DependentUpon>ViewAdvanceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewAttendance.aspx.cs">
+      <DependentUpon>ViewAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewAttendance.aspx.designer.cs">
+      <DependentUpon>ViewAttendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewBusinessTrip.aspx.cs">
+      <DependentUpon>ViewBusinessTrip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewBusinessTrip.aspx.designer.cs">
+      <DependentUpon>ViewBusinessTrip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewEmpExitDetails.aspx.cs">
+      <DependentUpon>ViewEmpExitDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewEmpExitDetails.aspx.designer.cs">
+      <DependentUpon>ViewEmpExitDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewEmpLeaveDetails.aspx.cs">
+      <DependentUpon>ViewEmpLeaveDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewEmpLeaveDetails.aspx.designer.cs">
+      <DependentUpon>ViewEmpLeaveDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMS\ViewEmpLoanDetails.aspx.cs">
+      <DependentUpon>ViewEmpLoanDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HMS\ViewEmpLoanDetails.aspx.designer.cs">
+      <DependentUpon>ViewEmpLoanDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HRClasses\AjaxDAL.cs" />
+    <Compile Include="HRClasses\AjaxDALOld.cs" />
+    <Compile Include="HRClasses\AjaxLeaveCombinations.cs" />
+    <Compile Include="HRClasses\BillsApproval.cs" />
+    <Compile Include="HRClasses\clempGradesConfig.cs" />
+    <Compile Include="HRClasses\clHMSLog.cs" />
+    <Compile Include="HRClasses\clsErrorLog.cs" />
+    <Compile Include="HRClasses\clViewCPRoles.cs" />
+    <Compile Include="HRClasses\CodeUtil.cs" />
+    <Compile Include="HRClasses\CODEUtility.cs" />
+    <Compile Include="HRClasses\Cryptography.cs" />
+    <Compile Include="HRClasses\CSVFormatFiles.cs" />
+    <Compile Include="HRClasses\DataClasses.designer.cs" />
+    <Compile Include="HRClasses\DataClasses1.designer.cs">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="HRClasses\DirectPO.cs" />
+    <Compile Include="HRClasses\dlSRN.cs" />
+    <Compile Include="HRClasses\ExceReports.cs" />
+    <Compile Include="HRClasses\ExportFile.cs" />
+    <Compile Include="HRClasses\FIllObject.cs" />
+    <Compile Include="HRClasses\GDN.cs" />
+    <Compile Include="HRClasses\General.cs" />
+    <Compile Include="HRClasses\GridViewExportUtil.cs" />
+    <Compile Include="HRClasses\HrDept.cs" />
+    <Compile Include="HRClasses\Leaves.cs" />
+    <Compile Include="HRClasses\LookUp.cs" />
+    <Compile Include="HRClasses\MMSI.designer.cs" />
+    <Compile Include="HRClasses\MMSI1.designer.cs">
+      <DependentUpon>MMSI.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="HRClasses\NUM.cs" />
+    <Compile Include="HRClasses\PayRollMgr.cs" />
+    <Compile Include="HRClasses\PicUtil.cs" />
+    <Compile Include="HRClasses\ProcDept.cs" />
+    <Compile Include="HRClasses\QA.cs" />
+    <Compile Include="HRClasses\ReportServerCredentials.cs" />
+    <Compile Include="HRClasses\ReportsRDLC.cs" />
+    <Compile Include="HRClasses\ReturnValues.cs" />
+    <Compile Include="HRClasses\ServiceApproval.cs" />
+    <Compile Include="HRClasses\SMSCAPI.cs" />
+    <Compile Include="HRClasses\SRNService.cs" />
+    <Compile Include="HRClasses\Upload.cs" />
+    <Compile Include="HRObjects\FamilyDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\FamilyDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FamilyDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OMSWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SAPWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UploadPage\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadPage\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicantImages\" />
+    <Folder Include="App_Themes\Profile1\fonts\" />
+    <Folder Include="AuthorisedSign\" />
+    <Folder Include="ContactImages\" />
+    <Folder Include="DedProofs\" />
+    <Folder Include="Documents\" />
+    <Folder Include="EmpImages\" />
+    <Folder Include="EmpPreviousTDS\" />
+    <Folder Include="EmpReimbureseProof\" />
+    <Folder Include="HMSDynamic\" />
+    <Folder Include="Lands-Buildings\1296\" />
+    <Folder Include="Lands-Buildings\1303\" />
+    <Folder Include="Lands-Buildings\1360\" />
+    <Folder Include="Lands-Buildings\2349\" />
+    <Folder Include="Lands-Buildings\234\" />
+    <Folder Include="Lands-Buildings\239\" />
+    <Folder Include="Lands-Buildings\2996\" />
+    <Folder Include="Lands-Buildings\345\" />
+    <Folder Include="LeaveApplications\1\" />
+    <Folder Include="Quatations\" />
+    <Folder Include="Quotations\" />
+    <Folder Include="Resumes\" />
+    <Folder Include="ScanedDocuments\" />
+    <Folder Include="SDNItemsImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Rpt_Form24Q.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\ESI.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\PF.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\PT.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\SalaryStatementAll.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\SimBill.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\TDS.rdlc" />
+    <EmbeddedResource Include="RDLC_Reports\TestReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OMSWebService\" />
+    <WCFMetadataStorage Include="Service References\SAPWebService\" />
+    <WCFMetadataStorage Include="Service References\SMSService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59972</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59959/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
